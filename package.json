@@ -1,0 +1,29 @@
+{
+  "name": "portafolio-personal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivan321pum/portafolio-personal.git"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivan321pum/portafolio-personal/issues"
+  },
+  "homepage": "https://github.com/ivan321pum/portafolio-personal#readme",
+  "dependencies": {
+    "astro": "^5.17.1"
+  }
+}
