@@ -9,6 +9,15 @@ import Header from "../components/Header.astro"
 </head>
 <body>
     <Header></Header>
+    <main class = "container">
     <slot></slot> <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
+    </main>
+    <style>
+        .container{
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+    </style>
 </body>
 </html>
