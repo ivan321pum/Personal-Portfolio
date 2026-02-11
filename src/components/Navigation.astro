@@ -1,0 +1,30 @@
+---
+const navItems = [
+    {href:'/', label: 'Inicio'},
+    {href:'/about', label: 'Sobre mi'},
+    {href:'/projects', label: 'Mis proyectos'},
+]
+---
+<!-- Esta es la navegación a als distintas secciones a la web -->
+<nav>
+    {navItems.map((item) => (<a href={item.href}>{item.label}</a>))}
+</nav>
+
+<style>
+    nav {
+        display: flex;
+        gap: 2rem;
+    }
+
+    a{
+        color: #C0F8D1;
+        text-decoration: none;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    a:hover{
+        text-decoration: underline;
+    }
+</style>

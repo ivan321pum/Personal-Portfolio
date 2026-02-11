@@ -1,0 +1,14 @@
+---
+import Header from "../components/Header.astro"
+---
+<!-- Esto es el layout, sirve como una plantilla que se mantendrá en toda la web sin tener que repetir el head y body -->
+<html>
+<head>
+    <title>Iván Sevilla Gómez, estudiante de ingenieria</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <Header></Header>
+    <slot></slot> <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
+</body>
+</html>
