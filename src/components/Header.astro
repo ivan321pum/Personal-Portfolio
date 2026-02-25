@@ -2,24 +2,32 @@
 import Navigation from "./Navigation.astro"
 ---
 <!-- Esta es la cabezera superior de la web -->
-<div class = "header">
-    <div class = "logo">Iván Sevilla Gómez</div>
-<Navigation></Navigation>
-</div>
-
+<header class = "header-outer">
+    <div class = "header-inner">
+        <div class = "logo">Iván Sevilla Gómez</div>
+        <Navigation></Navigation>
+    </div>
+</header>
 <style>
-    .header {
+    .header-outer {
+        background-color: #FF9F1C;
+        width: 100%;
+        color: #104547; /* Verde oscuro para el texto */
+        border-radius: 15px;
+    }
+
+    .header-inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #FF9F1C;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        color: #104547;
+        padding: 1rem 2rem; /* Espaciado vertical */
+        max-width: 1600px;
+        margin: 0 auto;
+        width: 100%;
     }
 
-    .logo{
+    .logo {
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 </style>

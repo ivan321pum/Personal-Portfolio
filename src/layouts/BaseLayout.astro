@@ -6,6 +6,9 @@ import Header from "../components/Header.astro"
 <head>
     <title>Iván Sevilla Gómez, estudiante de ingenieria</title>
     <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <Header></Header>
@@ -13,6 +16,11 @@ import Header from "../components/Header.astro"
     <slot></slot> <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
     </main>
     <style>
+        body{
+            background-color: #C0F8D1;
+            color: #104547;
+            font-family: "Archivo", serif;
+        }
         .container{
             max-width: 1100px;
             margin: 0 auto;
