@@ -4,17 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ivan321pum/portafolio-personal.git"
-  },
-  "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivan321pum/portafolio-personal.git"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +21,12 @@
   },
   "homepage": "https://github.com/ivan321pum/portafolio-personal#readme",
   "dependencies": {
-    "astro": "^5.17.1"
+    "@astrojs/react": "^5.0.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.0.8",
+    "framer-motion": "^12.34.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   }
 }

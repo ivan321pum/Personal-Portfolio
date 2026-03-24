@@ -4,7 +4,12 @@ import Navigation from "./Navigation.astro"
 <!-- Esta es la cabezera superior de la web -->
 <header class = "header-outer">
     <div class = "header-inner">
-        <div class = "logo">Iván Sevilla Gómez</div>
+        <div class = "logo">
+            <div class="profile-frame">
+                <img src="/assets/images/avatar_ivan.webp" alt="Foto de Iván" class="profile-pic" />
+            </div>
+            <span class="name-text">Iván Sevilla Gómez</span>
+        </div>
         <Navigation></Navigation>
     </div>
 </header>
@@ -29,5 +34,26 @@ import Navigation from "./Navigation.astro"
     .logo {
         font-weight: bold;
         font-size: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
     }
+
+    .profile-frame {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden; /*Lo que sobra de la imagen se vea oculto*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-pic {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
 </style>
