@@ -15,16 +15,23 @@ import Header from "../components/Header.astro"
     <main class = "container">
     <slot></slot> <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
     </main>
-    <style>
+    <style is:global>
         body{
             background-color: #C0F8D1;
-            color: #104547;
+            color: var(--color-texto);
             font-family: "Archivo", serif;
         }
         .container{
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
+        }
+        :root {
+            --color-primario: #D72638;
+            --color-secundario: #104547;
+            --color-fondo: #f4f4f4;
+            --color-texto: #333333;
+            --color-fondo-secundario: #FF9F1C;
         }
     </style>
 </body>
