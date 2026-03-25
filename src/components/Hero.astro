@@ -1,10 +1,9 @@
 ---
-import AnimatedHero from "../components/AnimatedHero.jsx"
+import TitleAnimation from "../components/AnimatedHero.jsx"
 ---
 
 <section>
-<h1>Iván Sevilla</h1>
-<h2>Estudiante de ingeniería en telecomunicaciones en la UPV</h2>
+    <TitleAnimation client:load></TitleAnimation>
 </section>
 
 <style>
@@ -18,16 +17,18 @@ import AnimatedHero from "../components/AnimatedHero.jsx"
         padding: 2rem;
     }
 
-    h1 {
-        font-size: 4rem;
+    :global(.hero-title) {
+        font-size: 8rem;
         color: #D72638;
         margin: 0;
+        display: inline-block;
     }
 
-    h2 {
-        font-size: 1.5rem;
+    :global(.hero-subtitle) {
+        font-size: 3rem;
         color: #104547;
         font-weight: 400;
         margin-top: 1rem;
+        display: inline-block;
     }
 </style>
