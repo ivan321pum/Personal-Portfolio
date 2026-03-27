@@ -86,7 +86,7 @@ portafolio-personal/
 │   │   ├── Header.astro             # Encabezado
 │   │   ├── Navigation.astro         # Navegación
 │   │   ├── AboutMe.astro            # Sección sobre mí
-│   │   └── AnimatedAboutMe.jsx      # Animaciones (React)
+│   │   └── InfoCard.jsx      # Animaciones (React)
 │   └── assets/                       # Recursos estáticos
 ├── public/
 │   └── assets/

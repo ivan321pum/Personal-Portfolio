@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro"
 import {useTranslations} from "../i18n/ui.js";
+import LanguagePicker from "../components/LanguagePicker.astro";
 
 const lang = Astro.currentLocale || 'es';
 const t = useTranslations(lang);
@@ -15,13 +16,14 @@ const t = useTranslations(lang);
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <LanguagePicker></LanguagePicker>
     <Header></Header>
     <main class = "container">
     <slot></slot> <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
     </main>
     <style is:global>
         body{
-            background-color: #C0F8D1;
+            background-color: var(--color-fondo);
             color: var(--color-texto);
             font-family: "Archivo", serif;
         }
@@ -33,7 +35,7 @@ const t = useTranslations(lang);
         :root {
             --color-primario: #D72638;
             --color-secundario: #104547;
-            --color-fondo: #f4f4f4;
+            --color-fondo: #C0F8D1;
             --color-texto: #333333;
             --color-fondo-secundario: #FF9F1C;
         }

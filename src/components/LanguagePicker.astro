@@ -1,3 +1,50 @@
 ---
+const {pathname} = Astro.url; /*cogemos la url actual del usuario*/
 
+const currentLang = pathname.split("/")[1]
+
+const targetLang = currentLang === 'es' ? 'en' : 'es';
+
+const targetUrl = pathname.replace(`/${currentLang}`, `/${targetLang}`)
 ---
+
+<a href={targetUrl} class="lang-switch">
+    {targetLang.toUpperCase()}
+</a>
+
+
+<style>
+    .lang-switch{
+        /* 1. ANCLAJE Y POSICIÓN*/
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 1000;
+
+        /* 2. DISEÑO VISUAL (Estilo FAB - Floating Action Button) */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 60px;
+        height: 60px;
+        /* Usamos tus variables globales */
+        background-color: var(--color-secundario);
+        color: var(--color-fondo);
+
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+
+        /* Lo hacemos circular para un look más moderno de botón flotante */
+        border-radius: 50%;
+
+
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+        transition: all 0.3s ease;
+    }
+
+    .lang-switch:hover {
+        background-color: var(--color-primario);
+    }
+</style>
