@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function TitleAnimation() {
+export default function TitleAnimation({title, subtitle}) {
     return (
         <>
         <motion.h1
@@ -9,7 +9,7 @@ export default function TitleAnimation() {
             transition={{ duration: 0.6 }}
             className="hero-title"
         >
-            Iván Sevilla
+            {title}
         </motion.h1>
         <motion.h2
             initial={{ opacity: 0, y: 0 }}
@@ -17,7 +17,7 @@ export default function TitleAnimation() {
             transition={{ delay: 0.8 }}
             className="hero-subtitle"
         >
-            Estudiante de ingenieria en telecomunicaciones en la UPV
+            {subtitle}
         </motion.h2>
         </>
     );

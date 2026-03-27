@@ -1,10 +1,14 @@
 ---
 import Header from "../components/Header.astro"
+import {useTranslations} from "../i18n/ui.ts";
+
+const lang = 'es';
+const t = useTranslations(lang);
 ---
 <!-- Esto es el layout, sirve como una plantilla que se mantendrá en toda la web sin tener que repetir el head y body -->
 <html>
 <head>
-    <title>Iván Sevilla Gómez, estudiante de ingenieria</title>
+    <title>{t('hero.title')}</title>
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,9 +1,18 @@
 ---
+import type { title } from "framer-motion/m";
 import TitleAnimation from "../components/AnimatedHero.jsx"
+import { useTranslations} from "../i18n/ui";
+
+const lang = 'es';
+const t = useTranslations(lang);
 ---
 
 <section>
-    <TitleAnimation client:load></TitleAnimation>
+    <TitleAnimation
+            client:load
+            title = {t('hero.title')}
+            subtitle = {t('hero.subtitle')}
+    ></TitleAnimation>
 </section>
 
 <style>

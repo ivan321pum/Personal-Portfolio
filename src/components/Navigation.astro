@@ -1,8 +1,13 @@
 ---
+import {useTranslations} from "../i18n/ui.ts";
+
+const lang = 'en';
+const t = useTranslations(lang);
+
 const navItems = [
-    {href:'/', label: 'Inicio'},
-    {href:'/about', label: 'Sobre mi'},
-    {href:'/projects', label: 'Mis proyectos'},
+    {href:'/', label: t('nav.start')},
+    {href:'/about', label: t('nav.about')},
+    {href:'/projects', label: t('nav.contact')},
 ]
 ---
 <nav>
