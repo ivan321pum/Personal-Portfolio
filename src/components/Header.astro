@@ -1,10 +1,9 @@
 ---
 import Navigation from "./Navigation.astro"
 ---
-<!-- Esta es la cabezera superior de la web -->
-<header class = "header-outer">
-    <div class = "header-inner">
-        <div class = "logo">
+<header class="header-outer">
+    <div class="header-inner">
+        <div class="logo">
             <div class="profile-frame">
                 <img src="/assets/images/avatar_ivan.webp" alt="Foto de Iván" class="profile-pic" />
             </div>
@@ -13,22 +12,26 @@ import Navigation from "./Navigation.astro"
         <Navigation></Navigation>
     </div>
 </header>
+
 <style>
+    /* Variables asumidas (asegúrate de tenerlas definidas en tu CSS global) */
     .header-outer {
         background-color: var(--color-fondo-secundario);
         width: 100%;
-        color: var(--color-secundario); /* Verde oscuro para el texto */
+        color: var(--color-secundario);
         border-radius: 15px;
+        box-sizing: border-box; /* Evita desbordamientos por padding */
     }
 
     .header-inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 2rem; /* Espaciado vertical */
+        padding: 1rem 2rem;
         max-width: 1600px;
         margin: 0 auto;
         width: 100%;
+        box-sizing: border-box;
     }
 
     .logo {
@@ -43,10 +46,11 @@ import Navigation from "./Navigation.astro"
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        overflow: hidden; /*Lo que sobra de la imagen se vea oculto*/
+        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-shrink: 0; /* Evita que la foto se deforme si falta espacio */
     }
 
     .profile-pic {
@@ -56,4 +60,24 @@ import Navigation from "./Navigation.astro"
         object-position: center;
     }
 
+    /* --- ESTILOS RESPONSIVE --- */
+    @media (max-width: 768px) {
+        .header-inner {
+            flex-direction: column; /* Apila el logo y la navegación verticalmente */
+            gap: 1.5rem; /* Espacio entre el logo y el menú */
+            padding: 1.5rem 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem; /* Reducimos el tamaño de la fuente para que no ocupe todo el ancho */
+            flex-direction: column; /* Apilamos la foto y el nombre */
+            text-align: center;
+            gap: 8px;
+        }
+
+        .profile-frame {
+            width: 65px; /* Reducimos el tamaño de la imagen en móviles */
+            height: 65px;
+        }
+    }
 </style>

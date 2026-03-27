@@ -5,7 +5,6 @@ const navItems = [
     {href:'/projects', label: 'Mis proyectos'},
 ]
 ---
-<!-- Esta es la navegación a als distintas secciones a la web -->
 <nav>
     {navItems.map((item) => (<a href={item.href}>{item.label}</a>))}
 </nav>
@@ -14,18 +13,40 @@ const navItems = [
     nav {
         display: flex;
         gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap; /* El salvavidas para que no haya desbordamientos */
     }
 
-    a{
+    a {
         font-size: 1.25rem;
         color: var(--color-secundario);
         text-decoration: none;
         font-family: 'Inter', sans-serif;
         font-weight: 500;
         transition: color 0.3s ease;
+        padding: 0.5rem 1rem; /* Ampliamos el área táctil */
+        border-radius: 8px; /* Opcional, pero prepara el terreno para hover states más limpios */
     }
 
-    a:hover{
+    a:hover {
         text-decoration: underline;
+        /* Si prefieres un efecto de fondo en lugar de subrayado, cambia esto por:
+        background-color: rgba(0,0,0,0.05);
+        text-decoration: none; */
+    }
+
+    /* --- ESTILOS RESPONSIVE --- */
+    @media (max-width: 768px) {
+        nav {
+            gap: 0.5rem; /* Reducimos drásticamente la separación */
+            width: 100%;
+        }
+
+        a {
+            font-size: 1rem; /* Reducimos el tamaño de la fuente */
+            padding: 0.6rem 0.8rem; /* Ajustamos el padding para móviles */
+            text-align: center;
+            flex: 1 1 auto; /* Permite que los enlaces se adapten al espacio disponible */
+        }
     }
 </style>
