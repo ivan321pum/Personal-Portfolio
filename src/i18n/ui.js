@@ -7,7 +7,7 @@ export const defaultLang = 'es';
 
 export const ui = {
     es:{
-        'website.title': 'Iván Sevilla, estudiante de ingenieria',
+        'website.title': 'Iván Sevilla, estudiante de ingeniería',
         'hero.title': 'Iván Sevilla',
         'hero.subtitle': 'Estudiante de ingeniería en telecomunicaciones en la UPV',
         'nav.start': 'Inicio',
@@ -18,7 +18,7 @@ export const ui = {
         'website.title': 'Iván Sevilla, engineering student',
         'hero.title': 'Iván Sevilla',
         'hero.subtitle': 'Telecommunications Engineering student at UPV',
-        'nav.start': 'Start',
+        'nav.start': 'Home',
         'nav.about': 'About me',
         'nav.contact': 'Contact me',
     }
