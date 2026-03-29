@@ -1,43 +1,49 @@
 ---
-import type { title } from "framer-motion/m";
-import TitleAnimation from "./react/AnimatedHero.jsx"
-import {useTranslations} from "../i18n/ui";
-
+import TitleAnimation from "./react/AnimatedHero.jsx";
+import { useTranslations } from "../i18n/ui";
 const lang = Astro.currentLocale || 'es';
 const t = useTranslations(lang);
 ---
 
-<section>
+<section class="hero-fullscreen">
     <TitleAnimation
             client:load
-            title = {t('hero.title')}
-            subtitle = {t('hero.subtitle')}
-    ></TitleAnimation>
+            title={t('hero.title')}
+            subtitle={t('hero.subtitle')}
+    />
 </section>
 
 <style>
+    /* Usamos :global para asegurar que Astro no limite el scope si falla */
     section {
-        min-height: 70vh;
+        /* 100vh real y estricto */
+        height: 100vh;
+        min-height: 100vh;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 2rem;
+        /* Padding mínimo por si se ve en móvil */
+        padding: 0 1rem;
+        margin: 0;
     }
 
     :global(.hero-title) {
-        font-size: 8rem;
+        font-size: clamp(4rem, 8vw, 8rem); /* Responsivo real */
         color: var(--color-primario);
         margin: 0;
         display: inline-block;
+        line-height: 1;
     }
 
     :global(.hero-subtitle) {
-        font-size: 3rem;
+        font-size: clamp(1.5rem, 3vw, 3rem);
         color: var(--color-secundario);
         font-weight: 400;
         margin-top: 1rem;
         display: inline-block;
     }
+</style>
 </style>

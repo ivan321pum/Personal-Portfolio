@@ -7,155 +7,43 @@ const lang = Astro.currentLocale || 'es';
 const t = useTranslations(lang);
 ---
 
-<div class="cards-container">
+<div class="cards-container" style="display: flex; flex-direction: column; gap: 0;">
     <InfoCard
             client:visible
             title={t('about.facets.telecom.title')}
             description={t('about.facets.telecom.desc')}
             direction="left"
+            videoSrc="../../public/assets/images/telecom.webp"
     />
-
     <InfoCard
             client:visible
             title={t('about.facets.software.title')}
             description={t('about.facets.software.desc')}
             direction="right"
-            delay={0.2}
+            videoSrc="../../public/assets/videos/ETSIT-25-seg.mp4"
     />
-
-    <InfoCard
-            client:visible
-            title={t('about.facets.discipline.title')}
-            description={t('about.facets.discipline.desc')}
-            direction="left"
-            delay={0.4}
-    />
-
-    <style>
-        <style>
-        .about-animated-section {
-            padding: 8rem 2rem; /* Más aire arriba y abajo */
-            background-color: var(--color-fondo);
-            overflow: hidden;
-        }
-
-        .cards-container {
-            max-width: 1200px; /* Contenedor más ancho */
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            /* Quitamos el gap, lo gestiona el wrapper de JSX */
-        }
-
-        /* === ESTILOS GLOBALES PARA LA TARJETA (React) === */
-
-        :global(.info-card) {
-            /* Tamaño Grande Apple Style */
-            width: 90%;
-            max-width: 1000px;
-            background: rgba(25, 25, 25, 0.7); /* Fondo oscuro translúcido */
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            overflow: hidden;
-        }
-
-        /* Layout interno: Imagen izquierda, Texto derecha (o viceversa) */
-        :global(.card-inner-layout) {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        /* GESTIÓN DE COLORES VIBRANTES (Glows) */
-
-        /* Variación Izquierda (ej: Azul) */
-        :global(.info-card.left) {
-            align-self: flex-start;
-            /* Borde degradado vibrante */
-            border-left: 5px solid;
-            border-image: linear-gradient(to bottom, #00d2ff, #3a7bd5) 1;
-            /* Sombra de color (Glow) */
-            box-shadow: -10px 20px 60px rgba(0, 210, 255, 0.15);
-        }
-
-        /* Variación Derecha (ej: Púrpura) */
-        :global(.info-card.right) {
-            align-self: flex-end;
-            border-right: 5px solid;
-            border-image: linear-gradient(to bottom, #9d50bb, #6e48aa) 1;
-            box-shadow: 10px 20px 60px rgba(157, 80, 187, 0.15);
-        }
-
-        /* === GESTIÓN DE LA IMAGEN === */
-        :global(.card-image-container) {
-            flex: 0 0 40%; /* Ocupa el 40% del ancho */
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            aspect-ratio: 16/10; /* Proporción fija */
-        }
-
-        :global(.card-image) {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
-            filter: grayscale(20%) brightness(90%); /* Toque estilizado */
-            transition: filter 0.3s ease;
-        }
-
-        :global(.info-card:hover .card-image) {
-            filter: grayscale(0%) brightness(110%); /* Se ilumina al hover */
-        }
-
-        /* Brillo interno sobre la imagen */
-        :global(.image-overlay-glow) {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
-            pointer-events: none;
-        }
-
-        /* === JERARQUÍA VISUAL (Letra más grande) === */
-        :global(.card-text-content) {
-            flex: 1; /* Ocupa el resto del espacio */
-        }
-
-        :global(.card-title) {
-            /* Letra AGRESIVA y GRANDE */
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        :global(.card-text) {
-            font-size: 1.15rem; /* Texto legible */
-            line-height: 1.8;
-            color: #d0d0d0;
-        }
-
-        /* Responsividad */
-        @media (max-width: 900px) {
-            :global(.card-inner-layout) {
-                flex-direction: column-reverse; /* Imagen abajo en móvil */
-                gap: 2rem;
-            }
-            :global(.card-image-container) {
-                width: 100%;
-                flex: 0 0 auto;
-            }
-            :global(.info-card) {
-                width: 100%;
-                padding: 2rem;
-                align-self: center !important;
-                border-left: 5px solid #00d2ff !important; /* Fallback color único */
-                border-right: none !important;
-            }
-        }
-    </style>
 </div>
+
+
+<style>
+    /* EL ROMPE-CONTENEDORES ABSOLUTO */
+    #sobre-mi {
+        /* Fuerza la sección al centro absoluto de la pantalla */
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        margin-left: -50vw;
+        background-color: var(--color-fondo);
+        /* Aseguramos que no haya espacio extra */
+        padding: 0;
+        /* IMPORTANTE: No cortes el flujo horizontal todavía */
+        overflow: visible;
+    }
+
+    .cards-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+</style>

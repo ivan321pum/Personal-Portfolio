@@ -22,22 +22,41 @@ const t = useTranslations(lang);
     <slot></slot> <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
     </main>
     <style is:global>
-        body{
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            font-family: "Archivo", serif;
+        /* 1. RESET ARQUITECTÓNICO INNEGOCIABLE */
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
-        .container{
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            /* IMPORTANTE: Eliminamos el overflow del body.
+               Permitimos que el scroll de la página sea natural. */
+            overflow-x: visible;
+            width: 100%;
         }
+
+        /* 2. VARIABLES */
         :root {
             --color-primario: #D72638;
             --color-secundario: #104547;
             --color-fondo: #C0F8D1;
             --color-texto: #333333;
             --color-fondo-secundario: #FF9F1C;
+        }
+
+        /* 3. ESTILOS BASE */
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            font-family: "Archivo", serif;
+        }
+
+        /* 4. EL CONTENEDOR (Opcional para el Hero) */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
     </style>
 </body>
