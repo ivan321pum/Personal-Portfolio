@@ -1,76 +1,62 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
-/**
- * Tarjeta de presentación inmersiva (Apple Style).
- * Comienza como fondo de pantalla completa y se contrae a un panel lateral.
- * @param {Object} props
- * @param {string} props.title - Título principal (ej: PERFIL PROFESIONAL).
- * @param {string} props.subtitle - Subtitulo de la tarjeta
- * @param {string} props.description - Texto de descripción (del copy de i18n).
- * @param {'left' | 'right'} props.direction - Dirección hacia la que se contrae la imagen.
- * @param {string} props.videoSrc - Ruta del video (debe ser horizontal, alta calidad).
- * @param {string} props.bkcgroundColor - Color del fondo de la tarjeta
- * @param {string} props.titleColor - Color del título
- * @param {string} props.subtitleColor - Color del subtítulo
- */
-export default function InfoCard({   title,
-                                     subtitle,
-                                     description,
-                                     direction = 'left',
-                                     videoSrc,
-                                     bkcgroundColor,
-                                     titleColor,
-                                     subtitleColor,
-}) {
-
-
+export default function InfoCard({
+                                     title, subtitle, description, direction = 'left',
+                                     videoSrc, bkcgroundColor, titleColor, subtitleColor,
+                                 }) {
     const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
+    const [isMobile, setIsMobile] = useState(false); // Default a false para que Astro renderice algo
 
-    // --- Movimiento de la imagen y fondo estático ---
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
 
-    // 1. Scale: Empezamos en un zoom (1.5) y pasamos a tamaño natural (1).
-    const imgScale = useTransform(scrollYProgress, [0, 0.4], [1.5, 1]);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
-    //el inputRange le indica la longitud de la trnasformación que quieres hacer, luego outputRange le dices el valor del que estás al que quiere pasar
-
-    // 2. Border Radius: De 0 (pantalla completa) a 24px (tarjeta).
+    // --- TRANSFORMACIONES COMPARTIDAS ---
+    const imgScale = useTransform(scrollYProgress, [0, 0.4], [1.1, 1]);
     const imgRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "24px"]);
 
-    // 3. Tamaño de la imagen (El "encogimiento"). Le ponemos el tamaño rectangular de la tarjeta original
-    const imgWidth = useTransform(scrollYProgress, [0, 0.4], ["100vw", "40vw"]);
-    const imgHeight = useTransform(scrollYProgress, [0, 0.4], ["100vh", "60vh"]);
+    // --- LÓGICA DE VIDEO (Desktop vs Mobile) ---
+    const imgWidth = useTransform(scrollYProgress, [0, 0.4], ["100vw", isMobile ? "90vw" : "40vw"]);
+    const imgHeight = useTransform(scrollYProgress, [0, 0.4], ["100vh", isMobile ? "50vh" : "60vh"]);
+    const imgTop = useTransform(scrollYProgress, [0, 0.4], ["0%", isMobile ? "5%" : "20%"]);
+    const imgLeft = useTransform(scrollYProgress, [0, 0.4], ["0%", isMobile ? "5%" : (direction === 'left' ? "5%" : "55%")]);
 
-    // Calculamos dónde ponerlo según la dirección ('left' o 'right').
-    const finalImgLeft = direction === 'left' ? "5%" : "55%";
-    const imgLeft = useTransform(scrollYProgress, [0, 0.4], ["0%", finalImgLeft]);
-    const imgTop = useTransform(scrollYProgress, [0, 0.4], ["0%", "20%"]);
+    // --- LÓGICA DE TEXTO (Aparece después) ---
+    const textOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+    const textY = useTransform(scrollYProgress, [0.4, 0.6], [30, 0]);
 
-    // --- TEXTO (Aparece después) ---
-    // Mapea de 0.4 a 0.7 del progreso de scroll.
-    const textOpacity = useTransform(scrollYProgress, [0.4, 0.7], [0, 1]);
-    const textY = useTransform(scrollYProgress, [0.4, 0.7], [40, 0]); // Sube ligeramente
-
-    // Posicionar el texto en el lado contrario a la imagen.
-    const textLeft = direction === 'left' ? "50%" : "5%";
+    // Posición horizontal del texto
+    const textLeft = isMobile ? "5%" : (direction === 'left' ? "50%" : "5%");
+    // Posición vertical: En móvil lo bajamos para que empiece debajo del video (50vh + 5% top + margen)
+    const textTop = isMobile ? "60%" : "25%";
 
     return (
         <section ref={containerRef} style={{
-            height: '300vh', // Esto hace que mida 3 veces el tamaño de la pantalla
+            height: '300vh',
             position: 'relative',
             width: '99vw',
             left: '50%',
-            right: '50%',
             marginLeft: '-50vw',
-            marginRight: '-50vw',
-            overflow: 'visible' //Importante
+            overflow: 'visible' // Permitimos que el sticky respire
         }}>
+            <div style={{
+                position: 'sticky',
+                top: 0,
+                height: '100vh',
+                overflow: 'hidden',
+                backgroundColor: bkcgroundColor
+            }}>
 
-            {/* El pegamento visual (Sticky 100vh). Esto se queda congelado en la pantalla. */}
-            <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', backgroundColor: bkcgroundColor }}>
-
-                {/* EL VIDEO (Fondo que se contrae) */}
+                {/* CONTENEDOR DEL VIDEO */}
                 <motion.div
                     style={{
                         position: 'absolute',
@@ -81,42 +67,67 @@ export default function InfoCard({   title,
                         scale: imgScale,
                         borderRadius: imgRadius,
                         overflow: 'hidden',
-                        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)',
-                        zIndex: 1 // Asegura que esté en el fondo.
+                        zIndex: 1,
+                        boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
                     }}
                 >
                     <video
                         src={videoSrc}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline /* <-- INNEGOCIABLE: Evita que iOS rompa la web */
+                        autoPlay loop muted playsInline
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
-                    {/* EFECTO OSCURO */}
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.3))' }}></div>
+                    {/* Gradiente para mejorar legibilidad del texto en móvil */}
+                    <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: isMobile
+                            ? 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.5))'
+                            : 'linear-gradient(to right, rgba(0,0,0,0.2), transparent)'
+                    }} />
                 </motion.div>
 
-                {/* EL TEXTO FUERA DE EL VIDEO (Aparece después) */}
+                {/* CONTENEDOR DEL TEXTO */}
                 <motion.div
                     style={{
                         position: 'absolute',
                         left: textLeft,
-                        top: '25%', // Alineación vertical del texto.
-                        width: '45%', // Ocupa el 45% de la pantalla.
+                        top: textTop,
+                        width: isMobile ? "90%" : "45%",
                         opacity: textOpacity,
                         y: textY,
-                        padding: '2rem',
-                        zIndex: 10 // Forzamos que esté MUY por encima.
+                        zIndex: 10,
+                        // Subimos el padding en móvil para que respire más
+                        padding: isMobile ? '1.5rem' : '2rem'
                     }}
                 >
-                    <h3 style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', fontWeight: 900, color: titleColor, marginBottom: '0.5rem', lineHeight: 1.1, textTransform: 'uppercase' }}>
+                    <h3 style={{
+                        // 🔥 SUBIDA BRUTAL EN MÓVIL: De 1.8rem a un clamp audaz
+                        fontSize: isMobile ? 'clamp(2rem, 8vw, 3rem)' : 'clamp(2rem, 4vw, 4rem)',
+                        fontWeight: 900,
+                        color: titleColor,
+                        textTransform: 'uppercase',
+                        margin: 0,
+                        lineHeight: 1, // Tipografía compacta e impactante
+                        letterSpacing: '-0.03em' // Toque premium
+                    }}>
                         {title}
                     </h3>
-                    <p style={{ fontSize: '1.25rem', color: subtitleColor, marginBottom: '1.5rem', fontStyle: 'italic', maxWidth: '600px' }}>
+                    <p style={{
+                        // 🔥 SUBIDA: Subtítulo más legible
+                        fontSize: isMobile ? '2.3rem' : 'clamp(1.2rem, 1.5vw, 1.5rem)',
+                        color: subtitleColor,
+                        fontStyle: 'italic',
+                        margin: '0.5rem 0 1.2rem 0'
+                    }}>
                         {subtitle}
                     </p>
-                    <p style={{ fontSize: '1.1rem', color: 'var(--color-texto)', lineHeight: 1.8, maxWidth: '700px' }}>
+                    <p style={{
+                        // 🔥 SUBIDA: Descripción base más grande (1.1rem mínimo)
+                        fontSize: isMobile ? '2rem' : 'clamp(1rem, 1.2vw, 1.2rem)',
+                        color: 'var(--color-texto)',
+                        lineHeight: 1.7, // Más interlineado para lectura fácil
+                        maxWidth: '650px'
+                    }}>
                         {description}
                     </p>
                 </motion.div>

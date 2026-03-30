@@ -1,5 +1,4 @@
 ---
-import Image from "astro/components/Image.astro"
 import Navigation from "./Navigation.astro"
 ---
 <header class="header-outer">
@@ -8,7 +7,10 @@ import Navigation from "./Navigation.astro"
             <div class="profile-frame">
                 <img src="/assets/images/avatar_ivan.webp" alt="Foto de Iván" class="profile-pic" />
             </div>
-            <span class="name-text">Iván Sevilla</span>
+            <div class="text-group">
+                <span class="name-text">Iván Sevilla</span>
+                <span class="status-dot">Online</span>
+            </div>
         </div>
         <Navigation></Navigation>
     </div>
@@ -19,66 +21,103 @@ import Navigation from "./Navigation.astro"
         background-color: var(--color-fondo-secundario);
         width: 100%;
         color: var(--color-secundario);
-        -moz-border-radius-bottomleft: 15px;
-        -moz-border-radius-bottomright: 15px;
+        /* Eliminamos los prefijos -moz- y usamos estándar */
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
         box-sizing: border-box;
+        /* Profundidad sobre el fondo */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 100;
     }
 
     .header-inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 2rem;
-        max-width: 1600px;
+        padding: 1.5rem 2rem; /* Más alto para "llenar" más */
+        max-width: 1400px;
         margin: 0 auto;
         width: 100%;
         box-sizing: border-box;
     }
 
     .logo {
-        font-weight: bold;
-        font-size: 2rem;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 16px; /* Más aire */
+    }
+
+    .text-group {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+    }
+
+    .name-text {
+        font-weight: 900;
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+    }
+
+    .status-dot {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        opacity: 0.8;
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .status-dot::before {
+        content: "•";
+        color: #4ade80; /* Un verde vibrante */
+        display: inline-block;
     }
 
     .profile-frame {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
+        border: 3px solid var(--color-fondo); /* Contraste con el naranja */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .profile-pic {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
     }
 
-    /* --- ESTILOS RESPONSIVE --- */
+    /* --- RESPONSIVE DE INGENIERÍA --- */
     @media (max-width: 768px) {
         .header-inner {
-            flex-direction: column; /* Apila el logo y la navegación verticalmente */
-            gap: 1.5rem; /* Espacio entre el logo y el menú */
-            padding: 1.5rem 1rem;
+            padding: 1.2rem 1rem;
+            /* Mantenemos el Row para que sea elegante */
         }
 
         .logo {
-            font-size: 1.5rem; /* Reducimos el tamaño de la fuente para que no ocupe todo el ancho */
-            flex-direction: column; /* Apilamos la foto y el nombre */
-            text-align: center;
-            gap: 8px;
+            gap: 12px;
+        }
+
+        .name-text {
+            font-size: 1.2rem;
         }
 
         .profile-frame {
-            width: 65px; /* Reducimos el tamaño de la imagen en móviles */
-            height: 65px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .status-dot {
+            display: none; /* Limpiamos ruido en móvil */
         }
     }
 </style>
