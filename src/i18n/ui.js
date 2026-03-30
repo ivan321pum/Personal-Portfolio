@@ -12,6 +12,7 @@ export const ui = {
         //Hero
         'hero.title': 'Iván Sevilla',
         'hero.subtitle': 'Estudiante de ingeniería en telecomunicaciones en la UPV',
+        'hero.scroll': 'DESLIZA',
         //Nav
         'nav.start': 'Inicio',
         'nav.about': 'Sobre mi',
@@ -31,6 +32,7 @@ export const ui = {
         //Hero
         'hero.title': 'Iván Sevilla',
         'hero.subtitle': 'Telecommunications Engineering student at UPV',
+        'hero.scroll': 'SCROLL',
         //Nav
         'nav.start': 'Home',
         'nav.about': 'About me',
