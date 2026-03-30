@@ -101,8 +101,8 @@ export default function InfoCard({
                     }}
                 >
                     <h3 style={{
-                        // 🔥 SUBIDA BRUTAL EN MÓVIL: De 1.8rem a un clamp audaz
-                        fontSize: isMobile ? 'clamp(2rem, 8vw, 3rem)' : 'clamp(2rem, 4vw, 4rem)',
+                        // 🔥 Tamaño equilibrado para título en móvil
+                        fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2.5rem)' : 'clamp(2rem, 4vw, 4rem)',
                         fontWeight: 900,
                         color: titleColor,
                         textTransform: 'uppercase',
@@ -113,8 +113,8 @@ export default function InfoCard({
                         {title}
                     </h3>
                     <p style={{
-                        // 🔥 SUBIDA: Subtítulo más legible
-                        fontSize: isMobile ? '2.3rem' : 'clamp(1.2rem, 1.5vw, 1.5rem)',
+                        // 🔥 Tamaño normal para subtítulo
+                        fontSize: isMobile ? '1.2rem' : 'clamp(1.2rem, 1.5vw, 1.5rem)',
                         color: subtitleColor,
                         fontStyle: 'italic',
                         margin: '0.5rem 0 1.2rem 0'
@@ -122,8 +122,8 @@ export default function InfoCard({
                         {subtitle}
                     </p>
                     <p style={{
-                        // 🔥 SUBIDA: Descripción base más grande (1.1rem mínimo)
-                        fontSize: isMobile ? '2rem' : 'clamp(1rem, 1.2vw, 1.2rem)',
+                        // 🔥 Tamaño estándar y legible para descripción en móvil
+                        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.2vw, 1.2rem)',
                         color: 'var(--color-texto)',
                         lineHeight: 1.7, // Más interlineado para lectura fácil
                         maxWidth: '650px'

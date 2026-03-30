@@ -21,8 +21,8 @@ const t = useTranslations(lang);
 <style>
     /* 1. EL CONTENEDOR */
     .hero-fullscreen {
-        height: 100vh;
-        min-height: 100vh;
+        height: calc(100vh - 100px);
+        min-height: calc(100vh - 100px);
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -35,6 +35,14 @@ const t = useTranslations(lang);
         position: relative; /* CRUCIAL: Mantiene el scroll-hint atrapado en esta pantalla */
     }
 
+    @media (max-width: 768px) {
+        .hero-fullscreen {
+            /* En móvil reservamos alrededor de 110px, que es la altura calculada del header apilado */
+            height: calc(100svh - 110px); 
+            min-height: calc(100svh - 110px);
+        }
+    }
+
     /* 2. EL TÍTULO (Escalado Agresivo) */
     :global(.hero-title) {
         font-weight: 900;
@@ -44,8 +52,8 @@ const t = useTranslations(lang);
         line-height: 0.9;
         letter-spacing: -0.05em;
 
-        /* 🔥 MÓVIL: Fuerza a que el texto ocupe el 18% del ancho total de la pantalla por letra */
-        font-size: clamp(4rem, 18vw, 7rem);
+        /* 🔥 MÓVIL: Fuerza a que el texto ocupe el 12% del ancho total de la pantalla por letra */
+        font-size: clamp(3rem, 12vw, 7rem);
 
         @media (min-width: 768px) {
             font-size: 6rem;
@@ -65,7 +73,7 @@ const t = useTranslations(lang);
         max-width: 95%; /* Evita que se pegue a los bordes exactos */
 
         /* 🔥 MÓVIL: Subida drástica de legibilidad */
-        font-size: clamp(1.4rem, 6vw, 2.2rem);
+        font-size: clamp(1.1rem, 5vw, 2.2rem);
         line-height: 1.2;
 
         @media (min-width: 768px) {

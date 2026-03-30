@@ -1,11 +1,13 @@
 ---
-import Navigation from "./Navigation.astro"
+import Navigation from "./Navigation.astro";
+import { Image } from "astro:assets";
+import avatarImg from "../../public/assets/images/avatar_ivan.webp";
 ---
 <header class="header-outer">
     <div class="header-inner">
         <div class="logo">
             <div class="profile-frame">
-                <img src="/assets/images/avatar_ivan.webp" alt="Foto de Iván" class="profile-pic" />
+                <Image src={avatarImg} alt="Foto de Iván" class="profile-pic" loading="eager" />
             </div>
             <div class="text-group">
                 <span class="name-text">Iván Sevilla</span>
@@ -99,12 +101,13 @@ import Navigation from "./Navigation.astro"
     /* --- RESPONSIVE DE INGENIERÍA --- */
     @media (max-width: 768px) {
         .header-inner {
-            padding: 1.2rem 1rem;
-            /* Mantenemos el Row para que sea elegante */
+            padding: 1rem;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .logo {
-            gap: 12px;
+            gap: 8px;
         }
 
         .name-text {
@@ -112,8 +115,8 @@ import Navigation from "./Navigation.astro"
         }
 
         .profile-frame {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
         }
 
         .status-dot {
