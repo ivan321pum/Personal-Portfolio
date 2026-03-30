@@ -15,13 +15,13 @@ import Navigation from "./Navigation.astro"
 </header>
 
 <style>
-    /* Variables asumidas (asegúrate de tenerlas definidas en tu CSS global) */
     .header-outer {
         background-color: var(--color-fondo-secundario);
         width: 100%;
         color: var(--color-secundario);
-        border-radius: 15px;
-        box-sizing: border-box; /* Evita desbordamientos por padding */
+        -moz-border-radius-bottomleft: 15px;
+        -moz-border-radius-bottomright: 15px;
+        box-sizing: border-box;
     }
 
     .header-inner {
@@ -51,7 +51,7 @@ import Navigation from "./Navigation.astro"
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-shrink: 0; /* Evita que la foto se deforme si falta espacio */
+        flex-shrink: 0;
     }
 
     .profile-pic {

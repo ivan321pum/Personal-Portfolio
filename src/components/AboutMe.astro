@@ -1,7 +1,6 @@
 ---
 import InfoCard from "./react/InfoCard";
 import {useTranslations} from "../i18n/ui";
-import type { title } from "framer-motion/client";
 
 const lang = Astro.currentLocale || 'es';
 const t = useTranslations(lang);
@@ -11,16 +10,24 @@ const t = useTranslations(lang);
     <InfoCard
             client:visible
             title={t('about.facets.telecom.title')}
+            subtitle={t('about.facets.software.title')}
             description={t('about.facets.telecom.desc')}
             direction="left"
             videoSrc="../../public/assets/images/telecom.webp"
+            bkcgroundColor={'var(--color-fondo-secundario)'}
+            titleColor={'var(--color-secundario)'}
+            subtitleColor={'var(--color-fondo)'}
     />
     <InfoCard
             client:visible
             title={t('about.facets.software.title')}
+            subtitle={t('about.facets.software.title')}
             description={t('about.facets.software.desc')}
             direction="right"
             videoSrc="../../public/assets/videos/ETSIT-25-seg.mp4"
+            bkcgroundColor={'var(--color-fondo)'}
+            titleColor={'var(--color-primario)'}
+            subtitleColor={'var(--color-fondo-secundario)'}
     />
 </div>
 
