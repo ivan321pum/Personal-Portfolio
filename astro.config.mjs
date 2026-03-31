@@ -12,5 +12,7 @@ export default defineConfig({
       prefixDefaultLocale: true, // El español no lleva /es/, el inglés sí lleva /en/
       redirectToDefaultLocale: true // Activa la detección de idioma
     }
-  }
+  },
+  site: 'https://ivan321pum.github.io',
+  base: '/',
 });
