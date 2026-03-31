@@ -9,9 +9,9 @@ const t = useTranslations(lang);
 <div class="cards-container" style="display: flex; flex-direction: column; gap: 0;">
     <InfoCard
             client:visible
-            title={t('about.facets.telecom.title')}
-            subtitle={t('about.facets.software.title')}
-            description={t('about.facets.telecom.desc')}
+            title={t('about.title1')}
+            subtitle={t('about.subtitle1')}
+            description={t('about.description1')}
             direction="left"
             videoSrc="../../assets/videos/ETSIT-25-seg.mp4"
             bkcgroundColor={'var(--color-fondo-secundario)'}
@@ -20,14 +20,25 @@ const t = useTranslations(lang);
     />
     <InfoCard
             client:visible
-            title={t('about.facets.software.title')}
-            subtitle={t('about.facets.software.title')}
-            description={t('about.facets.software.desc')}
-            direction="right"
+            title={t('about.title2')}
+            subtitle={t('about.subtitle2')}
+            description={t('about.description2')}
+            direction="left"
             videoSrc="../../assets/videos/ETSIT-25-seg.mp4"
             bkcgroundColor={'var(--color-fondo)'}
             titleColor={'var(--color-primario)'}
             subtitleColor={'var(--color-fondo-secundario)'}
+    />
+    <InfoCard
+            client:visible
+            title={t('about.title3')}
+            subtitle={t('about.subtitle3')}
+            description={t('about.description3')}
+            direction="left"
+            videoSrc="../../assets/videos/ETSIT-25-seg.mp4"
+            bkcgroundColor={'var(--color-fondo-secundario)'}
+            titleColor={'var(--color-secundario)'}
+            subtitleColor={'var(--color-fondo)'}
     />
 </div>
 

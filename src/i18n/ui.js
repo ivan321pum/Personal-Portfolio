@@ -6,7 +6,7 @@ export const languages = {
 export const defaultLang = 'es';
 
 export const ui = {
-    es:{
+    es: {
         // Titulo web
         'website.title': 'Iván Sevilla, estudiante de ingeniería',
         //Hero
@@ -18,15 +18,19 @@ export const ui = {
         'nav.about': 'Sobre mi',
         'nav.contact': 'Contacto',
         //About
-        'about.title': 'Ingeniería y Disciplina',
-        'about.facets.telecom.title': 'Telecomunicaciones y Hardware',
-        'about.facets.telecom.desc': 'Estudiante de 1º en la UPV. No solo pico código; entiendo la capa física, los sistemas de comunicación y la gestión de redes Linux. Visión holística del sistema.',
-        'about.facets.software.title': 'Software Architecture',
-        'about.facets.software.desc': 'Mi pasión real. Navego entre el bajo nivel de C/C++, la versatilidad de Python y el desarrollo de lógicas interactivas en Unity. Optimización y limpieza.',
-        'about.facets.discipline.title': 'La Mentalidad',
-        'about.facets.discipline.desc': 'Aplico la disciplina del gimnasio al código. Sin excusas, solo iteraciones constantes. Entiendo el crecimiento como un proceso de optimización continua.',
+        'about.title1': 'Desarrollo y Experimentación',
+        'about.subtitle1': 'Lógica de Software e IA',
+        'about.description1': 'Resuelvo problemas con Python y C, explorando desde el frontend hasta la Inteligencia Artificial. Mi objetivo ahora es profundizar en el backend para obtener una visión integral del desarrollo de software. No tengo prisa por especializarme; busco entender el sistema completo.',
+
+        'about.title2': 'Ingeniería y Fundamentos',
+        'about.subtitle2': 'Telecomunicaciones en la UPV',
+        'about.description2': 'Estudio 1º de Telecomunicaciones para forjar una base matemática y física inquebrantable. Me interesa el software que exige capacidad mental: algoritmos complejos y proyectos donde la física y el cálculo sean el motor. Si entiendo la ciencia detrás del código, no hay límite en lo que puedo construir.',
+
+        'about.title3': 'Cultura y Enfoque',
+        'about.subtitle3': 'Idiomas y Tiempo Libre',
+        'about.description3': 'Fuera del código, busco el mismo nivel de mejora. Entreno en el gimnasio, domino el Inglés (B2), aprendo Neerlandés y piano. Para desconectar, nada como los videojuegos y la discografía de Queen a todo volumen. Es mi combustible para mantener la concentración.',
     },
-    en:{
+    en: {
         //Titulo web
         'website.title': 'Iván Sevilla, engineering student',
         //Hero
@@ -38,14 +42,18 @@ export const ui = {
         'nav.about': 'About me',
         'nav.contact': 'Contact me',
         //About
-        'about.title': 'Engineering and Discipline',
-        'about.facets.telecom.title': 'Telecoms and Hardware',
-        'about.facets.telecom.desc': '1st year student at UPV. I don\'t just write code; I understand the physical layer, communication systems, and Linux network management. Holistic system view.',
-        'about.facets.software.title': 'Software Architecture',
-        'about.facets.software.desc': 'My real passion. I navigate from low-level C/C++, to Python\'s versatility, and building interactive logics in Unity. Optimization and cleanliness.',
-        'about.facets.discipline.title': 'The Mindset',
-        'about.facets.discipline.desc': 'I apply gym discipline to code. No excuses, just constant iterations. I view growth as a process of continuous optimization.',
-    }
+        'about.title1': 'Development & Experimentation',
+        'about.subtitle1': 'Software Logic & AI',
+        'about.description1': 'I solve problems with Python and C, exploring everything from frontend to Artificial Intelligence. My current goal is to dive into the backend to gain a holistic view of software development. I\'m in no rush to specialize; I want to understand the entire system first.',
+
+        'about.title2': 'Engineering & Foundations',
+        'about.subtitle2': 'Telecommunications at UPV',
+        'about.description2': 'Currently in my 1st year of Telecommunications Engineering to build an unbreakable mathematical and physical foundation. I\'m drawn to software that demands mental heavy lifting: complex algorithms and projects driven by physics and calculus. Understanding the science behind the code is my edge.',
+
+        'about.title3': 'Culture & Focus',
+        'about.subtitle3': 'Languages & Free Time',
+        'about.description3': 'Beyond code, I pursue the same level of growth. I train at the gym, speak English (B2), and I am currently learning Dutch and piano. To disconnect: gaming and Queen\'s discography at full volume. It\'s what keeps my focus sharp.',
+    },
 }
 
 
