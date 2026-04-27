@@ -20,6 +20,11 @@ export default function InfoCard({
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
+    // useTransform coge un valor que está en constante cambio (en este caso el scroll en el eje Y)
+    // y lo traduce a valores de diseño. El primer parametro en este caso será el scroll en Y, el segundo es
+    // en el rango en el que quieres que actue de posición del contenedor, en el tercero es el rango en el que
+    // quieres que transforme.
+
     // --- TRANSFORMACIONES COMPARTIDAS ---
     const imgScale = useTransform(scrollYProgress, [0, 0.4], [1.1, 1]);
     const imgRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "24px"]);
@@ -46,7 +51,7 @@ export default function InfoCard({
             width: '99vw',
             left: '50%',
             marginLeft: '-50vw',
-            overflow: 'visible' // Permitimos que el sticky respire
+            overflow: 'visible' 
         }}>
             <div style={{
                 position: 'sticky',
@@ -101,19 +106,17 @@ export default function InfoCard({
                     }}
                 >
                     <h3 style={{
-                        // 🔥 Tamaño equilibrado para título en móvil
                         fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2.5rem)' : 'clamp(2rem, 4vw, 4rem)',
                         fontWeight: 900,
                         color: titleColor,
                         textTransform: 'uppercase',
                         margin: 0,
-                        lineHeight: 1, // Tipografía compacta e impactante
-                        letterSpacing: '-0.03em' // Toque premium
+                        lineHeight: 1,
+                        letterSpacing: '-0.03em'
                     }}>
                         {title}
                     </h3>
                     <p style={{
-                        // 🔥 Tamaño normal para subtítulo
                         fontSize: isMobile ? '1.2rem' : 'clamp(1.2rem, 1.5vw, 1.5rem)',
                         color: subtitleColor,
                         fontStyle: 'italic',
@@ -122,10 +125,9 @@ export default function InfoCard({
                         {subtitle}
                     </p>
                     <p style={{
-                        // 🔥 Tamaño estándar y legible para descripción en móvil
                         fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.2vw, 1.2rem)',
                         color: 'var(--color-texto)',
-                        lineHeight: 1.7, // Más interlineado para lectura fácil
+                        lineHeight: 1.7,
                         maxWidth: '650px'
                     }}>
                         {description}
