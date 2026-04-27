@@ -25,6 +25,9 @@ export default function InfoCard({
     // en el rango en el que quieres que actue de posición del contenedor, en el tercero es el rango en el que
     // quieres que transforme.
 
+    // --- DURACIÓN DEL SCROLL SEGÚN DISPOSITIVOS ---
+    const heightLong = isMobile ? '200vh' : '300vh';
+
     // --- TRANSFORMACIONES COMPARTIDAS ---
     const imgScale = useTransform(scrollYProgress, [0, 0.4], [1.1, 1]);
     const imgRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "24px"]);
@@ -44,9 +47,10 @@ export default function InfoCard({
     // Posición vertical: En móvil lo bajamos para que empiece debajo del video (50vh + 5% top + margen)
     const textTop = isMobile ? "60%" : "25%";
 
+
     return (
         <section ref={containerRef} style={{
-            height: '300vh',
+            height: heightLong,
             position: 'relative',
             width: '99vw',
             left: '50%',
