@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import "../../styles/global.css"
 
 export default function InfoCard({
                                      title, subtitle, description, direction = 'left',
@@ -49,46 +50,32 @@ export default function InfoCard({
 
 
     return (
-        <section ref={containerRef} style={{
-            height: heightLong,
-            position: 'relative',
-            width: '99vw',
-            left: '50%',
-            marginLeft: '-50vw',
-            overflow: 'visible' 
-        }}>
-            <div style={{
-                position: 'sticky',
-                top: 0,
-                height: '100vh',
-                overflow: 'hidden',
-                backgroundColor: bkcgroundColor
-            }}>
+        <section 
+        ref={containerRef} 
+        className = "relative w-[99vw] left-1/2 ml-[-50vw] overflow-visible" 
+        style={{height: heightLong,}}>
+            <div 
+            className = "sticky top-0 h-screen overflow-hidden" 
+            style={{backgroundColor: bkcgroundColor}}>
 
                 {/* CONTENEDOR DEL VIDEO */}
-                <motion.div
+                <motion.div className="absolute overflow-hidden z-1 shadow-2xl"
                     style={{
-                        position: 'absolute',
                         left: imgLeft,
                         top: imgTop,
                         width: imgWidth,
                         height: imgHeight,
                         scale: imgScale,
                         borderRadius: imgRadius,
-                        overflow: 'hidden',
-                        zIndex: 1,
-                        boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
                     }}
                 >
                     <video
                         src={videoSrc}
                         autoPlay loop muted playsInline
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                    {/* Gradiente para mejorar legibilidad del texto en móvil */}
-                    <div style={{
-                        position: 'absolute',
-                        inset: 0,
+                        className="w-full h-full object-cover"/>
+
+                    <div className="absolute inset-0"
+                    style={{
                         background: isMobile
                             ? 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.5))'
                             : 'linear-gradient(to right, rgba(0,0,0,0.2), transparent)'
@@ -97,42 +84,34 @@ export default function InfoCard({
 
                 {/* CONTENEDOR DEL TEXTO */}
                 <motion.div
+                    className="absolute z-10"
                     style={{
-                        position: 'absolute',
                         left: textLeft,
                         top: textTop,
                         width: isMobile ? "90%" : "45%",
                         opacity: textOpacity,
                         y: textY,
-                        zIndex: 10,
-                        // Subimos el padding en móvil para que respire más
                         padding: isMobile ? '1.5rem' : '2rem'
                     }}
                 >
-                    <h3 style={{
+                    <h3 className="font-black uppercase m-0 leading-none tracking-tight"
+                    style={{
                         fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2.5rem)' : 'clamp(2rem, 4vw, 4rem)',
-                        fontWeight: 900,
                         color: titleColor,
-                        textTransform: 'uppercase',
-                        margin: 0,
-                        lineHeight: 1,
-                        letterSpacing: '-0.03em'
                     }}>
                         {title}
                     </h3>
-                    <p style={{
+                    <p className="italic mt-2 mb-[1.2rem] mx-0"
+                    style={{
                         fontSize: isMobile ? '1.2rem' : 'clamp(1.2rem, 1.5vw, 1.5rem)',
                         color: subtitleColor,
-                        fontStyle: 'italic',
-                        margin: '0.5rem 0 1.2rem 0'
                     }}>
                         {subtitle}
                     </p>
-                    <p style={{
+                    <p className="leading-[1.7] max-w-2x1"
+                    style={{
                         fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.2vw, 1.2rem)',
                         color: 'var(--color-texto)',
-                        lineHeight: 1.7,
-                        maxWidth: '650px'
                     }}>
                         {description}
                     </p>

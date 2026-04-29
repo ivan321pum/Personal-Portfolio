@@ -12,5 +12,33 @@
         },
         "tags": ["javascript", "frontend", "react"],
         "size": "large"
+    },
+    {
+        "id": "proyecto-ejemplo-2",
+        "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
+        "title": {
+            "es": "Proyecto de ejemplo 2",
+            "en": "Example project 2"
+        },
+        "description": {
+            "es": "Descripción del proyecto en español.",
+            "en": "Project description in English."
+        },
+        "tags": ["javascript", "frontend", "react"],
+        "size": "large"
+    },
+    {
+        "id": "proyecto-ejemplo-3",
+        "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
+        "title": {
+            "es": "Proyecto de ejemplo 3",
+            "en": "Example project 3"
+        },
+        "description": {
+            "es": "Descripción del proyecto en español.",
+            "en": "Project description in English."
+        },
+        "tags": ["javascript", "frontend", "react"],
+        "size": "small"
     }
 ]
