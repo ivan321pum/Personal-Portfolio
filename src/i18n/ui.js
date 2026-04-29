@@ -16,6 +16,7 @@ export const ui = {
         //Nav
         'nav.start': 'Inicio',
         'nav.about': 'Sobre mi',
+        'nav.projects': 'Mis proyectos',
         'nav.contact': 'Contacto',
         //About
         'about.title1': 'Desarrollo y Experimentación',
@@ -40,6 +41,7 @@ export const ui = {
         //Nav
         'nav.start': 'Home',
         'nav.about': 'About me',
+        'nav.projects': 'My projects',
         'nav.contact': 'Contact me',
         //About
         'about.title1': 'Development & Experimentation',

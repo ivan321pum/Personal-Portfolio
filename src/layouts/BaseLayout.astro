@@ -18,7 +18,8 @@ const t = useTranslations(lang);
 </head>
 <body>
     <LanguagePicker></LanguagePicker>
-    <Header></Header>
+    <section id = "header"><Header></Header></section>
+    
     <main class = "container">
     <slot></slot> <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
     </main>
@@ -31,10 +32,9 @@ const t = useTranslations(lang);
         html, body {
             margin: 0;
             padding: 0;
-            /* IMPORTANTE: Eliminamos el overflow del body.
-               Permitimos que el scroll de la página sea natural. */
             overflow-x: visible;
             width: 100%;
+            scroll-behavior: smooth;
         }
 
         /* 2. VARIABLES */

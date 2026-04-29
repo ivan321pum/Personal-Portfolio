@@ -4,10 +4,15 @@ import {useTranslations} from "../i18n/ui.js";
 const lang = Astro.currentLocale || 'es';
 const t = useTranslations(lang);
 
+const homeURL = `/${lang}/#header`
+const aboutURL = `/${lang}/#about_me`
+const projectsURL = `/${lang}/#projects`
+
 const navItems = [
-    {href:'/', label: t('nav.start')},
-    {href:'/about', label: t('nav.about')},
-    {href:'/projects', label: t('nav.contact')},
+    {href:homeURL, label: t('nav.start')},
+    {href:aboutURL, label: t('nav.about')},
+    {href:projectsURL, label: t('nav.projects')},
+    {href:homeURL, label: t('nav.contact')},
 ]
 ---
 <nav>
