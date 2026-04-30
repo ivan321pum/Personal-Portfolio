@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primario: #1A2B3C;
+  --color-secundario: #6FCF97;
+  --color-fondo: #F4F4F4;
+  --color-texto: #333333;
+  --color-fondo-secundario: #D1D5DB;
+}
+
+@layer base {
+
+  html,
+  body {
+    @apply m-0 p-0 overflow-x-visible w-full scroll-smooth bg-fondo text-texto;
+    font-family: "Archivo", serif;
+  }
+}
+
+@keyframes pulse-line {
+
+  0%,
+  100% {
+    height: 40px;
+    opacity: 0.3;
+  }
+
+  50% {
+    height: 70px;
+    opacity: 1;
+  }
+}

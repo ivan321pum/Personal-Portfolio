@@ -3,9 +3,9 @@ import { useRef, useState, useEffect } from "react";
 import "../../styles/global.css"
 
 export default function InfoCard({
-                                     title, subtitle, description, direction = 'left',
-                                     videoSrc, bkcgroundColor, titleColor, subtitleColor,
-                                 }) {
+    title, subtitle, description, direction = 'left',
+    videoSrc, bkcgroundColor, titleColor, subtitleColor,
+}) {
     const containerRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false); // Default a false para que Astro renderice algo
 
@@ -50,13 +50,13 @@ export default function InfoCard({
 
 
     return (
-        <section 
-        ref={containerRef} 
-        className = "relative w-[99vw] left-1/2 ml-[-50vw] overflow-visible" 
-        style={{height: heightLong,}}>
-            <div 
-            className = "sticky top-0 h-screen overflow-hidden" 
-            style={{backgroundColor: bkcgroundColor}}>
+        <section
+            ref={containerRef}
+            className="relative w-[99vw] left-1/2 ml-[-50vw] overflow-visible"
+            style={{ height: heightLong, }}>
+            <div
+                className="sticky top-0 h-screen overflow-hidden"
+                style={{ backgroundColor: bkcgroundColor }}>
 
                 {/* CONTENEDOR DEL VIDEO */}
                 <motion.div className="absolute overflow-hidden z-1 shadow-2xl"
@@ -72,14 +72,14 @@ export default function InfoCard({
                     <video
                         src={videoSrc}
                         autoPlay loop muted playsInline
-                        className="w-full h-full object-cover"/>
+                        className="w-full h-full object-cover" />
 
                     <div className="absolute inset-0"
-                    style={{
-                        background: isMobile
-                            ? 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.5))'
-                            : 'linear-gradient(to right, rgba(0,0,0,0.2), transparent)'
-                    }} />
+                        style={{
+                            background: isMobile
+                                ? 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.5))'
+                                : 'linear-gradient(to right, rgba(0,0,0,0.2), transparent)'
+                        }} />
                 </motion.div>
 
                 {/* CONTENEDOR DEL TEXTO */}
@@ -95,24 +95,24 @@ export default function InfoCard({
                     }}
                 >
                     <h3 className="font-black uppercase m-0 leading-none tracking-tight"
-                    style={{
-                        fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2.5rem)' : 'clamp(2rem, 4vw, 4rem)',
-                        color: titleColor,
-                    }}>
+                        style={{
+                            fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2.5rem)' : 'clamp(2rem, 4vw, 4rem)',
+                            color: titleColor,
+                        }}>
                         {title}
                     </h3>
                     <p className="italic mt-2 mb-[1.2rem] mx-0"
-                    style={{
-                        fontSize: isMobile ? '1.2rem' : 'clamp(1.2rem, 1.5vw, 1.5rem)',
-                        color: subtitleColor,
-                    }}>
+                        style={{
+                            fontSize: isMobile ? '1.2rem' : 'clamp(1.2rem, 1.5vw, 1.5rem)',
+                            color: subtitleColor,
+                        }}>
                         {subtitle}
                     </p>
                     <p className="leading-[1.7] max-w-2x1"
-                    style={{
-                        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.2vw, 1.2rem)',
-                        color: 'var(--color-texto)',
-                    }}>
+                        style={{
+                            fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.2vw, 1.2rem)',
+                            color: 'var(--color-texto)',
+                        }}>
                         {description}
                     </p>
                 </motion.div>

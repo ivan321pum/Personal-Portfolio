@@ -5,115 +5,15 @@ const lang = Astro.currentLocale || 'es';
 const t = useTranslations(lang);
 ---
 
-<section class="hero-fullscreen">
+<section class="h-[calc(100vh-100px)] min-h-[calc(100vh-100px)] w-full flex flex-col justify-center items-center text-center px-4 m-0 bg-fondo relative max-md:h-[calc(100svh-110px)] max-md:min-h-[calc(100svh-110px)]">
     <TitleAnimation
             client:load
             title={t('hero.title')}
             subtitle={t('hero.subtitle')}
     />
 
-    <div class="scroll-hint">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-[0.8rem] font-bold tracking-[0.2em] text-[0.75rem] text-primario opacity-80">
         <span>{t('hero.scroll')}</span>
-        <div class="line"></div>
+        <div class="w-[2px] h-[60px] bg-primario animate-[pulse-line_2s_infinite_ease-in-out]"></div>
     </div>
 </section>
-
-<style>
-    /* 1. EL CONTENEDOR */
-    .hero-fullscreen {
-        height: calc(100vh - 100px);
-        min-height: calc(100vh - 100px);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 1rem;
-        margin: 0;
-        background-color: var(--color-fondo);
-        position: relative; /* CRUCIAL: Mantiene el scroll-hint atrapado en esta pantalla */
-    }
-
-    @media (max-width: 768px) {
-        .hero-fullscreen {
-            /* En móvil reservamos alrededor de 110px, que es la altura calculada del header apilado */
-            height: calc(100svh - 110px); 
-            min-height: calc(100svh - 110px);
-        }
-    }
-
-    /* 2. EL TÍTULO (Escalado Agresivo) */
-    :global(.hero-title) {
-        font-weight: 900;
-        color: var(--color-primario);
-        margin: 0;
-        display: inline-block;
-        line-height: 0.9;
-        letter-spacing: -0.05em;
-
-        /* 🔥 MÓVIL: Fuerza a que el texto ocupe el 12% del ancho total de la pantalla por letra */
-        font-size: clamp(3rem, 12vw, 7rem);
-
-        @media (min-width: 768px) {
-            font-size: 6rem;
-        }
-
-        @media (min-width: 1024px) {
-            font-size: 8rem;
-        }
-    }
-
-    /* 3. EL SUBTÍTULO */
-    :global(.hero-subtitle) {
-        color: var(--color-secundario);
-        font-weight: 500;
-        margin-top: 1rem;
-        display: inline-block;
-        max-width: 95%; /* Evita que se pegue a los bordes exactos */
-
-        /* 🔥 MÓVIL: Subida drástica de legibilidad */
-        font-size: clamp(1.1rem, 5vw, 2.2rem);
-        line-height: 1.2;
-
-        @media (min-width: 768px) {
-            font-size: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        @media (min-width: 1024px) {
-            font-size: 3rem;
-            margin-top: 1rem;
-            max-width: 800px;
-        }
-    }
-
-    /* 4. EL INDICADOR DE SCROLL */
-    .scroll-hint {
-        position: absolute;
-        bottom: 2rem;
-        left: 50%; /* Matemática de centrado estricto */
-        transform: translateX(-50%); /* Matemática de centrado estricto */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.2em;
-        font-size: 0.75rem;
-        color: var(--color-primario);
-        opacity: 0.8;
-    }
-
-    .line {
-        width: 2px;
-        height: 60px;
-        background: var(--color-primario);
-        animation: pulse 2s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-        0%, 100% { height: 40px; opacity: 0.3; }
-        50% { height: 70px; opacity: 1; }
-    }
-</style>

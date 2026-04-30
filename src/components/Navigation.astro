@@ -15,49 +15,6 @@ const navItems = [
     {href:homeURL, label: t('nav.contact')},
 ]
 ---
-<nav>
-    {navItems.map((item) => (<a href={item.href}>{item.label}</a>))}
+<nav class="flex gap-8 justify-center flex-wrap max-md:gap-2 max-md:w-full">
+    {navItems.map((item) => (<a href={item.href} class="text-xl text-secundario no-underline font-sans font-medium transition-colors duration-300 px-4 py-2 rounded-lg hover:underline max-md:text-[0.95rem] max-md:px-[0.6rem] max-md:text-center max-md:flex-[0_1_auto]">{item.label}</a>))}
 </nav>
-
-<style>
-    nav {
-        display: flex;
-        gap: 2rem;
-        justify-content: center;
-        flex-wrap: wrap; /* El salvavidas para que no haya desbordamientos */
-    }
-
-    a {
-        font-size: 1.25rem;
-        color: var(--color-secundario);
-        text-decoration: none;
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        padding: 0.5rem 1rem; /* Ampliamos el área táctil */
-        border-radius: 8px; /* Opcional, pero prepara el terreno para hover states más limpios */
-    }
-
-    a:hover {
-        text-decoration: underline;
-        /* Si prefieres un efecto de fondo en lugar de subrayado, cambia esto por:
-        background-color: rgba(0,0,0,0.05);
-        text-decoration: none; */
-    }
-
-    /* --- ESTILOS RESPONSIVE --- */
-    @media (max-width: 768px) {
-        nav {
-            gap: 0.5rem; /* Reducimos drásticamente la separación */
-            width: 100%;
-            justify-content: center;
-        }
-
-        a {
-            font-size: 0.95rem; /* Reducimos el tamaño de la fuente */
-            padding: 0.5rem 0.6rem; /* Ajustamos el padding para móviles */
-            text-align: center;
-            flex: 0 1 auto; /* Permite que los enlaces se adapten al espacio disponible */
-        }
-    }
-</style>

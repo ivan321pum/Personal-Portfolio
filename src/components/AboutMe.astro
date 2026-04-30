@@ -6,7 +6,8 @@ const lang = Astro.currentLocale || 'es';
 const t = useTranslations(lang);
 ---
 
-<div class="cards-container" style="display: flex; flex-direction: column; gap: 0;">
+<div class="w-[100vw] relative left-1/2 -ml-[50vw] bg-fondo p-0 overflow-visible">
+    <div class="w-full flex flex-col gap-0">
     <InfoCard
             client:visible
             title={t('about.title1')}
@@ -40,28 +41,5 @@ const t = useTranslations(lang);
             titleColor={'var(--color-secundario)'}
             subtitleColor={'var(--color-secundario)'}
     />
+    </div>
 </div>
-
-
-<style>
-    /* EL ROMPE-CONTENEDORES ABSOLUTO */
-    #sobre-mi {
-        /* Fuerza la sección al centro absoluto de la pantalla */
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        margin-left: -50vw;
-        background-color: var(--color-fondo);
-        /* Aseguramos que no haya espacio extra */
-        padding: 0;
-        /* IMPORTANTE: No cortes el flujo horizontal todavía */
-        overflow: visible;
-    }
-
-    .cards-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-</style>

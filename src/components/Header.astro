@@ -3,124 +3,17 @@ import Navigation from "./Navigation.astro";
 import { Image } from "astro:assets";
 import avatarImg from "../../public/assets/images/avatar_ivan.webp";
 ---
-<header class="header-outer">
-    <div class="header-inner">
-        <div class="logo">
-            <div class="profile-frame">
-                <Image src={avatarImg} alt="Foto de Iván" class="profile-pic" loading="eager" />
+<header class="bg-fondo-secundario w-full text-secundario rounded-b-[20px] shadow-[0_4px_15px_rgba(0,0,0,0.1)] relative z-[100] box-border">
+    <div class="flex justify-between items-center py-6 px-8 max-w-[1400px] mx-auto w-full box-border max-md:p-4 max-md:flex-col max-md:gap-4">
+        <div class="flex items-center gap-4 max-md:gap-2">
+            <div class="w-[60px] h-[60px] rounded-full overflow-hidden flex justify-center items-center shrink-0 border-[3px] border-fondo shadow-[0_4px_10px_rgba(0,0,0,0.1)] max-md:w-[45px] max-md:h-[45px]">
+                <Image src={avatarImg} alt="Foto de Iván" class="w-full h-full object-cover" loading="eager" />
             </div>
-            <div class="text-group">
-                <span class="name-text">Iván Sevilla</span>
-                <span class="status-dot">Online</span>
+            <div class="flex flex-col leading-none">
+                <span class="font-black text-2xl tracking-[-0.02em] max-md:text-[1.2rem]">Iván Sevilla</span>
+                <span class="text-[0.7rem] uppercase tracking-widest opacity-80 mt-1 flex items-center gap-1 max-md:hidden before:content-['•'] before:text-[#4ade80] before:inline-block">Online</span>
             </div>
         </div>
         <Navigation></Navigation>
     </div>
 </header>
-
-<style>
-    .header-outer {
-        background-color: var(--color-fondo-secundario);
-        width: 100%;
-        color: var(--color-secundario);
-        /* Eliminamos los prefijos -moz- y usamos estándar */
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        box-sizing: border-box;
-        /* Profundidad sobre el fondo */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        position: relative;
-        z-index: 100;
-    }
-
-    .header-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5rem 2rem; /* Más alto para "llenar" más */
-        max-width: 1400px;
-        margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 16px; /* Más aire */
-    }
-
-    .text-group {
-        display: flex;
-        flex-direction: column;
-        line-height: 1;
-    }
-
-    .name-text {
-        font-weight: 900;
-        font-size: 1.5rem;
-        letter-spacing: -0.02em;
-    }
-
-    .status-dot {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        opacity: 0.8;
-        margin-top: 4px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .status-dot::before {
-        content: "•";
-        color: #4ade80; /* Un verde vibrante */
-        display: inline-block;
-    }
-
-    .profile-frame {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        border: 3px solid var(--color-fondo); /* Contraste con el naranja */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .profile-pic {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* --- RESPONSIVE DE INGENIERÍA --- */
-    @media (max-width: 768px) {
-        .header-inner {
-            padding: 1rem;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .logo {
-            gap: 8px;
-        }
-
-        .name-text {
-            font-size: 1.2rem;
-        }
-
-        .profile-frame {
-            width: 45px;
-            height: 45px;
-        }
-
-        .status-dot {
-            display: none; /* Limpiamos ruido en móvil */
-        }
-    }
-</style>
