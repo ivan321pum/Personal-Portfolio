@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import {useTranslations} from "../i18n/ui.js";
 
 const lang = Astro.currentLocale || 'es';
@@ -16,5 +17,13 @@ const navItems = [
 ]
 ---
 <nav class="flex gap-8 justify-center flex-wrap max-md:gap-2 max-md:w-full">
-    {navItems.map((item) => (<a href={item.href} class="text-xl text-secundario no-underline font-sans font-medium transition-colors duration-300 px-4 py-2 rounded-lg hover:underline max-md:text-[0.95rem] max-md:px-[0.6rem] max-md:text-center max-md:flex-[0_1_auto]">{item.label}</a>))}
+    {navItems.map((item) => (<a href={item.href} 
+    class="text-xl text-secundario no-underline font-sans font-medium transition-colors duration-300 px-4 py-2 rounded-lg hover:underline max-md:text-[0.95rem] max-md:px-[0.6rem] max-md:text-center max-md:flex-[0_1_auto]">
+    {item.label}</a>))}
+    <a href="https://github.com/ivan321pum" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="flex items-center">
+        <Icon name="mdi:github" class="w-7 h-7 text-secundario hover:text-primario transition-colors" />
+    </a>
+    <a href="https://www.linkedin.com/in/ivan-sevilla-gomez/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="flex items-center">
+        <Icon name="mdi:linkedin" class="w-7 h-7 text-secundario hover:text-primario transition-colors" />
+    </a>
 </nav>
