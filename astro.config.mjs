@@ -12,8 +12,8 @@ export default defineConfig({
     defaultLocale: "es",
     locales: ["es", "en"],
     routing: {
-      prefixDefaultLocale: true, // El español no lleva /es/, el inglés sí lleva /en/
-      redirectToDefaultLocale: true // Activa la detección de idioma
+      prefixDefaultLocale: true, 
+      redirectToDefaultLocale: false // Apagamos la redirección forzada
     }
   },
 
