@@ -1,14 +1,19 @@
 ---
+import DockLayout from "./DockLayout.astro";
+
 const {pathname} = Astro.url; /*cogemos la url actual del usuario*/
 
 const currentLang = pathname.split("/")[1]
-
-const targetLang = currentLang === 'es' ? 'en' : 'es';
-
-const targetUrl = pathname.replace(`/${currentLang}`, `/${targetLang}`)
 ---
 
-<a href={targetUrl} class="fixed bottom-8 right-8 z-[1000] flex justify-center items-center min-w-[60px] h-[60px] bg-secundario text-fondo no-underline font-bold text-[1.1rem] rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-300 ease-in-out hover:bg-primario">
-    {targetLang.toUpperCase()}
-</a>
+
+<DockLayout>
+    <span slot="trigger" class="font-bold text-[1.1rem]">{currentLang.toUpperCase()}</span>
+
+  <nav slot="menu" class="flex flex-col gap-1 w-full text-center min-w-20">
+    <a href="/es" class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold">ES</a>
+    <a href="/en" class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold">EN</a>
+    <a href="/zh" class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold">ZH</a> 
+  </nav>
+</DockLayout>
 

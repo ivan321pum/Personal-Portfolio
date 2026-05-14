@@ -1,0 +1,25 @@
+---
+
+---
+<div class="fixed bottom-8 right-8 flex flex-col items-end gap-3 z-1000">
+    <div id="dock-menu" class = "hidden gap-2 bg-fondo border border-secundario/20 p-3 rounded-2xl shadow-xl transition-all duration-300 origin-bottom">
+    <slot name="menu"/>
+    </div>
+
+    <button id="dock-trigger" class="flex justify-center items-center min-w-15 h-15 bg-secundario text-fondo rounded-full shadow-lg transition-all duration-300 hover:bg-primario hover:scale-105">
+        <slot name="trigger"/>
+    </button>
+</div>
+
+<script>
+    const trigger = document.getElementById('dock-trigger');
+    const menu = document.getElementById('dock-menu');
+    if (trigger && menu) {
+        trigger.addEventListener('click', () => {
+            menu.classList.toggle('hidden')
+            menu.classList.toggle('flex')
+            menu.classList.toggle('flex-col')
+        });
+    }
+    
+</script>
