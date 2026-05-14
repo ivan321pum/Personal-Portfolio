@@ -27,7 +27,7 @@ export default function InfoCard({
     // quieres que transforme.
 
     // --- DURACIÓN DEL SCROLL SEGÚN DISPOSITIVOS ---
-    const heightLong = isMobile ? '200vh' : '300vh';
+    const heightLong = isMobile ? '200vh' : '250vh';
 
     // --- TRANSFORMACIONES COMPARTIDAS ---
     const imgScale = useTransform(scrollYProgress, [0, 0.4], [1.1, 1]);
@@ -35,9 +35,9 @@ export default function InfoCard({
 
     // --- LÓGICA DE VIDEO (Desktop vs Mobile) ---
     const imgWidth = useTransform(scrollYProgress, [0, 0.4], ["100vw", isMobile ? "90vw" : "40vw"]);
-    const imgHeight = useTransform(scrollYProgress, [0, 0.4], ["100vh", isMobile ? "50vh" : "60vh"]);
-    const imgTop = useTransform(scrollYProgress, [0, 0.4], ["0%", isMobile ? "5%" : "20%"]);
-    const imgLeft = useTransform(scrollYProgress, [0, 0.4], ["0%", isMobile ? "5%" : (direction === 'left' ? "5%" : "55%")]);
+    const imgHeight = useTransform(scrollYProgress, [0, 0.8], ["100vh", isMobile ? "50vh" : "60vh"]);
+    const imgTop = useTransform(scrollYProgress, [0, 0.8], ["0%", isMobile ? "5%" : "20%"]);
+    const imgLeft = useTransform(scrollYProgress, [0, 0.8], ["0%", isMobile ? "5%" : (direction === 'left' ? "5%" : "55%")]);
 
     // --- LÓGICA DE TEXTO (Aparece después) ---
     const textOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);

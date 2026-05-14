@@ -56,30 +56,55 @@ export const ui = {
         'about.subtitle3': 'Languages & Free Time',
         'about.description3': 'Beyond code, I pursue the same level of growth. I train at the gym, speak English (B2), and I am currently learning Dutch and piano. To disconnect: gaming and Queen\'s discography at full volume. It\'s what keeps my focus sharp.',
     },
-    zh: {
-        // 网站标题 (Web Title)
-        'website.title': 'Iván Sevilla, 工程系学生',
-        // 英雄版块 (Hero)
+    cat: {
+        // Títol web
+        'website.title': 'Iván Sevilla, estudiant d\'enginyeria',
+        // Hero
         'hero.title': 'Iván Sevilla',
-        'hero.subtitle': 'UPV（瓦伦西亚理工大学）电信工程专业学生',
-        'hero.scroll': '向下滚动',
-        // 导航栏 (Nav)
-        'nav.start': '首页',
-        'nav.about': '关于我',
-        'nav.projects': '我的项目',
-        'nav.contact': '联系方式',
-        // 关于 (About)
-        'about.title1': '开发与实验',
-        'about.subtitle1': '软件逻辑与人工智能',
-        'about.description1': '我使用 Python 和 C 解决问题，探索从前端到人工智能的各个领域。目前的重点是深入研究后端，以获得对软件开发的全面了解。我不急于寻找特定细分领域；我旨在理解整个系统的底层架构。',
+        'hero.subtitle': 'Estudiant d\'Enginyeria de Telecomunicacions a la UPV',
+        'hero.scroll': 'SCROLL',
+        // Nav
+        'nav.start': 'Inici',
+        'nav.about': 'Sobre mi',
+        'nav.projects': 'Els meus projectes',
+        'nav.contact': 'Contacte',
+        // About
+        'about.title1': 'Desenvolupament i Experimentació',
+        'about.subtitle1': 'Lògica de Programari i IA',
+        'about.description1': 'Resolc problemes amb Python i C, explorant des del frontend fins a la Intel·ligència Artificial. El meu objectiu actual és endinsar-me en el backend per tindre una visió global del desenvolupament de programari. No tinc pressa per especialitzar-me; vull entendre tot el sistema primer.',
 
-        'about.title2': '工程与基础',
-        'about.subtitle2': 'UPV 电信工程',
-        'about.description2': '我目前就读电信工程一年级，旨在打下坚不可摧的数学和物理基础。我对需要高强度脑力的软件很感兴趣：复杂的算法以及以物理和微积分为核心驱动的项目。只要掌握了代码背后的科学，我的创造就永无止境。',
+        'about.title2': 'Enginyeria i Fonaments',
+        'about.subtitle2': 'Telecomunicacions a la UPV',
+        'about.description2': 'Actualment en el meu 1r any d\'Enginyeria de Telecomunicacions per a construir una base matemàtica i física infrangible. M\'atrau el programari que exigeix un gran esforç mental: algoritmes complexos i projectes impulsats per la física i el càlcul. Entendre la ciència darrere del codi és el meu avantatge.',
 
-        'about.title3': '文化与专注',
-        'about.subtitle3': '语言与业余时间',
-        'about.description3': '在代码之外，我也追求同等水平的自我提升。我在健身房锻炼，掌握英语（B2），目前正在学习荷兰语和钢琴。至于放松，没有什么比打游戏和把 Queen（皇后乐队）的专辑音量开到最大更棒的了。这是我保持专注的核心燃料。',
+        'about.title3': 'Cultura i Enfocament',
+        'about.subtitle3': 'Idiomes i Temps Lliure',
+        'about.description3': 'Més enllà del codi, busque el mateix nivell de creixement. Entrene al gimnàs, parle anglés (B2), i actualment aprenc neerlandés i piano. Per a desconnectar: videojocs i la discografia de Queen a tot volum. És el que manté el meu enfocament nítid.',
+    },
+    nl: {
+        // Web titel
+        'website.title': 'Iván Sevilla, ingenieursstudent',
+        // Hero
+        'hero.title': 'Iván Sevilla',
+        'hero.subtitle': 'Student Telecommunicatie aan de UPV',
+        'hero.scroll': 'SCROLL',
+        // Nav
+        'nav.start': 'Home',
+        'nav.about': 'Over mij',
+        'nav.projects': 'Mijn projecten',
+        'nav.contact': 'Contact',
+        // About
+        'about.title1': 'Ontwikkeling & Experimentatie',
+        'about.subtitle1': 'Softwarelogica & AI',
+        'about.description1': 'Ik los problemen op met Python en C, en verken alles van frontend tot Kunstmatige Intelligentie. Mijn huidige doel is om me in de backend te verdiepen voor een holistische kijk op softwareontwikkeling. Ik heb geen haast om me te specialiseren; ik wil eerst het hele systeem begrijpen.',
+
+        'about.title2': 'Engineering & Fundamenten',
+        'about.subtitle2': 'Telecommunicatie aan de UPV',
+        'about.description2': 'Momenteel in mijn 1e jaar Telecommunicatie om een onbreekbare wiskundige en fysieke basis op te bouwen. Ik word aangetrokken door software die mentaal zwaar werk vereist: complexe algoritmen en projecten gedreven door fysica en calculus. De wetenschap achter de code begrijpen, is mijn voorsprong.',
+
+        'about.title3': 'Cultuur & Focus',
+        'about.subtitle3': 'Talen & Vrije Tijd',
+        'about.description3': 'Naast het coderen streef ik naar hetzelfde niveau van groei. Ik train in de fitness, spreek Engels (B2), en leer momenteel Nederlands en piano. Om te ontspannen: gamen en de discografie van Queen op vol volume. Dat is wat mijn focus scherp houdt.',
     }
 }
 

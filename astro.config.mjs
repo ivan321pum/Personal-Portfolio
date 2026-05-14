@@ -2,6 +2,9 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
+import { ui } from './src/i18n/ui';
+
+const supportedLanguages = Object.keys(ui);
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +13,7 @@ export default defineConfig({
 
   i18n: {
     defaultLocale: "es",
-    locales: ["es", "en", "zh"],
+    locales: supportedLanguages,
     routing: {
       prefixDefaultLocale: true, 
       redirectToDefaultLocale: false // Apagamos la redirección forzada

@@ -1,19 +1,26 @@
 ---
 import DockLayout from "./DockLayout.astro";
+import { ui } from "../i18n/ui";
 
 const {pathname} = Astro.url; /*cogemos la url actual del usuario*/
-
 const currentLang = pathname.split("/")[1]
+
+const languages = Object.keys(ui)
 ---
 
-
 <DockLayout>
-    <span slot="trigger" class="font-bold text-[1.1rem]">{currentLang.toUpperCase()}</span>
-
-  <nav slot="menu" class="flex flex-col gap-1 w-full text-center min-w-20">
-    <a href="/es" class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold">ES</a>
-    <a href="/en" class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold">EN</a>
-    <a href="/zh" class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold">ZH</a> 
+  <span slot="trigger" class="font-bold text-[1.1rem]">
+      {currentLang.toUpperCase()}
+    </span>
+  <nav slot="menu" class="flex flex-col gap-1 w-full text-center min-w-[80px]">
+    {languages.map((lang) => (
+      <a 
+        href={`/${lang}`} 
+        class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold"
+      >
+        {lang.toUpperCase()}
+      </a>
+    ))}
   </nav>
 </DockLayout>
 
