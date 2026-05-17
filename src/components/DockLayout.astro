@@ -2,9 +2,10 @@
 const { position } = Astro.props;
 
 const claseAlineacion = position === 'izquierda' ? 'left-8' : 'right-8';
+const claseMenuAlineacion = position === 'izquierda' ? 'left-0' : 'right-0';
 ---
 <div class={`dock-container fixed bottom-8 ${claseAlineacion} z-1000`}>
-    <div class="dock-menu absolute hidden gap-2 bg-fondo border border-secundario/20 p-3 rounded-2xl shadow-xl transition-all duration-300 origin-bottom bottom-20 right-0">
+    <div class={`dock-menu absolute hidden gap-2 bg-fondo border border-secundario/20 p-3 rounded-2xl shadow-xl transition-all duration-300 origin-bottom bottom-20 ${claseMenuAlineacion}`}>
         <slot name="menu"/>
     </div>
 
