@@ -1,0 +1,24 @@
+---
+import DockLayout from "./DockLayout.astro";
+
+const temas = ["news-of-the-world", "queen-ii", "a-night-at-the-opera"];
+---
+
+<!--- No hacemos un componente de react sino lo hacemos con js vanilla por simplicidad y poder usar nuestro layout -->
+
+<DockLayout position = "izquierda">
+  <span slot="trigger" class="font-bold text-[1.1rem]">
+    {/* Aquí mostraremos el tema activo más adelante */}
+    TEMA
+  </span>
+  <nav slot="menu" class="flex flex-col gap-1 w-full text-center min-w-[80px]">
+    {temas.map((tema) => (
+      <button 
+        data-theme={tema}
+        class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold capitalize"
+      >
+        {tema.replace(/-/g, " ")}
+      </button>
+    ))}
+  </nav>
+</DockLayout>

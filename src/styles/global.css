@@ -1,14 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primario: #1A2B3C;
-  --color-secundario: #6FCF97;
-  --color-fondo: #F4F4F4;
-  --color-texto: #333333;
-  --color-fondo-secundario: #D1D5DB;
+  --color-primario: var(--tema-primario);
+  --color-secundario: var(--tema-secundario);
+  --color-fondo: var(--tema-fondo);
+  --color-texto: var(--tema-texto);
+  --color-fondo-secundario: var(--tema-fondo-secundario);
 }
 
 @layer base {
+  /* 2. Tema por defecto (news-of-the-world) asignado a la raíz */
+  :root {
+    --tema-primario: #1A2B3C;
+    --tema-secundario: #6FCF97;
+    --tema-fondo: #F4F4F4;
+    --tema-texto: #333333;
+    --tema-fondo-secundario: #D1D5DB;
+  }
+
+  /* 3. Nuevos colores cuando el HTML reciba la clase "dark" */
+  .queen-II {
+    --tema-primario: #0d151e;
+    --tema-secundario: #3d885d;
+    --tema-fondo: #121212;
+    --tema-texto: #e0e0e0;
+    --tema-fondo-secundario: #1f2937;
+  }
 
   html,
   body {
