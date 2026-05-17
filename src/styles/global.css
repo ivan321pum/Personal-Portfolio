@@ -18,13 +18,49 @@
     --tema-fondo-secundario: #D1D5DB;
   }
 
-  /* 3. Nuevos colores cuando el HTML reciba la clase "dark" */
-  .queen-II {
+  /* Tema: news-of-the-world (default, mismo que :root) */
+  .news-of-the-world {
+    --tema-primario: #1A2B3C;
+    --tema-secundario: #6FCF97;
+    --tema-fondo: #F4F4F4;
+    --tema-texto: #333333;
+    --tema-fondo-secundario: #D1D5DB;
+  }
+
+  /* Tema: queen-ii */
+  .queen-ii {
     --tema-primario: #0d151e;
     --tema-secundario: #3d885d;
     --tema-fondo: #121212;
     --tema-texto: #e0e0e0;
     --tema-fondo-secundario: #1f2937;
+  }
+
+  /* Tema: a-night-at-the-opera */
+  .a-night-at-the-opera {
+    --tema-primario: #2d1b0c;
+    --tema-secundario: #d4a574;
+    --tema-fondo: #1a0f08;
+    --tema-texto: #f5e6d3;
+    --tema-fondo-secundario: #3d2817;
+  }
+
+  /* Tema: jazz */
+  .jazz {
+    --tema-primario: #1a1a2e;
+    --tema-secundario: #e94560;
+    --tema-fondo: #0f0f1e;
+    --tema-texto: #e8e8f0;
+    --tema-fondo-secundario: #262641;
+  }
+
+  /* Tema: the-game */
+  .the-game {
+    --tema-primario: #1a1a1a;
+    --tema-secundario: #ffd700;
+    --tema-fondo: #0d0d0d;
+    --tema-texto: #e0e0e0;
+    --tema-fondo-secundario: #242424;
   }
 
   html,

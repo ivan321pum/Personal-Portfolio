@@ -1,46 +1,52 @@
 ---
 import DockLayout from "./DockLayout.astro";
-
-// 1. Definimos los temas disponibles (nombres de los álbumes)
-const temas = ["news-of-the-world", "queen-ii", "a-night-at-the-opera", "jazz", "the-game"];
+import { THEMES, DEFAULT_THEME } from "../data/themes";
+import { Icon } from "astro-icon/components";
 ---
 
 <DockLayout position="izquierda">
-  <span slot="trigger" id="theme-text" class="font-bold text-[1.1rem]">
-    NEWS OF THE WORLD
-  </span>
+  <Icon slot="trigger" name="mdi:palette" class="w-6 h-6" />
   
-  <nav slot="menu" class="flex flex-col gap-1 w-full text-center min-w-[150px]">
-    {temas.map((tema) => (
+  <nav slot="menu" class="flex flex-col gap-1 w-full text-center min-w-[180px]">
+    {THEMES.map((tema) => (
       <button 
-        data-theme={tema}
-        class="theme-btn p-2 hover:bg-secundario/10 rounded transition-colors font-bold capitalize"
+        data-theme-id={tema.id}
+        data-theme-class={tema.className}
+        class="theme-btn p-3 hover:bg-secundario/20 rounded transition-colors font-semibold text-sm"
       >
-        {tema.replace(/-/g, " ")}
+        {tema.displayName}
       </button>
     ))}
   </nav>
 </DockLayout>
 
 <script>
-  // Seleccionamos todos los botones con la clase 'theme-btn'
-  const buttons = document.querySelectorAll('.theme-btn');
-  // Seleccionamos el texto del trigger para actualizarlo visualmente
-  const triggerText = document.querySelector('#theme-text');
+  const THEME_STORAGE_KEY = "selected-theme";
+  const DEFAULT_THEME = "news-of-the-world";
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Obtenemos el valor del atributo data-theme
-      const newTheme = button.getAttribute('data-theme');
-      
-      if (newTheme) {
-        // 2. Cambiamos la clase del <html> para activar los estilos del tema
-        document.documentElement.className = newTheme;
+  // Aplicar tema guardado al cargar
+  function applyStoredTheme() {
+    const storedTheme = localStorage.getItem(THEME_STORAGE_KEY) || DEFAULT_THEME;
+    document.documentElement.className = storedTheme;
+  }
+
+  // Aplicar tema almacenado inmediatamente
+  applyStoredTheme();
+
+  // Configurar event listeners
+  const buttons = document.querySelectorAll(".theme-btn");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const themeId = button.getAttribute("data-theme-id");
+      const themeClass = button.getAttribute("data-theme-class");
+
+      if (themeId && themeClass) {
+        // Cambiar clase del html
+        document.documentElement.className = themeClass;
         
-        // 3. Actualizamos el texto del botón principal (trigger)
-        if (triggerText) {
-          triggerText.textContent = newTheme.replace(/-/g, ' ').toUpperCase();
-        }
+        // Guardar en localStorage
+        localStorage.setItem(THEME_STORAGE_KEY, themeId);
       }
     });
   });
