@@ -11,56 +11,56 @@
 @layer base {
   /* 2. Tema por defecto (news-of-the-world) asignado a la raíz */
   :root {
-    --tema-primario: #1A2B3C;
-    --tema-secundario: #6FCF97;
-    --tema-fondo: #F4F4F4;
-    --tema-texto: #333333;
-    --tema-fondo-secundario: #D1D5DB;
+    --tema-primario: #CF2C01;
+    --tema-secundario: #67342C;
+    --tema-fondo: #75C6C8;
+    --tema-texto: #302417;
+    --tema-fondo-secundario: #DFE6D7;
   }
 
   /* Tema: news-of-the-world (default, mismo que :root) */
   .news-of-the-world {
-    --tema-primario: #1A2B3C;
-    --tema-secundario: #6FCF97;
-    --tema-fondo: #F4F4F4;
-    --tema-texto: #333333;
-    --tema-fondo-secundario: #D1D5DB;
+    --tema-primario: #cb4f3a;
+    --tema-secundario: #584437;
+    --tema-fondo: #8C9D72;
+    --tema-texto: #4A3B18;
+    --tema-fondo-secundario: #C6C2B1;
   }
 
   /* Tema: queen-ii */
   .queen-ii {
-    --tema-primario: #0d151e;
-    --tema-secundario: #3d885d;
-    --tema-fondo: #121212;
-    --tema-texto: #e0e0e0;
-    --tema-fondo-secundario: #1f2937;
+    --tema-primario: #FFFEFF;
+    --tema-secundario: #B88558;
+    --tema-fondo: #1D161E;
+    --tema-texto: #E7CAB4;
+    --tema-fondo-secundario: #82696C;
   }
 
   /* Tema: a-night-at-the-opera */
   .a-night-at-the-opera {
-    --tema-primario: #2d1b0c;
-    --tema-secundario: #d4a574;
-    --tema-fondo: #1a0f08;
-    --tema-texto: #f5e6d3;
-    --tema-fondo-secundario: #3d2817;
+    --tema-primario: #F4B547;
+    --tema-secundario: #2F3879;
+    --tema-fondo: #FFFFFF;
+    --tema-texto: #320B1E;
+    --tema-fondo-secundario: #F38AB3 ;
   }
 
   /* Tema: jazz */
-  .jazz {
-    --tema-primario: #1a1a2e;
-    --tema-secundario: #e94560;
-    --tema-fondo: #0f0f1e;
-    --tema-texto: #e8e8f0;
-    --tema-fondo-secundario: #262641;
+  .hot-space {
+    --tema-primario: #18A142;
+    --tema-secundario: #FEFB00;
+    --tema-fondo: #FF2615;
+    --tema-texto: #FFFEFF;
+    --tema-fondo-secundario: #00B0D2;
   }
 
   /* Tema: the-game */
-  .the-game {
-    --tema-primario: #1a1a1a;
-    --tema-secundario: #ffd700;
-    --tema-fondo: #0d0d0d;
-    --tema-texto: #e0e0e0;
-    --tema-fondo-secundario: #242424;
+  .the-miracle {
+    --tema-primario: #CF2C01;
+    --tema-secundario: #67342C;
+    --tema-fondo: #75C6C8;
+    --tema-texto: #302417;
+    --tema-fondo-secundario: #DFE6D7;
   }
 
   html,

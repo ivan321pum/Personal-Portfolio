@@ -27,6 +27,13 @@ const t = useTranslations(lang);
     <main class="max-w-[1100px] mx-auto px-8 max-md:px-4">
     <slot></slot> <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
     </main>
-
+    <style is:global>
+    /* Transición selección de temas */
+    *, *::before, *::after {
+        transition-property: background-color, color, border-color, fill, stroke;
+        transition-duration: 500ms; 
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+</style>
 </body>
 </html>
