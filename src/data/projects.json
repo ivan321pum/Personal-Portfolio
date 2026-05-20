@@ -1,6 +1,7 @@
 [
     {
         "id": "proyecto-ejemplo",
+        "image-src": "../../../assets/images/captura-web.webp",
         "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
         "title": {
             "es": "Proyecto de ejemplo",
@@ -15,6 +16,7 @@
     },
     {
         "id": "proyecto-ejemplo-2",
+        "image-src": "../../../assets/images/captura-web.webp",
         "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
         "title": {
             "es": "Proyecto de ejemplo 2",
@@ -25,10 +27,11 @@
             "en": "Project description in English."
         },
         "tags": ["javascript", "frontend", "react"],
-        "size": "large"
+        "size": "medium"
     },
     {
         "id": "proyecto-ejemplo-3",
+        "image-src": "../../../assets/images/captura-web.webp",
         "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
         "title": {
             "es": "Proyecto de ejemplo 3",
@@ -39,6 +42,6 @@
             "en": "Project description in English."
         },
         "tags": ["javascript", "frontend", "react"],
-        "size": "small"
+        "size": "medium"
     }
 ]
