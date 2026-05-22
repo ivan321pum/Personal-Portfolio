@@ -20,13 +20,13 @@ export default function BentoGrid ({lang, title}){
             offset: ["start start", "end end"]
         }
     );
-    const gridMovement = useTransform(scrollYProgress, [0, 0.9], ["100vw", "0vw"])
+    const gridMovement = useTransform(scrollYProgress, [0.2, 0.9], ["100vw", "-100%"])
     const titleMovement = useTransform(scrollYProgress, [0, 0.4], ["0vw", "-100vw"])
 
     const projects = projectsData
     const sizeClasses = {
-        medium : "md:col-span-2 md:row-span-1 bg-[var(--color-fondo-secundario)] text-[var(--color-texto)]",
-        large : "md:col-span-2 md:row-span-2 bg-[var(--color-primario)] text-[var(--color-texto)]",
+        medium : "w-[85vw] md:w-[400px] shrink-0 bg-[var(--color-fondo-secundario)] text-[var(--color-texto)]",
+        large : "w-[85vw] md:w-[600px] shrink-0 bg-[var(--color-primario)] text-[var(--color-texto)]",
     }
 
     const handleCardClick = (projectId, e) => {
@@ -36,7 +36,7 @@ export default function BentoGrid ({lang, title}){
     }
 
     return(
-        <div ref={containerRef} className="h-[400vh] relative w-full bg-fondo">
+        <div ref={containerRef} className="h-[600vh] relative w-full bg-fondo">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 <motion.div style = {{x:titleMovement}} 
                     className="absolute z-10 flex items-center justify-center pointer-events-none">
@@ -47,7 +47,7 @@ export default function BentoGrid ({lang, title}){
 
                 </motion.div>
 
-                <motion.div style = {{x:gridMovement}} className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full px-8">
+                <motion.div style = {{x:gridMovement}} className="flex w-max gap-6 px-8">
                     {projects.map((project) =>(
                     <motion.div 
                     onClick={(e) => handleCardClick(project.id, e)} 
@@ -56,6 +56,7 @@ export default function BentoGrid ({lang, title}){
                     className={`rounded-3xl p-6 cursor-pointer ${sizeClasses[project.size]} ${selectedProject === project.id ? 'invisible' : ''}`}
                     whileHover={selectedProject === null ? {scale:1.05} : {}}
                     transition={cardAnimation}>
+                        <img src={project["image-src"]}/>
                         <h1>{project.title[lang]}</h1>
                         <p>{project.description[lang]}</p>
                     </motion.div>

@@ -15,7 +15,37 @@
         "size": "large"
     },
     {
-        "id": "proyecto-ejemplo-2",
+        "id": "proyecto-ejemplo-3",
+        "image-src": "../../../assets/images/captura-web.webp",
+        "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
+        "title": {
+            "es": "Proyecto de ejemplo 3",
+            "en": "Example project 3"
+        },
+        "description": {
+            "es": "Descripción del proyecto en español.",
+            "en": "Project description in English."
+        },
+        "tags": ["javascript", "frontend", "react"],
+        "size": "medium"
+    },
+    {
+        "id": "proyecto-ejemplo-4",
+        "image-src": "../../../assets/images/captura-web.webp",
+        "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
+        "title": {
+            "es": "Proyecto de ejemplo",
+            "en": "Example project"
+        },
+        "description": {
+            "es": "Descripción del proyecto en español.",
+            "en": "Project description in English."
+        },
+        "tags": ["javascript", "frontend", "react"],
+        "size": "large"
+    },
+    {
+        "id": "proyecto-ejemplo-5",
         "image-src": "../../../assets/images/captura-web.webp",
         "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
         "title": {
@@ -30,7 +60,52 @@
         "size": "medium"
     },
     {
-        "id": "proyecto-ejemplo-3",
+        "id": "proyecto-ejemplo-6",
+        "image-src": "../../../assets/images/captura-web.webp",
+        "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
+        "title": {
+            "es": "Proyecto de ejemplo 3",
+            "en": "Example project 3"
+        },
+        "description": {
+            "es": "Descripción del proyecto en español.",
+            "en": "Project description in English."
+        },
+        "tags": ["javascript", "frontend", "react"],
+        "size": "medium"
+    },
+    {
+        "id": "proyecto-ejemplo-7",
+        "image-src": "../../../assets/images/captura-web.webp",
+        "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
+        "title": {
+            "es": "Proyecto de ejemplo",
+            "en": "Example project"
+        },
+        "description": {
+            "es": "Descripción del proyecto en español.",
+            "en": "Project description in English."
+        },
+        "tags": ["javascript", "frontend", "react"],
+        "size": "large"
+    },
+    {
+        "id": "proyecto-ejemplo-8",
+        "image-src": "../../../assets/images/captura-web.webp",
+        "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
+        "title": {
+            "es": "Proyecto de ejemplo 2",
+            "en": "Example project 2"
+        },
+        "description": {
+            "es": "Descripción del proyecto en español.",
+            "en": "Project description in English."
+        },
+        "tags": ["javascript", "frontend", "react"],
+        "size": "medium"
+    },
+    {
+        "id": "proyecto-ejemplo-9",
         "image-src": "../../../assets/images/captura-web.webp",
         "githubUrl": "https://github.com/usuario/proyecto-ejemplo",
         "title": {
