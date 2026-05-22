@@ -9,9 +9,8 @@ export default function BentoGrid ({lang, title}){
     // Animación suave con spring para transiciones fluidas
     const cardAnimation = {
         type: "spring",
-        stiffness: 200,
-        damping: 30,
-        mass: 0.8
+        stiffness: 250,
+        damping: 35
     }
 
     const containerRef = useRef();
@@ -47,19 +46,17 @@ export default function BentoGrid ({lang, title}){
                     <motion.div 
                     onClick ={() => setSelectedProject(project.id)} 
                     key = {project.id}
-                    layoutId={selectedProject === project.id ? `card-${project.id}` : undefined}
+                    layoutId={`card-${project.id}`}
                     className={`rounded-3xl p-6 cursor-pointer ${sizeClasses[project.size]}`}
                     whileHover={selectedProject === null ? {scale:1.05} : {}}
-                    whileTap={selectedProject === null ? {scale:0.95} : {}}
                     transition={cardAnimation}>
                         <h1>{project.title[lang]}</h1>
-                        {/*<img src={project["image-src"]}></img>*/}
                         <p>{project.description[lang]}</p>
                     </motion.div>
                     ))}
                 </motion.div>
 
-                <AnimatePresence mode="wait">
+                <AnimatePresence>
                     {selectedProject ? (
                         <>
                             {/* Backdrop con animación suave */}
@@ -68,18 +65,16 @@ export default function BentoGrid ({lang, title}){
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.2 }}
+                                transition={{ duration: 0.25 }}
                                 onClick={() => setSelectedProject(null)}
                             />
                             
                             {/* LA TARJETA EXPANDIDA */}
-                            <motion.div 
-                                layoutId={`card-${selectedProject}`}
-                                className="fixed inset-0 z-50 flex items-center justify-center p-8 pointer-events-none"
-                                transition={cardAnimation}
-                            >
+                            <div className="fixed inset-0 z-50 flex items-center justify-center p-8 pointer-events-none">
                                 <motion.div 
+                                    layoutId={`card-${selectedProject}`}
                                     className="bg-[var(--color-primario)] w-full max-w-4xl h-[80vh] rounded-3xl p-8 flex flex-col pointer-events-auto"
+                                    transition={cardAnimation}
                                 >
                                     <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
                                         ¡Proyecto Expandido!
@@ -100,7 +95,7 @@ export default function BentoGrid ({lang, title}){
                                         Cerrar
                                     </motion.button>
                                 </motion.div>
-                            </motion.div>
+                            </div>
                         </>
                     ) : null}
                 </AnimatePresence>
