@@ -52,6 +52,7 @@ export default function BentoGrid ({lang, title}){
                     <motion.div 
                     onClick={(e) => handleCardClick(project.id, e)} 
                     key = {project.id}
+                    layoutId={`card-${project.id}`}
                     className={`rounded-3xl p-6 cursor-pointer ${sizeClasses[project.size]} ${selectedProject === project.id ? 'invisible' : ''}`}
                     whileHover={selectedProject === null ? {scale:1.05} : {}}
                     transition={cardAnimation}>
@@ -76,6 +77,7 @@ export default function BentoGrid ({lang, title}){
                             
                             {/* LA TARJETA EXPANDIDA - Animación desde posición original */}
                             <motion.div 
+                                layoutId={`card-${selectedProject}`}
                                 className="fixed inset-0 z-50 flex items-center justify-center p-8 pointer-events-none"
                                 initial={{
                                     x: selectedRect.left + selectedRect.width / 2 - window.innerWidth / 2,
