@@ -113,24 +113,44 @@ export default function BentoGrid ({lang, title}){
                                     transition={cardAnimation}
                                     className="bg-[var(--color-primario)] rounded-3xl p-8 flex flex-col pointer-events-auto overflow-hidden"
                                 >
-                                    <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
-                                        ¡Proyecto Expandido!
-                                    </h2>
-                                    
-                                    <p className="text-lg mb-6 flex-1 overflow-y-auto text-[var(--color-texto)]">
-                                        Contenido del proyecto expandido...
-                                    </p>
-                                    
-                                    {/* Botón para cerrar */}
-                                    <motion.button 
-                                        onClick={() => setSelectedProject(null)}
-                                        className="mt-auto bg-black text-white py-3 px-6 rounded-full self-start font-semibold"
-                                        whileHover={{ scale: 1.05, backgroundColor: "#1a1a1a" }}
-                                        whileTap={{ scale: 0.95 }}
+                                    {/* Contenido pequeño con opacity animada */}
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 0, scale: 0.8 }}
+                                        exit={{ opacity: 1, scale: 1 }}
                                         transition={cardAnimation}
                                     >
-                                        Cerrar
-                                    </motion.button>
+                                        <h1 className="text-sm font-semibold">{projects.find(p => p.id === selectedProject)?.title[lang]}</h1>
+                                        <p className="text-xs">{projects.find(p => p.id === selectedProject)?.description[lang]}</p>
+                                    </motion.div>
+
+                                    {/* Contenido grande con opacity animada */}
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        transition={cardAnimation}
+                                        className="absolute inset-0 p-8 flex flex-col"
+                                    >
+                                        <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
+                                            ¡Proyecto Expandido!
+                                        </h2>
+                                        
+                                        <p className="text-lg mb-6 flex-1 overflow-y-auto text-[var(--color-texto)]">
+                                            Contenido del proyecto expandido...
+                                        </p>
+                                        
+                                        {/* Botón para cerrar */}
+                                        <motion.button 
+                                            onClick={() => setSelectedProject(null)}
+                                            className="mt-auto bg-black text-white py-3 px-6 rounded-full self-start font-semibold"
+                                            whileHover={{ scale: 1.05, backgroundColor: "#1a1a1a" }}
+                                            whileTap={{ scale: 0.95 }}
+                                            transition={cardAnimation}
+                                        >
+                                            Cerrar
+                                        </motion.button>
+                                    </motion.div>
                                 </motion.div>
                             </motion.div>
                         </>
