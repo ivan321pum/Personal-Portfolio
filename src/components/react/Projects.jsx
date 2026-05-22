@@ -48,7 +48,7 @@ export default function BentoGrid ({lang, title}){
                     onClick ={() => setSelectedProject(project.id)} 
                     key = {project.id}
                     layoutId={`card-${project.id}`}
-                    className={`rounded-3xl p-6 cursor-pointer ${sizeClasses[project.size]}`}
+                    className={`rounded-3xl p-6 cursor-pointer ${sizeClasses[project.size]} ${selectedProject === project.id ? 'invisible' : ''}`}
                     whileHover={selectedProject === null ? {scale:1.05} : {}}
                     transition={cardAnimation}>
                         <h1>{project.title[lang]}</h1>
@@ -58,7 +58,7 @@ export default function BentoGrid ({lang, title}){
                 </motion.div>
 
                 <AnimatePresence>
-                    {selectedProject ? (
+                    {selectedProject && (
                         <>
                             {/* Backdrop con animación suave */}
                             <motion.div 
@@ -71,12 +71,13 @@ export default function BentoGrid ({lang, title}){
                             />
                             
                             {/* LA TARJETA EXPANDIDA */}
-                            <div className="fixed inset-0 z-50 flex items-center justify-center p-8 pointer-events-none">
+                            <motion.div 
+                                layoutId={`card-${selectedProject}`}
+                                className="fixed inset-0 z-50 flex items-center justify-center p-8"
+                                transition={cardAnimation}
+                            >
                                 <motion.div 
-                                    layoutId={`card-${selectedProject}`}
                                     className="bg-[var(--color-primario)] w-full max-w-4xl h-[80vh] rounded-3xl p-8 flex flex-col pointer-events-auto"
-                                    transition={cardAnimation}
-                                    key={selectedProject}
                                 >
                                     <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
                                         ¡Proyecto Expandido!
@@ -97,9 +98,9 @@ export default function BentoGrid ({lang, title}){
                                         Cerrar
                                     </motion.button>
                                 </motion.div>
-                            </div>
+                            </motion.div>
                         </>
-                    ) : null}
+                    )}
                 </AnimatePresence>
             </div>
         </div>
