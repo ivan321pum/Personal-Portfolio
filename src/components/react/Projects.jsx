@@ -82,7 +82,7 @@ export default function BentoGrid ({lang, title}){
                                 initial={{
                                     x: selectedRect.left + selectedRect.width / 2 - window.innerWidth / 2,
                                     y: selectedRect.top + selectedRect.height / 2 - window.innerHeight / 2,
-                                    scale: selectedRect.width / (window.innerWidth - 64)
+                                    scale: 1
                                 }}
                                 animate={{
                                     x: 0,
@@ -92,12 +92,26 @@ export default function BentoGrid ({lang, title}){
                                 exit={{
                                     x: selectedRect.left + selectedRect.width / 2 - window.innerWidth / 2,
                                     y: selectedRect.top + selectedRect.height / 2 - window.innerHeight / 2,
-                                    scale: selectedRect.width / (window.innerWidth - 64)
+                                    scale: 1
                                 }}
                                 transition={cardAnimation}
                             >
                                 <motion.div 
-                                    className="bg-[var(--color-primario)] w-full max-w-4xl h-[80vh] rounded-3xl p-8 flex flex-col pointer-events-auto"
+                                    layoutId={`card-content-${selectedProject}`}
+                                    initial={{
+                                        width: selectedRect.width,
+                                        height: selectedRect.height
+                                    }}
+                                    animate={{
+                                        width: window.innerWidth - 64,
+                                        height: window.innerHeight * 0.8
+                                    }}
+                                    exit={{
+                                        width: selectedRect.width,
+                                        height: selectedRect.height
+                                    }}
+                                    transition={cardAnimation}
+                                    className="bg-[var(--color-primario)] rounded-3xl p-8 flex flex-col pointer-events-auto overflow-hidden"
                                 >
                                     <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
                                         ¡Proyecto Expandido!
