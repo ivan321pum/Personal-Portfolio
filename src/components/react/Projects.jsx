@@ -6,12 +6,12 @@ import {useRef, useState} from "react"
 export default function BentoGrid ({lang, title}){
     const [selectedProject, setSelectedProject] = useState(null);
     
-    // Animación suave para transiciones
+    // Animación suave con spring para transiciones fluidas
     const cardAnimation = {
         type: "spring",
-        stiffness: 300,
+        stiffness: 200,
         damping: 30,
-        mass: 1
+        mass: 0.8
     }
 
     const containerRef = useRef();
@@ -47,9 +47,10 @@ export default function BentoGrid ({lang, title}){
                     <motion.div 
                     onClick ={() => setSelectedProject(project.id)} 
                     key = {project.id}
+                    layoutId={selectedProject === project.id ? `card-${project.id}` : undefined}
                     className={`rounded-3xl p-6 cursor-pointer ${sizeClasses[project.size]}`}
-                    whileHover={{scale:1.05}}
-                    whileTap={{scale:0.95}}
+                    whileHover={selectedProject === null ? {scale:1.05} : {}}
+                    whileTap={selectedProject === null ? {scale:0.95} : {}}
                     transition={cardAnimation}>
                         <h1>{project.title[lang]}</h1>
                         {/*<img src={project["image-src"]}></img>*/}
@@ -58,7 +59,7 @@ export default function BentoGrid ({lang, title}){
                     ))}
                 </motion.div>
 
-                <AnimatePresence>
+                <AnimatePresence mode="wait">
                     {selectedProject ? (
                         <>
                             {/* Backdrop con animación suave */}
@@ -67,24 +68,18 @@ export default function BentoGrid ({lang, title}){
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.3 }}
+                                transition={{ duration: 0.2 }}
                                 onClick={() => setSelectedProject(null)}
                             />
                             
                             {/* LA TARJETA EXPANDIDA */}
                             <motion.div 
+                                layoutId={`card-${selectedProject}`}
                                 className="fixed inset-0 z-50 flex items-center justify-center p-8 pointer-events-none"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.3 }}
+                                transition={cardAnimation}
                             >
                                 <motion.div 
                                     className="bg-[var(--color-primario)] w-full max-w-4xl h-[80vh] rounded-3xl p-8 flex flex-col pointer-events-auto"
-                                    initial={{ scale: 0.8, y: 20 }}
-                                    animate={{ scale: 1, y: 0 }}
-                                    exit={{ scale: 0.8, y: 20 }}
-                                    transition={cardAnimation}
                                 >
                                     <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
                                         ¡Proyecto Expandido!
