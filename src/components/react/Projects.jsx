@@ -9,8 +9,9 @@ export default function BentoGrid ({lang, title}){
     // Animación suave con spring para transiciones fluidas
     const cardAnimation = {
         type: "spring",
-        stiffness: 250,
-        damping: 35
+        stiffness: 300,
+        damping: 40,
+        mass: 0.5
     }
 
     const containerRef = useRef();
@@ -65,7 +66,7 @@ export default function BentoGrid ({lang, title}){
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.25 }}
+                                transition={cardAnimation}
                                 onClick={() => setSelectedProject(null)}
                             />
                             
@@ -75,6 +76,7 @@ export default function BentoGrid ({lang, title}){
                                     layoutId={`card-${selectedProject}`}
                                     className="bg-[var(--color-primario)] w-full max-w-4xl h-[80vh] rounded-3xl p-8 flex flex-col pointer-events-auto"
                                     transition={cardAnimation}
+                                    key={selectedProject}
                                 >
                                     <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
                                         ¡Proyecto Expandido!
