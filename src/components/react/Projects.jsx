@@ -1,18 +1,20 @@
-import {motion, scale, useScroll, useTransform, AnimatePresence} from "framer-motion"
+import {motion, useScroll, useTransform, AnimatePresence} from "framer-motion"
 import projectsData from "../../data/projects.json"
 import '../../styles/global.css'
 import {useRef, useState} from "react"
 
 export default function BentoGrid ({lang, title}){
     const [selectedProject, setSelectedProject] = useState(null);
-    const expandAnimation = {
-        type: "tween",
-        ease: "easeInOut",
-        duration: 2
+    
+    // Animación suave para transiciones
+    const cardAnimation = {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+        mass: 1
     }
 
-
-    const containerRef = useRef(); // Para coger la referencia del contenedor
+    const containerRef = useRef();
     const { scrollYProgress } = useScroll(
         {
             target: containerRef,
@@ -29,8 +31,8 @@ export default function BentoGrid ({lang, title}){
     }
 
     return(
-        <div ref={containerRef} className="h-[400vh] relative w-full bg-fondo">  {/*Contenedor padre */}
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center"> {/*"Lente camara" */}
+        <div ref={containerRef} className="h-[400vh] relative w-full bg-fondo">
+            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 <motion.div style = {{x:titleMovement}} 
                     className="absolute z-10 flex items-center justify-center pointer-events-none">
 
@@ -44,41 +46,67 @@ export default function BentoGrid ({lang, title}){
                     {projects.map((project) =>(
                     <motion.div 
                     onClick ={() => setSelectedProject(project.id)} 
-                    key = {project.id} 
-                    transition={expandAnimation}
-                    className={`rounded-3xl p-6 ${sizeClasses[project.size]}`}
+                    key = {project.id}
+                    className={`rounded-3xl p-6 cursor-pointer ${sizeClasses[project.size]}`}
                     whileHover={{scale:1.05}}
-                    layoutId={project.id}>
+                    whileTap={{scale:0.95}}
+                    transition={cardAnimation}>
                         <h1>{project.title[lang]}</h1>
                         {/*<img src={project["image-src"]}></img>*/}
                         <p>{project.description[lang]}</p>
                     </motion.div>
                     ))}
                 </motion.div>
+
                 <AnimatePresence>
                     {selectedProject ? (
-                        <motion.div className="fixed inset-0 z-50 flex items-center justify-center p-8 bg-black/40 backdrop-blur-sm">
-                            
-                            {/* LA TARJETA GIGANTE */}
+                        <>
+                            {/* Backdrop con animación suave */}
                             <motion.div 
-                                layoutId={ selectedProject } 
-                                className="bg-[var(--color-primario)] w-full max-w-4xl h-[80vh] rounded-3xl p-8 flex flex-col"
-                                transition={expandAnimation}
-                            >
-                                <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
-                                    ¡Proyecto Expandido!
-                                </h2>
-                                
-                                {/* El botón para cerrar y resetear la memoria */}
-                                <button 
-                                    onClick={() => setSelectedProject(null)}
-                                    className="mt-auto bg-black text-white py-3 px-6 rounded-full self-start"
-                                >
-                                    Cerrar
-                                </button>
-                            </motion.div>
+                                className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                                onClick={() => setSelectedProject(null)}
+                            />
                             
-                        </motion.div>
+                            {/* LA TARJETA EXPANDIDA */}
+                            <motion.div 
+                                className="fixed inset-0 z-50 flex items-center justify-center p-8 pointer-events-none"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <motion.div 
+                                    className="bg-[var(--color-primario)] w-full max-w-4xl h-[80vh] rounded-3xl p-8 flex flex-col pointer-events-auto"
+                                    initial={{ scale: 0.8, y: 20 }}
+                                    animate={{ scale: 1, y: 0 }}
+                                    exit={{ scale: 0.8, y: 20 }}
+                                    transition={cardAnimation}
+                                >
+                                    <h2 className="text-4xl font-bold mb-4 text-[var(--color-secundario)]">
+                                        ¡Proyecto Expandido!
+                                    </h2>
+                                    
+                                    <p className="text-lg mb-6 flex-1 overflow-y-auto text-[var(--color-texto)]">
+                                        Contenido del proyecto expandido...
+                                    </p>
+                                    
+                                    {/* Botón para cerrar */}
+                                    <motion.button 
+                                        onClick={() => setSelectedProject(null)}
+                                        className="mt-auto bg-black text-white py-3 px-6 rounded-full self-start font-semibold"
+                                        whileHover={{ scale: 1.05, backgroundColor: "#1a1a1a" }}
+                                        whileTap={{ scale: 0.95 }}
+                                        transition={cardAnimation}
+                                    >
+                                        Cerrar
+                                    </motion.button>
+                                </motion.div>
+                            </motion.div>
+                        </>
                     ) : null}
                 </AnimatePresence>
             </div>
