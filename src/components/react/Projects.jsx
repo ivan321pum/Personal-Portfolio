@@ -108,9 +108,13 @@ export default function BentoGrid ({lang, title}){
                                     }}
                                     exit={{
                                         width: selectedRect.width,
-                                        height: selectedRect.height
+                                        height: selectedRect.height,
+                                        opacity: 0
                                     }}
-                                    transition={cardAnimation}
+                                    transition={{
+                                        ...cardAnimation,
+                                        opacity: { delay: 0.2, duration: 0.3 }
+                                    }}
                                     className="bg-[var(--color-primario)] rounded-3xl p-8 flex flex-col pointer-events-auto relative"
                                 >
                                     <motion.h2 
@@ -118,7 +122,10 @@ export default function BentoGrid ({lang, title}){
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
-                                        transition={cardAnimation}
+                                        transition={{
+                                            ...cardAnimation,
+                                            opacity: { delay: 0.2, duration: 0.3 }
+                                        }}
                                         className="text-4xl font-bold mb-4 text-[var(--color-secundario)]"
                                     >
                                         ¡Proyecto Expandido!
@@ -129,7 +136,10 @@ export default function BentoGrid ({lang, title}){
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
-                                        transition={cardAnimation}
+                                        transition={{
+                                            ...cardAnimation,
+                                            opacity: { delay: 0.2, duration: 0.3 }
+                                        }}
                                         className="text-lg mb-6 flex-1 overflow-y-auto text-[var(--color-texto)]"
                                     >
                                         Contenido del proyecto expandido...
