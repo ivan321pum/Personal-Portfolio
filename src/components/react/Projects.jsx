@@ -5,13 +5,12 @@ import {useRef, useState} from "react"
 
 export default function BentoGrid ({lang, title}){
     const [selectedProject, setSelectedProject] = useState(null);
+    const [selectedRect, setSelectedRect] = useState(null);
     
-    // Animación suave con spring para transiciones fluidas
     const cardAnimation = {
         type: "spring",
-        stiffness: 300,
-        damping: 40,
-        mass: 0.5
+        stiffness: 400,
+        damping: 50
     }
 
     const containerRef = useRef();
@@ -30,6 +29,12 @@ export default function BentoGrid ({lang, title}){
         large : "md:col-span-2 md:row-span-2 bg-[var(--color-primario)] text-[var(--color-texto)]",
     }
 
+    const handleCardClick = (projectId, e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setSelectedRect(rect);
+        setSelectedProject(projectId);
+    }
+
     return(
         <div ref={containerRef} className="h-[400vh] relative w-full bg-fondo">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
@@ -45,9 +50,8 @@ export default function BentoGrid ({lang, title}){
                 <motion.div style = {{x:gridMovement}} className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full px-8">
                     {projects.map((project) =>(
                     <motion.div 
-                    onClick ={() => setSelectedProject(project.id)} 
+                    onClick={(e) => handleCardClick(project.id, e)} 
                     key = {project.id}
-                    layoutId={`card-${project.id}`}
                     className={`rounded-3xl p-6 cursor-pointer ${sizeClasses[project.size]} ${selectedProject === project.id ? 'invisible' : ''}`}
                     whileHover={selectedProject === null ? {scale:1.05} : {}}
                     transition={cardAnimation}>
@@ -58,9 +62,9 @@ export default function BentoGrid ({lang, title}){
                 </motion.div>
 
                 <AnimatePresence>
-                    {selectedProject && (
+                    {selectedProject && selectedRect && (
                         <>
-                            {/* Backdrop con animación suave */}
+                            {/* Backdrop */}
                             <motion.div 
                                 className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
                                 initial={{ opacity: 0 }}
@@ -70,10 +74,24 @@ export default function BentoGrid ({lang, title}){
                                 onClick={() => setSelectedProject(null)}
                             />
                             
-                            {/* LA TARJETA EXPANDIDA */}
+                            {/* LA TARJETA EXPANDIDA - Animación desde posición original */}
                             <motion.div 
-                                layoutId={`card-${selectedProject}`}
-                                className="fixed inset-0 z-50 flex items-center justify-center p-8"
+                                className="fixed inset-0 z-50 flex items-center justify-center p-8 pointer-events-none"
+                                initial={{
+                                    x: selectedRect.left + selectedRect.width / 2 - window.innerWidth / 2,
+                                    y: selectedRect.top + selectedRect.height / 2 - window.innerHeight / 2,
+                                    scale: selectedRect.width / (window.innerWidth - 64)
+                                }}
+                                animate={{
+                                    x: 0,
+                                    y: 0,
+                                    scale: 1
+                                }}
+                                exit={{
+                                    x: selectedRect.left + selectedRect.width / 2 - window.innerWidth / 2,
+                                    y: selectedRect.top + selectedRect.height / 2 - window.innerHeight / 2,
+                                    scale: selectedRect.width / (window.innerWidth - 64)
+                                }}
                                 transition={cardAnimation}
                             >
                                 <motion.div 
