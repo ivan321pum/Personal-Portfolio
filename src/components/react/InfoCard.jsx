@@ -59,7 +59,7 @@ export default function InfoCard({
                 style={{ backgroundColor: bkcgroundColor }}>
 
                 {/* CONTENEDOR DEL VIDEO */}
-                <motion.div className="absolute overflow-hidden z-1 shadow-2xl"
+                <motion.div className="pointer-events-none absolute overflow-hidden z-1 shadow-2xl"
                     style={{
                         left: imgLeft,
                         top: imgTop,
@@ -72,9 +72,9 @@ export default function InfoCard({
                     <video
                         src={videoSrc}
                         autoPlay loop muted playsInline
-                        className="w-full h-full object-cover" />
+                        className="pointer-events-none w-full h-full object-cover" />
 
-                    <div className="absolute inset-0"
+                    <div className="pointer-events-none absolute inset-0"
                         style={{
                             background: isMobile
                                 ? 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.5))'
@@ -84,7 +84,7 @@ export default function InfoCard({
 
                 {/* CONTENEDOR DEL TEXTO */}
                 <motion.div
-                    className="absolute z-10"
+                    className="pointer-events-none absolute z-10"
                     style={{
                         left: textLeft,
                         top: textTop,

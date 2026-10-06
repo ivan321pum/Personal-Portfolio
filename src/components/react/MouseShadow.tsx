@@ -16,17 +16,6 @@ interface ShadowCursorProps extends PropsWithChildren {
 	reducedMotion?: boolean;
 }
 
-const cursorTargetSelector = [
-	"button:not([data-cursor-ignore])",
-	"a[href]:not([data-cursor-ignore])",
-	"input:is([type='button'], [type='submit'], [type='reset']):not([data-cursor-ignore])",
-	"select:not([data-cursor-ignore])",
-	"textarea:not([data-cursor-ignore])",
-	"summary:not([data-cursor-ignore])",
-	"[role='button']:not([data-cursor-ignore])",
-	"[data-cursor-pool]:not([data-cursor-ignore])",
-].join(", ");
-
 export default function ShadowCursor({
 	children,
 	className = "cursor-none **:cursor-none",
@@ -57,8 +46,9 @@ export default function ShadowCursor({
 
 		const handlePointerMove = (event: PointerEvent) => {
 			const target = event.target instanceof Element ? event.target : null;
-
-			const pool = target?.closest(cursorTargetSelector) ?? null;
+			const pool = target?.closest(
+				"button, a[href], input:is([type='button'], [type='submit'], [type='reset']), select, textarea, summary, [role='button'], [data-cursor-pool]",
+			) ?? null;
 
 			if (!visibleRef.current) {
 				visibleRef.current = true;
