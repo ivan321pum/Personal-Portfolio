@@ -9,6 +9,7 @@
 }
 
 @layer base {
+
   /* 2. Tema por defecto (news-of-the-world) asignado a la raíz */
   :root {
     --tema-primario: #CF2C01;
@@ -42,7 +43,7 @@
     --tema-secundario: #2F3879;
     --tema-fondo: #FFFFFF;
     --tema-texto: #320B1E;
-    --tema-fondo-secundario: #F38AB3 ;
+    --tema-fondo-secundario: #F38AB3;
   }
 
   /* Tema: jazz */
@@ -66,7 +67,7 @@
   html,
   body {
     @apply m-0 p-0 overflow-x-visible w-full scroll-smooth bg-fondo text-texto;
-    font-family: "Archivo", serif;
+    font-family: "Manrope", sans-serif;
   }
 }
 

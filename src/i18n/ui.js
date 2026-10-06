@@ -11,7 +11,7 @@ export const ui = {
         'website.title': 'Iván Sevilla, estudiante de ingeniería',
         //Hero
         'hero.title': 'Iván Sevilla',
-        'hero.subtitle': 'Estudiante de ingeniería en telecomunicaciones en la UPV',
+        'hero.subtitle': 'Estudiante de ingeniería informática en la UPV',
         'hero.scroll': 'DESLIZA',
         //Nav
         'nav.start': 'Inicio',
@@ -24,8 +24,8 @@ export const ui = {
         'about.description1': 'Resuelvo problemas con Python y C, explorando desde el frontend hasta la Inteligencia Artificial. Mi objetivo ahora es profundizar en el backend para obtener una visión integral del desarrollo de software. No tengo prisa por especializarme; busco entender el sistema completo.',
 
         'about.title2': 'Ingeniería y Fundamentos',
-        'about.subtitle2': 'Telecomunicaciones en la UPV',
-        'about.description2': 'Estudio 1º de Telecomunicaciones para forjar una base matemática y física inquebrantable. Me interesa el software que exige capacidad mental: algoritmos complejos y proyectos donde la física y el cálculo sean el motor. Si entiendo la ciencia detrás del código, no hay límite en lo que puedo construir.',
+        'about.subtitle2': 'Ingenieria informática en la UPV',
+        'about.description2': 'Estudio Informática para forjar una base matemática y física inquebrantable. Me interesa el software que exige capacidad mental: algoritmos complejos y proyectos donde la física y el cálculo sean el motor. Si entiendo la ciencia detrás del código, no hay límite en lo que puedo construir.',
 
         'about.title3': 'Cultura y Enfoque',
         'about.subtitle3': 'Idiomas y Tiempo Libre',
@@ -36,7 +36,7 @@ export const ui = {
         'website.title': 'Iván Sevilla, engineering student',
         //Hero
         'hero.title': 'Iván Sevilla',
-        'hero.subtitle': 'Telecommunications Engineering student at UPV',
+        'hero.subtitle': 'Computers Engineering student at UPV',
         'hero.scroll': 'SCROLL',
         //Nav
         'nav.start': 'Home',
@@ -49,8 +49,8 @@ export const ui = {
         'about.description1': 'I solve problems with Python and C, exploring everything from frontend to Artificial Intelligence. My current goal is to dive into the backend to gain a holistic view of software development. I\'m in no rush to specialize; I want to understand the entire system first.',
 
         'about.title2': 'Engineering & Foundations',
-        'about.subtitle2': 'Telecommunications at UPV',
-        'about.description2': 'Currently in my 1st year of Telecommunications Engineering to build an unbreakable mathematical and physical foundation. I\'m drawn to software that demands mental heavy lifting: complex algorithms and projects driven by physics and calculus. Understanding the science behind the code is my edge.',
+        'about.subtitle2': 'Computers Engineering at UPV',
+        'about.description2': 'I study Computers Engineering to build an unbreakable mathematical and physical foundation. I\'m drawn to software that demands mental heavy lifting: complex algorithms and projects driven by physics and calculus. Understanding the science behind the code is my edge.',
 
         'about.title3': 'Culture & Focus',
         'about.subtitle3': 'Languages & Free Time',
@@ -61,7 +61,7 @@ export const ui = {
         'website.title': 'Iván Sevilla, estudiant d\'enginyeria',
         // Hero
         'hero.title': 'Iván Sevilla',
-        'hero.subtitle': 'Estudiant d\'Enginyeria de Telecomunicacions a la UPV',
+        'hero.subtitle': 'Estudiant d\'Enginyeria Informàtica a la UPV',
         'hero.scroll': 'SCROLL',
         // Nav
         'nav.start': 'Inici',
@@ -75,7 +75,7 @@ export const ui = {
 
         'about.title2': 'Enginyeria i Fonaments',
         'about.subtitle2': 'Telecomunicacions a la UPV',
-        'about.description2': 'Actualment en el meu 1r any d\'Enginyeria de Telecomunicacions per a construir una base matemàtica i física infrangible. M\'atrau el programari que exigeix un gran esforç mental: algoritmes complexos i projectes impulsats per la física i el càlcul. Entendre la ciència darrere del codi és el meu avantatge.',
+        'about.description2': 'Estudi Enginyeria Informàtica per a construir una base matemàtica i física infrangible. M\'atrau el programari que exigeix un gran esforç mental: algoritmes complexos i projectes impulsats per la física i el càlcul. Entendre la ciència darrere del codi és el meu avantatge.',
 
         'about.title3': 'Cultura i Enfocament',
         'about.subtitle3': 'Idiomes i Temps Lliure',

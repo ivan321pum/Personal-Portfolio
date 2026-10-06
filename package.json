@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/ivan321pum/portafolio-personal#readme",
   "dependencies": {
-    "@astrojs/react": "^5.0.1",
+    "@astrojs/react": "^6.0.6",
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^6.1.6",
+    "astro": "^7.3.3",
     "astro-icon": "^1.1.5",
     "framer-motion": "^12.34.3",
     "react": "^19.2.4",

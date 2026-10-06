@@ -3,17 +3,24 @@ import Navigation from "./Navigation.astro";
 import { Image } from "astro:assets";
 import avatarImg from "../../public/assets/images/avatar_ivan.webp";
 ---
+
 <header class="bg-fondo-secundario w-full text-secundario rounded-b-[20px] shadow-[0_4px_15px_rgba(0,0,0,0.1)] relative z-[100] box-border">
-    <div class="flex justify-between items-center py-6 px-8 max-w-[1400px] mx-auto w-full box-border max-md:p-4 max-md:flex-col max-md:gap-4">
-        <div class="flex items-center gap-4 max-md:gap-2">
-            <div class="w-[60px] h-[60px] rounded-full overflow-hidden flex justify-center items-center shrink-0 border-[3px] border-fondo shadow-[0_4px_10px_rgba(0,0,0,0.1)] max-md:w-[45px] max-md:h-[45px]">
-                <Image src={avatarImg} alt="Foto de Iván" class="w-full h-full object-cover" loading="eager" />
-            </div>
-            <div class="flex flex-col leading-none">
-                <span class="font-black text-2xl tracking-[-0.02em] max-md:text-[1.2rem]">Iván Sevilla</span>
-                <span class="text-[0.7rem] uppercase tracking-widest opacity-80 mt-1 flex items-center gap-1 max-md:hidden before:content-['•'] before:text-[#4ade80] before:inline-block">Online</span>
-            </div>
-        </div>
-        <Navigation></Navigation>
-    </div>
+	<div class="flex justify-between items-center py-6 px-8 max-w-[1400px] mx-auto w-full box-border max-md:p-4 max-md:flex-col max-md:gap-4">
+		<div class="flex items-center gap-4 max-md:gap-2">
+			<div class="w-[60px] h-[60px] rounded-full overflow-hidden flex justify-center items-center shrink-0 border-[3px] border-fondo shadow-[0_4px_10px_rgba(0,0,0,0.1)] max-md:w-[45px] max-md:h-[45px]">
+				<Image
+					src={avatarImg}
+					alt="Foto de Iván"
+					class="w-full h-full object-cover"
+					loading="eager"
+				/>
+			</div>
+			<div class="flex flex-col leading-none">
+				<span class="font-black text-2xl tracking-[-0.02em] max-md:text-[1.2rem]">
+					Iván Sevilla
+				</span>
+			</div>
+		</div>
+		<Navigation />
+	</div>
 </header>

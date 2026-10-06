@@ -1,9 +1,8 @@
 ---
-import BentoGrid from "./react/Projects";
-import {useTranslations} from "../i18n/ui";
-
-const lang = Astro.currentLocale || 'es';
+import ScrollHorizontal from "./react/Projects";
+import { useTranslations } from "../i18n/ui";
+const lang = Astro.currentLocale || "es";
 const t = useTranslations(lang);
 ---
 
-<BentoGrid lang={lang} title = {t('nav.projects')} client:load></BentoGrid>
+<ScrollHorizontal />
