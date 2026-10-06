@@ -3,45 +3,50 @@ import Header from "../components/Header.astro";
 import { useTranslations } from "../i18n/ui.js";
 import LanguagePicker from "../components/LanguagePicker.astro";
 import ThemePicker from "../components/ThemePicker.astro";
+import ShadowCursor from "../components/react/MouseShadow";
 
 const lang = Astro.currentLocale || "es";
 const t = useTranslations(lang);
 ---
 
 <!-- Esto es el layout, sirve como una plantilla que se mantendrá en toda la web sin tener que repetir el head y body -->
-<html>
-    <head>
-        <title>{t("hero.title")}</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <div>
-            <LanguagePicker />
-            <ThemePicker />
-        </div>
-        <section id="header"><Header /></section>
+<html lang={lang}>
+	<head>
+		<title>{t("hero.title")}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<ShadowCursor client:load>
+			<div>
+				<LanguagePicker />
+				<ThemePicker />
+			</div>
+			<section id="header">
+				<Header />
+			</section>
 
-        <main class="mx-auto max-md:px-4">
-            <slot />
-            <!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
-        </main>
-        <style is:global>
-            /* Transición selección de temas */
-            *,
-            *::before,
-            *::after {
-                transition-property:
-                    background-color, color, border-color, fill, stroke;
-                transition-duration: 500ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-        </style>
-    </body>
+			<main class="mx-auto max-md:px-4">
+				<slot />
+				<!-- El slot sirve como indicador de onde tiene que aparecer el contenido de la página -->
+			</main>
+			<style is:global>
+				/* Transición selección de temas */
+				*,
+				*::before,
+				*::after {
+					transition-property:
+						background-color, color, border-color, fill, stroke;
+					transition-duration: 500ms;
+					transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+				}
+			</style>
+		</ShadowCursor>
+	</body>
 </html>
