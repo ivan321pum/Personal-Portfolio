@@ -43,13 +43,19 @@ export default function ShadowCursor({
 	live.current = { poolScale, reducedMotion };
 
 	useEffect(() => {
-		const media = window.matchMedia("(pointer: fine) and (hover: hover)");
+		const media = window.matchMedia(
+			"(min-width: 768px) and (pointer: fine) and (hover: hover)",
+		);
 		const updateEnabled = () => setEnabled(media.matches);
 
 		updateEnabled();
 		setMounted(true);
 
-		if (!media.matches) return undefined;
+		media.addEventListener("change", updateEnabled);
+
+		if (!media.matches) {
+			return () => media.removeEventListener("change", updateEnabled);
+		}
 
 		const handlePointerMove = (event: PointerEvent) => {
 			const target = event.target instanceof Element ? event.target : null;
@@ -116,6 +122,7 @@ export default function ShadowCursor({
 		);
 
 		return () => {
+			media.removeEventListener("change", updateEnabled);
 			window.removeEventListener("pointermove", handlePointerMove, {
 				capture: true,
 			});
@@ -130,7 +137,7 @@ export default function ShadowCursor({
 				{ capture: true },
 			);
 		};
-	}, [dotX, dotY, trailScale, trailX, trailY]);
+	}, [dotX, dotY, enabled, trailScale, trailX, trailY]);
 
 	useEffect(() => {
 		if (!reducedMotion) return;
