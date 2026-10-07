@@ -1,221 +1,526 @@
-# Portafolio Personal - Iván Sevilla Gómez
+# Portfolio personal
 
-Un portfolio personal moderno y responsivo construido con **Astro 6**, **React 19** y **Framer Motion**, presentando un diseño atractivo con animaciones fluidas.
+Portfolio personal de Iván Sevilla Gómez, publicado como sitio estático en
+[ivan321pum.github.io](https://ivan321pum.github.io).
 
-![Astro](https://img.shields.io/badge/Astro-6.0.8-FF5D01?logo=astro)
-![React](https://img.shields.io/badge/React-19.2.4-61DAFB?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)
-![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.34.3-0055FF?logo=framer)
+La web está construida con Astro y combina componentes Astro para el contenido
+principal con componentes React hidratados únicamente cuando necesitan
+interactividad o animaciones. La interfaz incluye varias rutas de idioma,
+temas inspirados en álbumes de Queen, animaciones al hacer scroll y un cursor
+visual con una sombra elástica para dispositivos de escritorio.
 
-## 🎯 Características
+## Índice
 
-- ✨ **Animaciones fluidas** con Framer Motion
-- 🎨 **Diseño moderno** con esquema de colores coherente
-- 📱 **Responsivo** en todos los dispositivos
-- ⚡ **Generación estática** de sitios (SSG) con Astro
-- 🔧 **Componentes híbridos** (Astro + React)
-- 🌐 **TypeScript strict** para seguridad de tipos
-- 🚀 **Rendimiento optimizado** con carga rápida
+- [Estado actual](#estado-actual)
+- [Tecnologías](#tecnologías)
+- [Requisitos](#requisitos)
+- [Desarrollo local](#desarrollo-local)
+- [Comandos](#comandos)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Cómo se renderiza la página](#cómo-se-renderiza-la-página)
+- [El cursor con sombra](#el-cursor-con-sombra)
+- [Idiomas y rutas](#idiomas-y-rutas)
+- [Temas y colores](#temas-y-colores)
+- [Animaciones y componentes React](#animaciones-y-componentes-react)
+- [Cómo añadir o modificar contenido](#cómo-añadir-o-modificar-contenido)
+- [Assets e imágenes](#assets-e-imágenes)
+- [Despliegue](#despliegue)
+- [Rendimiento y accesibilidad](#rendimiento-y-accesibilidad)
+- [Comprobaciones antes de publicar](#comprobaciones-antes-de-publicar)
+- [Detalles pendientes conocidos](#detalles-pendientes-conocidos)
+- [Licencia y autor](#licencia-y-autor)
 
-## 🛠️ Stack Tecnológico
+## Estado actual
 
-| Tecnología | Versión | Propósito |
-|-----------|---------|----------|
-| **Astro** | 6.0.8 | Framework principal (SSG) |
-| **React** | 19.2.4 | Componentes interactivos |
-| **TypeScript** | Strict | Tipado estático |
-| **Framer Motion** | 12.34.3 | Animaciones |
-| **Google Fonts** | Archivo | Tipografía |
+- Generación estática (SSG): Astro genera HTML durante el build.
+- Idiomas disponibles en las páginas: español, inglés, catalán y neerlandés.
+- Idioma por defecto: español.
+- URL pública: `https://ivan321pum.github.io`.
+- El cursor personalizado solo se activa en pantallas de al menos `768px`
+  con un dispositivo que indique `pointer: fine` y `hover: hover`.
+- Los vídeos de la sección «Sobre mí» se reproducen en bucle, sin sonido y
+  inline.
 
-## 📋 Requisitos Previos
+## Tecnologías
 
-- **Node.js**: v18.0 o superior
-- **npm**: v9.0 o superior (o yarn/pnpm)
+| Tecnología | Uso |
+| --- | --- |
+| [Astro](https://astro.build/) | Framework principal, rutas y generación estática |
+| [React](https://react.dev/) | Componentes interactivos y animaciones |
+| [Motion](https://motion.dev/) | Cursor y animaciones basadas en valores reactivos |
+| [Framer Motion](https://www.framer.com/motion/) | Hero, tarjetas y animaciones de scroll existentes |
+| [Tailwind CSS](https://tailwindcss.com/) | Clases utilitarias y tokens de color |
+| [astro-icon](https://github.com/natemoo-re/astro-icon) | Iconos Material Design |
+| TypeScript | Tipado de los componentes `.ts` y `.tsx` |
+| GitHub Actions + GitHub Pages | Build y publicación automática |
 
-## 🚀 Instalación y Configuración
+Las versiones instaladas se definen en `package.json` y `package-lock.json`.
+No conviene copiar las versiones antiguas de documentación externa: antes de
+actualizar dependencias, comprueba siempre esos dos archivos.
 
-### 1. Clonar el repositorio
+## Requisitos
+
+- Node.js 22 o una versión compatible con la versión actual de Astro.
+- npm.
+- Git.
+
+El workflow de GitHub Pages utiliza Node.js 22, por lo que es la referencia
+recomendada para desarrollo local.
+
+## Desarrollo local
 
 ```bash
-git clone https://github.com/ivan321pum/portafolio-personal.git
-cd portafolio-personal
-```
-
-### 2. Instalar dependencias
-
-```bash
+git clone https://github.com/ivan321pum/ivan321pum.github.io.git
+cd ivan321pum.github.io
 npm install
+npm run dev
 ```
 
-### 3. Iniciar servidor de desarrollo
+El servidor de desarrollo muestra la URL en la terminal, normalmente
+`http://localhost:4321`.
+
+Para probar la versión que se va a publicar:
 
 ```bash
-npm run dev
-# o
-npm start
-```
-
-El servidor estará disponible en `http://localhost:3000`
-
-## 📦 Comandos Disponibles
-
-```bash
-# Desarrollo con hot reload
-npm run dev
-npm start
-
-# Compilar para producción
 npm run build
-
-# Previsualizar build de producción
 npm run preview
 ```
 
-## 📁 Estructura del Proyecto
+`npm run build` crea la salida estática en `dist/`. Tanto `dist/` como `.astro/`
+están ignorados por Git y se pueden regenerar.
 
+## Comandos
+
+```bash
+# Servidor de desarrollo con recarga automática
+npm run dev
+
+# Alias del comando de desarrollo
+npm start
+
+# Generar el sitio estático de producción
+npm run build
+
+# Servir localmente el build de producción
+npm run preview
 ```
-portafolio-personal/
-├── src/
-│   ├── pages/
-│   │   └── index.astro              # Página principal
-│   ├── layouts/
-│   │   └── BaseLayout.astro         # Layout base con header y estilos globales
-│   ├── components/
-│   │   ├── Hero.astro               # Sección hero
-│   │   ├── AnimatedHero.jsx         # Animación del hero (React)
-│   │   ├── Header.astro             # Encabezado
-│   │   ├── Navigation.astro         # Navegación
-│   │   ├── AboutMe.astro            # Sección sobre mí
-│   │   └── InfoCard.jsx      # Animaciones (React)
-│   └── assets/                       # Recursos estáticos
+
+No hay actualmente scripts separados de lint, test o type-check en
+`package.json`. El build de Astro sí valida la compilación y genera los tipos
+de Astro.
+
+## Estructura del proyecto
+
+```text
+.
 ├── public/
 │   └── assets/
-│       └── images/                   # Imágenes (avatar, etc.)
-├── astro.config.mjs                 # Configuración de Astro
-├── tsconfig.json                    # Configuración de TypeScript
-├── package.json                     # Dependencias del proyecto
-└── AGENTS.md                        # Guía para agentes de IA
-
+│       ├── images/                 # Imágenes servidas como archivos públicos
+│       └── videos/                 # Vídeos usados por las tarjetas de Sobre mí
+├── src/
+│   ├── components/
+│   │   ├── react/
+│   │   │   ├── AnimatedHero.jsx    # Entrada animada del hero
+│   │   │   ├── BlueprintCard.tsx   # Tarjeta decorativa de proyectos
+│   │   │   ├── InfoCard.jsx        # Tarjeta con vídeo y animación de scroll
+│   │   │   └── MouseShadow.tsx     # Cursor personalizado
+│   │   ├── AboutMe.astro            # Tres tarjetas de presentación
+│   │   ├── DockLayout.astro        # Botones flotantes inferiores
+│   │   ├── Header.astro             # Avatar, nombre y navegación
+│   │   ├── Hero.astro               # Hero y texto de bienvenida
+│   │   ├── LanguagePicker.astro     # Selector de idioma
+│   │   ├── MouseShadow.astro        # Wrapper Astro del cursor
+│   │   ├── Navigation.astro         # Enlaces internos y redes sociales
+│   │   ├── Projects.astro           # Grid de proyectos
+│   │   └── ThemePicker.astro        # Selector de tema
+│   ├── data/
+│   │   ├── projects.json            # Contenido de las tarjetas de proyectos
+│   │   └── themes.ts                # Catálogo de temas
+│   ├── i18n/
+│   │   └── ui.js                   # Traducciones y helper useTranslations
+│   ├── layouts/
+│   │   └── BaseLayout.astro        # HTML base y montaje global
+│   ├── pages/
+│   │   ├── index.astro              # Redirección a /es/
+│   │   ├── es/index.astro           # Página en español
+│   │   ├── en/index.astro           # Página en inglés
+│   │   ├── cat/index.astro          # Página en catalán
+│   │   └── nl/index.astro           # Página en neerlandés
+│   └── styles/
+│       └── global.css               # Tailwind, tokens y animación global
+├── .github/workflows/deploy.yml     # Publicación en GitHub Pages
+├── astro.config.mjs                 # Astro, React, iconos, i18n y Vite
+├── package.json                     # Scripts y dependencias directas
+├── package-lock.json                # Versiones bloqueadas de npm
+└── tsconfig.json                    # Configuración strict de TypeScript
 ```
 
-## 🎨 Sistema de Colores
+## Cómo se renderiza la página
 
-El proyecto utiliza un esquema de colores coherente mediante variables CSS globales:
+La cadena principal es:
+
+```text
+src/pages/es/index.astro
+        ↓
+BaseLayout.astro
+        ↓
+Header + selectores + slot de la página
+        ↓
+Hero + AboutMe + Projects
+        ↓
+Componentes React hidratados según su necesidad
+```
+
+### Astro frente a React
+
+- Usa `.astro` para estructura, contenido estático, enlaces, traducciones y
+  composición de la página.
+- Usa `.jsx` o `.tsx` cuando hace falta estado, efectos, listeners del DOM o
+  animación interactiva.
+- `client:load` hidrata el componente inmediatamente al cargar la página.
+- `client:visible` espera a que el componente entre en el viewport. Se usa en
+  `InfoCard` para no cargar las tres animaciones de vídeo antes de tiempo.
+- El HTML y los textos siguen siendo accesibles aunque la animación de React
+  todavía no haya empezado.
+
+`BaseLayout.astro` monta `MouseShadow` con `client:load`, porque el cursor
+necesita escuchar eventos del puntero desde el principio. El contenido de la
+página entra en el layout mediante `<slot />`.
+
+## El cursor con sombra
+
+El cursor vive principalmente en
+`src/components/react/MouseShadow.tsx`. El archivo
+`src/components/MouseShadow.astro` es solo un wrapper alternativo que permite
+usarlo desde Astro.
+
+### Flujo general
+
+1. El componente crea varios valores reactivos:
+   - `dotX` y `dotY`: posición del punto pequeño.
+   - `trailX` y `trailY`: posición de la sombra grande, suavizada con
+     `useSpring`.
+   - `trailScale`: escala de la sombra cuando se pasa por un elemento
+     interactivo.
+2. En `useEffect` comprueba:
+   ```text
+   (min-width: 768px) and (pointer: fine) and (hover: hover)
+   ```
+   Si no se cumple, no registra listeners ni monta las capas visuales.
+3. `pointermove` actualiza el punto y la sombra usando las coordenadas
+   `clientX` y `clientY`.
+4. Si el puntero está sobre un enlace, botón, input, select, textarea,
+   `summary`, un elemento con `role="button"` o `[data-cursor-pool]`, la sombra
+   se desplaza al centro de ese elemento y aumenta su escala.
+5. `pointerenter` hace visible el cursor y `pointerleave` lo oculta.
+6. Las dos capas visuales se crean con `createPortal` directamente bajo
+   `document.body`. Así no quedan recortadas por contenedores con `overflow`.
+7. Las capas tienen `pointer-events-none`, por lo que nunca bloquean clics.
+8. El wrapper aplica `cursor-none` únicamente cuando el cursor personalizado
+   está habilitado. En móvil deja `cursor-auto`.
+
+### Por qué hay dos capas
+
+- La capa pequeña representa la posición exacta del puntero.
+- La capa grande representa la sombra/trail y tiene movimiento elástico.
+- Las dos usan `mixBlendMode`, por defecto `difference`, para que se vean
+  sobre fondos de distintos colores.
+
+### Parámetros configurables
+
+`ShadowCursor` acepta estas props:
+
+| Prop | Valor por defecto | Función |
+| --- | ---: | --- |
+| `dotSize` | `8` | Diámetro del punto |
+| `trailSize` | `36` | Diámetro de la sombra |
+| `stiffness` | `150` | Rigidez del muelle de posición |
+| `damping` | `15` | Amortiguación del muelle |
+| `cursorColor` | `"white"` | Color de ambas capas |
+| `blendMode` | `"difference"` | Modo de mezcla CSS |
+| `poolScale` | `2` | Escala sobre elementos interactivos |
+| `reducedMotion` | `false` | Hace que la sombra siga al punto sin transición |
+
+### Qué tener en cuenta al modificarlo
+
+- No accedas a `window`, `document` o `matchMedia` durante el renderizado:
+  Astro puede renderizar en un entorno sin DOM. Hazlo dentro de `useEffect`.
+- Mantén el filtro de escritorio. Un cursor visual no debe ser la única forma
+  de comunicar una acción y no tiene sentido en una pantalla táctil.
+- No quites `pointer-events-none` de las capas.
+- Si añades nuevos elementos que deban atraer la sombra, usa
+  `data-cursor-pool` en vez de duplicar lógica.
+- Si cambias el breakpoint, actualiza también la documentación y prueba tanto
+  un móvil como una ventana de escritorio redimensionada.
+- El listener de media query permite activar o desactivar el cursor si la
+  ventana cambia de tamaño. Cualquier nuevo listener debe limpiarse en el
+  retorno del `useEffect`.
+- Comprueba `prefers-reduced-motion` si en el futuro se quiere mejorar la
+  accesibilidad. La prop `reducedMotion` existe, pero actualmente no se
+  conecta automáticamente con la preferencia del sistema.
+
+## Idiomas y rutas
+
+Las rutas están configuradas en `astro.config.mjs`:
+
+```js
+i18n: {
+  defaultLocale: "es",
+  locales: ["es", "en", "cat", "nl"],
+  routing: {
+    prefixDefaultLocale: true,
+    redirectToDefaultLocale: false
+  }
+}
+```
+
+La raíz `/` redirige manualmente a `/es/` desde
+`src/pages/index.astro`. Cada página de idioma reutiliza los mismos
+componentes y cambia el idioma mediante `Astro.currentLocale`.
+
+Para añadir o modificar textos:
+
+1. Edita `src/i18n/ui.js`.
+2. Añade la misma clave a todos los idiomas.
+3. Usa `useTranslations(lang)` en el componente Astro.
+4. Comprueba directamente `/es/`, `/en/`, `/cat/` y `/nl/`.
+
+El helper `t(key)` intenta devolver el texto del idioma actual y, si falta,
+usa el español como fallback:
+
+```js
+const lang = Astro.currentLocale || "es";
+const t = useTranslations(lang);
+const title = t("projects.title");
+```
+
+Cuando se añada un idioma nuevo, hay que actualizar tanto `ui` y
+`languages` en `src/i18n/ui.js` como `locales` en `astro.config.mjs` y crear
+su página en `src/pages/<idioma>/index.astro`.
+
+## Temas y colores
+
+Los temas se declaran en dos lugares que deben mantenerse sincronizados:
+
+1. `src/data/themes.ts`: catálogo que consume el selector.
+2. `src/styles/global.css`: variables CSS de cada clase de tema.
+
+Cada tema aplica una clase al elemento `<html>`, por ejemplo
+`news-of-the-world`. Las variables internas son:
 
 ```css
---color-primario: #D72638        /* Rojo brillante */
---color-secundario: #104547      /* Verde azulado oscuro */
---color-fondo-secundario: #FF9F1C /* Naranja (encabezado) */
---color-fondo: #f4f4f4           /* Gris claro */
---color-texto: #333333           /* Texto oscuro */
+--tema-primario
+--tema-secundario
+--tema-fondo
+--tema-texto
+--tema-fondo-secundario
 ```
 
-Todas estas variables están definidas en `src/layouts/BaseLayout.astro` y son accesibles en todo el proyecto.
+Después, Tailwind expone esas variables como:
 
-## 🏗️ Arquitectura
-
-### Patrón Híbrido Astro + React
-
-- **Componentes Astro** (`.astro`): Contenido estático, renderizado en servidor
-- **Componentes React** (`.jsx`): Interactividad y animaciones, renderizados en cliente
-- **Hidratación selectiva**: Solo los componentes que lo necesitan se hidratan en el cliente
-
-### Flujo de Datos
-
-```
-pages/index.astro
-    ↓
-imports BaseLayout.astro
-    ↓
-Renders Header + injects content via <slot/>
-    ↓
-Hero.astro imports AnimatedHero.jsx (client:load)
-    ↓
-Framer Motion animations
+```text
+text-primario
+text-secundario
+bg-fondo
+bg-fondo-secundario
+text-texto
 ```
 
-## 💡 Cómo Trabajar en el Proyecto
+Para crear un tema:
 
-### Agregar una Nueva Sección
+1. Añade un objeto a `THEMES` en `src/data/themes.ts`.
+2. Añade una clase con el mismo nombre a `src/styles/global.css`.
+3. Define las cinco variables `--tema-*`.
+4. Prueba texto, botones, tarjetas, header y cursor en ese tema.
+5. Comprueba que el valor guardado en `localStorage` sigue siendo válido.
 
-1. **Crear componente React con animaciones** (si necesita interactividad):
-   ```bash
-   src/components/AnimatedNewSection.jsx
-   ```
-   
-2. **Crear componente Astro wrapper**:
-   ```bash
-   src/components/NewSection.astro
-   ```
-   
-3. **Importar en la página principal** o crear nueva página
+`ThemePicker.astro` guarda la selección en `localStorage` usando la clave
+`selected-theme`. Al cargar, reemplaza las clases del elemento `<html>` por el
+tema guardado.
 
-### Modificar Encabezado/Navegación
+## Animaciones y componentes React
 
-- Editar `src/components/Header.astro` o `Navigation.astro`
-- El header usa flexbox con imagen de perfil (80px circular)
-- Aplicar `:global()` en estilos si afectan componentes React
+### Hero
 
-### Actualizar Colores
+`Hero.astro` obtiene los textos traducidos y carga `AnimatedHero.jsx` con
+`client:load`. El componente anima el título y subtítulo con Framer Motion.
 
-- Modificar variables CSS en `src/layouts/BaseLayout.astro` (selector `:root`)
-- Los cambios se propagarán automáticamente a todo el proyecto
+### Tarjetas de «Sobre mí»
 
-## 📝 Convenciones de Código
+`AboutMe.astro` instancia tres `InfoCard` con `client:visible`. Cada tarjeta:
 
-- **Componentes Astro**: PascalCase (ej: `Hero.astro`)
-- **Componentes React animados**: Prefijo "Animated" (ej: `AnimatedHero.jsx`)
-- **Clases CSS**: lowercase con guiones (ej: `hero-title`, `profile-frame`)
-- **Estilos en Astro**: Usar `:global()` para aplicar estilos a componentes React
+- ocupa una sección alta para convertir el scroll en progreso de animación;
+- fija una escena con `position: sticky`;
+- escala y mueve el vídeo;
+- revela el texto con opacidad y desplazamiento;
+- cambia sus medidas y posiciones para pantallas menores de `1024px`.
 
-## 🔗 Integración de Componentes
+Si se añade una cuarta tarjeta, hay que proporcionar un vídeo existente,
+textos para todos los idiomas y colores legibles para todos los temas.
 
-Patrón estándar para integrar componentes React animados:
+### Proyectos
+
+`Projects.astro` importa `src/data/projects.json` y crea una
+`BlueprintCard` por proyecto. Para añadir un proyecto normalmente basta con
+añadir un objeto con esta forma:
+
+```json
+{
+  "title": "Nombre del proyecto",
+  "description": "Descripción breve.",
+  "tags": ["Astro", "React"],
+  "accent": "primario"
+}
+```
+
+`accent` debe corresponder a un token de color disponible, como `primario`,
+`secundario` o `fondo-secundario`.
+
+## Cómo añadir o modificar contenido
+
+### Cambiar el texto personal
+
+Edita las claves `hero.*` y `about.*` de `src/i18n/ui.js`. No pongas texto
+traducible directamente en un componente si debe aparecer en más de un idioma.
+
+### Cambiar navegación
+
+Edita `src/components/Navigation.astro`. Los enlaces internos se construyen
+con el idioma actual y anchors como `#header`, `#about_me` y `#projects`.
+Cuando se cree una sección nueva:
+
+1. Añade un `id` estable en la página.
+2. Añade su URL en `Navigation.astro`.
+3. Traduce su etiqueta en `ui.js`.
+4. Comprueba los enlaces desde una ruta que no sea la raíz.
+
+### Crear una sección nueva
+
+1. Crea un componente `.astro` en `src/components/`.
+2. Importa y coloca el componente en la página de cada idioma, o centraliza
+   la composición si todas las rutas comparten la misma estructura.
+3. Usa `useTranslations` para los textos.
+4. Usa React solo si la sección necesita estado, listeners o animación.
+5. Mantén el responsive en las clases Tailwind y prueba una pantalla táctil.
+
+### Crear un componente React
+
+Usa `.tsx` si el componente tiene tipos o `.jsx` para una pieza sencilla.
+Desde Astro se hidrata explícitamente:
 
 ```astro
 ---
-import AnimatedComponent from "../components/AnimatedComponent.jsx"
+import InteractiveSection from "./react/InteractiveSection";
 ---
 
-<section>
-    <AnimatedComponent client:load></AnimatedComponent>
-</section>
-
-<style>
-    :global(.animated-class) {
-        /* Estilos del componente */
-    }
-</style>
+<InteractiveSection client:visible />
 ```
 
-## 📚 Recursos Útiles
+Elige la directiva según el coste y la necesidad:
 
-- [Documentación de Astro](https://docs.astro.build)
-- [Documentación de React](https://react.dev)
-- [Documentación de Framer Motion](https://www.framer.com/motion/)
-- [Google Fonts - Archivo](https://fonts.google.com/specimen/Archivo)
+- `client:load`: necesario desde el primer instante.
+- `client:visible`: se puede esperar a que entre en pantalla.
+- Sin directiva: Astro lo renderiza como HTML sin JavaScript de cliente.
 
-## 🤖 Para Agentes de IA
+## Assets e imágenes
 
-Si eres un agente de IA (Copilot, Cursor, Claude, etc.) trabajando en este proyecto, consulta `AGENTS.md` para obtener instrucciones detalladas sobre arquitectura, convenciones y patrones específicos del proyecto.
+- Los archivos de `public/` se sirven con una URL pública estable, sin
+  necesidad de importarlos desde JavaScript.
+- Las imágenes que pasan por `astro:assets` se pueden importar desde
+  `public/assets/images` y optimizar con el componente `Image`, como hace
+  `Header.astro`.
+- Los vídeos grandes tienen un impacto importante en el peso inicial y en el
+  consumo móvil. Mantén `muted` y `playsInline` para fondos de vídeo y evita
+  cargar más vídeos de los necesarios.
+- Usa nombres claros y formatos comprimidos. Elimina assets que ya no estén
+  referenciados.
 
-## ⚠️ Notas Importantes
+## Despliegue
 
-- React solo se renderiza en el cliente (mediante `client:load`)
-- TypeScript está en modo strict
-- Este es un sitio estático; para backend considera agregar un servicio separado
-- El contenedor principal tiene max-width de 1100px con padding de 2rem
+El workflow `.github/workflows/deploy.yml` se ejecuta cuando hay un push a
+`main` o manualmente desde GitHub Actions:
 
-## 📄 Licencia
+1. Hace checkout del repositorio.
+2. Usa `withastro/action@v2` con Node 22.
+3. Genera y sube los artefactos estáticos.
+4. Publica con `actions/deploy-pages@v4`.
 
-ISC - Ver `package.json` para más detalles
+Para publicar:
 
-## 👨‍💻 Autor
+```bash
+git add .
+git commit -m "Describe el cambio"
+git push origin main
+```
 
-**Iván Sevilla Gómez**  
-Estudiante de Ingeniería en Telecomunicaciones en la UPV
+Antes del push, ejecuta `npm run build`. Después, revisa el workflow en la
+pestaña **Actions** y la web pública.
 
----
+La configuración de `astro.config.mjs` contiene `site` y `base`. Si el
+proyecto se mueve a otro dominio o a un repositorio publicado bajo una
+subruta, revisa esos valores y todos los enlaces absolutos.
 
-¿Preguntas o sugerencias? Abre un issue en el [repositorio de GitHub](https://github.com/ivan321pum/portafolio-personal)
+## Rendimiento y accesibilidad
 
+- No dependas del cursor para indicar que algo es interactivo.
+- Conserva el cursor nativo en móvil y dispositivos sin hover.
+- Usa `alt` descriptivo en imágenes y `aria-label` en iconos sin texto.
+- No reproduzcas audio automáticamente.
+- Respeta `prefers-reduced-motion` al añadir nuevas animaciones. La
+  configuración actual admite `reducedMotion` en algunos componentes, pero
+  no es todavía una política global.
+- Evita hidratar componentes Astro que no lo necesiten.
+- Prueba el rendimiento con los vídeos desactivados y en una conexión móvil.
+- Comprueba contraste en cada tema, especialmente cuando uses
+  `mix-blend-mode: difference`.
+
+## Comprobaciones antes de publicar
+
+Como mínimo:
+
+```bash
+npm run build
+```
+
+Después, en `npm run preview`, revisa:
+
+- `/`, `/es/`, `/en/`, `/cat/` y `/nl/`;
+- navegación por anchors;
+- selector de idioma;
+- selector de tema y persistencia tras recargar;
+- cursor en escritorio;
+- ausencia del cursor personalizado en móvil;
+- scroll de las tarjetas con vídeo;
+- grid de proyectos en móvil, tablet y escritorio;
+- enlaces externos de GitHub y LinkedIn;
+- consola del navegador y errores de carga de assets.
+
+## Detalles pendientes conocidos
+
+Estos puntos describen el estado actual para que no se confundan con
+decisiones intencionadas al continuar el desarrollo:
+
+- `src/i18n/ui.js` contiene cuatro idiomas, aunque el objeto `languages` solo
+  declara español e inglés. El selector de idioma obtiene sus opciones de
+  `Object.keys(ui)`, así que actualmente muestra los cuatro; si se reutiliza
+  `languages` en el futuro, habrá que sincronizarlo.
+- `ThemePicker.astro` tiene un `DEFAULT_THEME` local distinto del
+  `DEFAULT_THEME` exportado desde `src/data/themes.ts`. Conviene dejar una
+  única fuente de verdad antes de ampliar el sistema de temas.
+- El contenido de `projects.json` no está traducido: las tarjetas de proyectos
+  muestran los mismos textos en todas las rutas.
+- La etiqueta de navegación `nav.contact` apunta actualmente al anchor del
+  inicio porque todavía no existe una sección de contacto independiente.
+- La prop `reducedMotion` existe en varios componentes, pero no se deriva
+  todavía automáticamente de `window.matchMedia("(prefers-reduced-motion)")`.
+- No hay tests automatizados ni lint configurado. El build es la comprobación
+  obligatoria actual.
+
+## Licencia y autor
+
+El proyecto declara licencia ISC en `package.json`.
+
+**Iván Sevilla Gómez**
+
+- GitHub: [ivan321pum](https://github.com/ivan321pum)
+- LinkedIn: [Iván Sevilla Gómez](https://www.linkedin.com/in/ivan-sevilla-gomez/)
