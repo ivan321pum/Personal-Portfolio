@@ -1,20 +1,146 @@
 [
-  {
-    "title": "Landing creativa",
-    "description": "Una web de presentación con foco en identidad visual, ritmo y una primera impresión limpia.",
-    "tags": ["Branding", "UI", "Astro"],
-    "accent": "primario"
-  },
-  {
-    "title": "Panel interactivo",
-    "description": "Una interfaz tipo dashboard para mostrar datos, estado y contenido clave de forma rápida.",
-    "tags": ["Dashboard", "React", "Motion"],
-    "accent": "secundario"
-  },
-  {
-    "title": "Sistema modular",
-    "description": "Un conjunto de bloques reutilizables para construir páginas consistentes y fáciles de mantener.",
-    "tags": ["Design system", "Reusable", "Tailwind"],
-    "accent": "fondo-secundario"
-  }
+	{
+		"id": "landing-creativa",
+		"accent": "primario",
+		"github": "https://github.com/ivan321pum/landing-creativa",
+		"tags": ["Branding", "UI", "Astro"],
+		"translations": {
+			"es": {
+				"title": "Landing creativa",
+				"description": "Una web de presentación con foco en identidad visual."
+			},
+			"en": {
+				"title": "Creative landing page",
+				"description": "A presentation website focused on visual identity."
+			},
+			"cat": {
+				"title": "Landing creativa",
+				"description": "Una web de presentació centrada en la identitat visual."
+			},
+			"nl": {
+				"title": "Creatieve landingspagina",
+				"description": "Een presentatiewebsite met focus op visuele identiteit."
+			}
+		}
+	},
+	{
+		"id": "landing-creativa",
+		"accent": "secundario",
+		"github": "https://github.com/ivan321pum/panel-interactivo",
+		"tags": ["Branding", "UI", "Astro"],
+		"translations": {
+			"es": {
+				"title": "Landing creativa",
+				"description": "Una web de presentación con foco en identidad visual."
+			},
+			"en": {
+				"title": "Creative landing page",
+				"description": "A presentation website focused on visual identity."
+			},
+			"cat": {
+				"title": "Landing creativa",
+				"description": "Una web de presentació centrada en la identitat visual."
+			},
+			"nl": {
+				"title": "Creatieve landingspagina",
+				"description": "Een presentatiewebsite met focus op visuele identiteit."
+			}
+		}
+	},
+	{
+		"id": "landing-creativa",
+		"accent": "fondo-secundario",
+		"github": "https://github.com/ivan321pum/sistema-modular",
+		"tags": ["Branding", "UI", "Astro"],
+		"translations": {
+			"es": {
+				"title": "Landing creativa",
+				"description": "Una web de presentación con foco en identidad visual."
+			},
+			"en": {
+				"title": "Creative landing page",
+				"description": "A presentation website focused on visual identity."
+			},
+			"cat": {
+				"title": "Landing creativa",
+				"description": "Una web de presentació centrada en la identitat visual."
+			},
+			"nl": {
+				"title": "Creatieve landingspagina",
+				"description": "Een presentatiewebsite met focus op visuele identiteit."
+			}
+		}
+	},
+	{
+		"id": "landing-creativa",
+		"accent": "primario",
+		"github": "https://github.com/ivan321pum/landing-creativa",
+		"tags": ["Branding", "UI", "Astro"],
+		"translations": {
+			"es": {
+				"title": "Landing creativa",
+				"description": "Una web de presentación con foco en identidad visual."
+			},
+			"en": {
+				"title": "Creative landing page",
+				"description": "A presentation website focused on visual identity."
+			},
+			"cat": {
+				"title": "Landing creativa",
+				"description": "Una web de presentació centrada en la identitat visual."
+			},
+			"nl": {
+				"title": "Creatieve landingspagina",
+				"description": "Een presentatiewebsite met focus op visuele identiteit."
+			}
+		}
+	},
+	{
+		"id": "landing-creativa",
+		"accent": "secundario",
+		"github": "https://github.com/ivan321pum/panel-interactivo",
+		"tags": ["Branding", "UI", "Astro"],
+		"translations": {
+			"es": {
+				"title": "Landing creativa",
+				"description": "Una web de presentación con foco en identidad visual."
+			},
+			"en": {
+				"title": "Creative landing page",
+				"description": "A presentation website focused on visual identity."
+			},
+			"cat": {
+				"title": "Landing creativa",
+				"description": "Una web de presentació centrada en la identitat visual."
+			},
+			"nl": {
+				"title": "Creatieve landingspagina",
+				"description": "Een presentatiewebsite met focus op visuele identiteit."
+			}
+		}
+	},
+	{
+		"id": "landing-creativa",
+		"accent": "fondo-secundario",
+		"github": "https://github.com/ivan321pum/sistema-modular",
+		"tags": ["Branding", "UI", "Astro"],
+		"translations": {
+			"es": {
+				"title": "Landing creativa",
+				"description": "Una web de presentación con foco en identidad visual."
+			},
+			"en": {
+				"title": "Creative landing page",
+				"description": "A presentation website focused on visual identity."
+			},
+			"cat": {
+				"title": "Landing creativa",
+				"description": "Una web de presentació centrada en la identitat visual."
+			},
+			"nl": {
+				"title": "Creatieve landingspagina",
+				"description": "Een presentatiewebsite met focus op visuele identiteit."
+			}
+		}
+	}
 ]

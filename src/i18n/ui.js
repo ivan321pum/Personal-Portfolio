@@ -35,6 +35,17 @@ export const ui = {
 			"Fuera del código, busco el mismo nivel de mejora. Entreno en el gimnasio, domino el Inglés (B2), aprendo Neerlandés y piano. Para desconectar, nada como los videojuegos y la discografía de Queen a todo volumen. Es mi combustible para mantener la concentración.",
 		//Projects
 		"projects.title": "Mis proyectos",
+		//Contact
+		"contact.title": "Contacto",
+		"contact.description": "¿Tienes una idea, una propuesta o simplemente quieres escribirme? Estaré encantado de leerte.",
+		"contact.name": "Nombre",
+		"contact.namePlaceholder": "Tu nombre",
+		"contact.email": "Correo electrónico",
+		"contact.emailPlaceholder": "tu@email.com",
+		"contact.message": "Mensaje",
+		"contact.messagePlaceholder": "Escribe tu mensaje...",
+		"contact.submit": "Enviar mensaje",
+		"contact.subject": "Nuevo mensaje desde mi portfolio",
 	},
 	en: {
 		//Titulo web
@@ -65,6 +76,17 @@ export const ui = {
 			"Beyond code, I pursue the same level of growth. I train at the gym, speak English (B2), and I am currently learning Dutch and piano. To disconnect: gaming and Queen's discography at full volume. It's what keeps my focus sharp.",
 		//Projects
 		"projects.title": "My projects",
+		//Contact
+		"contact.title": "Contact",
+		"contact.description": "Have an idea, a proposal, or simply want to get in touch? I would be happy to hear from you.",
+		"contact.name": "Name",
+		"contact.namePlaceholder": "Your name",
+		"contact.email": "Email address",
+		"contact.emailPlaceholder": "you@email.com",
+		"contact.message": "Message",
+		"contact.messagePlaceholder": "Write your message...",
+		"contact.submit": "Send message",
+		"contact.subject": "New message from my portfolio",
 	},
 	cat: {
 		// Títol web
@@ -95,6 +117,17 @@ export const ui = {
 			"Més enllà del codi, busque el mateix nivell de creixement. Entrene al gimnàs, parle anglés (B2), i actualment aprenc neerlandés i piano. Per a desconnectar: videojocs i la discografia de Queen a tot volum. És el que manté el meu enfocament nítid.",
 		//Projects
 		"projects.title": "Els meus projectes",
+		//Contact
+		"contact.title": "Contacte",
+		"contact.description": "Tens una idea, una proposta o simplement vols escriure'm? Estaré encantat de llegir-te.",
+		"contact.name": "Nom",
+		"contact.namePlaceholder": "El teu nom",
+		"contact.email": "Correu electrònic",
+		"contact.emailPlaceholder": "tu@email.com",
+		"contact.message": "Missatge",
+		"contact.messagePlaceholder": "Escriu el teu missatge...",
+		"contact.submit": "Enviar missatge",
+		"contact.subject": "Nou missatge des del meu portfolio",
 	},
 	nl: {
 		// Web titel
@@ -125,6 +158,17 @@ export const ui = {
 			"Naast het coderen streef ik naar hetzelfde niveau van groei. Ik train in de fitness, spreek Engels (B2), en leer momenteel Nederlands en piano. Om te ontspannen: gamen en de discografie van Queen op vol volume. Dat is wat mijn focus scherp houdt.",
 		// Projects
 		"projects.title": "Mijn projecten",
+		//Contact
+		"contact.title": "Contact",
+		"contact.description": "Heb je een idee, een voorstel of wil je gewoon contact opnemen? Ik hoor graag van je.",
+		"contact.name": "Naam",
+		"contact.namePlaceholder": "Jouw naam",
+		"contact.email": "E-mailadres",
+		"contact.emailPlaceholder": "jij@email.com",
+		"contact.message": "Bericht",
+		"contact.messagePlaceholder": "Schrijf je bericht...",
+		"contact.submit": "Bericht versturen",
+		"contact.subject": "Nieuw bericht vanaf mijn portfolio",
 	},
 };
 

@@ -1,0 +1,75 @@
+---
+import { useTranslations } from "../i18n/ui.js";
+
+const lang = Astro.currentLocale || "es";
+const t = useTranslations(lang);
+---
+
+<section class="bg-fondo-secundario px-4 py-16 md:py-24">
+	<div class="mx-auto max-w-3xl">
+		<div class="mb-10 text-center md:mb-14">
+			<h2 class="relative inline-flex items-center gap-4 font-black uppercase tracking-[0.18em] text-[clamp(1.8rem,4vw,3.4rem)] text-primario max-md:gap-3 max-md:text-[clamp(1.5rem,7vw,2.4rem)]">
+				{t("contact.title")}
+			</h2>
+			<p class="mx-auto mt-4 max-w-xl text-base leading-7 text-secundario md:text-lg">
+				{t("contact.description")}
+			</p>
+		</div>
+
+		<form
+			action="https://api.web3forms.com/submit"
+			method="POST"
+			class="rounded-3xl border border-secundario/20 bg-fondo/70 p-6 shadow-xl backdrop-blur-md md:p-10"
+		>
+			<input
+				type="hidden"
+				name="access_key"
+				value="1bce84ed-0e99-496a-abab-4a93640bf746"
+			/>
+			<input type="hidden" name="subject" value={t("contact.subject")} />
+			<input type="hidden" name="from_name" value="Portfolio personal" />
+
+			<div class="grid gap-6 md:grid-cols-2">
+				<label class="flex flex-col gap-2 text-sm font-bold uppercase tracking-[0.16em] text-secundario">
+					{t("contact.name")}
+					<input
+						type="text"
+						name="name"
+						placeholder={t("contact.namePlaceholder")}
+						required
+						class="rounded-xl border border-secundario/25 bg-fondo-secundario/50 px-4 py-3 text-base font-normal normal-case tracking-normal text-texto outline-none transition-colors placeholder:text-texto/50 focus:border-primario"
+					/>
+				</label>
+
+				<label class="flex flex-col gap-2 text-sm font-bold uppercase tracking-[0.16em] text-secundario">
+					{t("contact.email")}
+					<input
+						type="email"
+						name="email"
+						placeholder={t("contact.emailPlaceholder")}
+						required
+						class="rounded-xl border border-secundario/25 bg-fondo-secundario/50 px-4 py-3 text-base font-normal normal-case tracking-normal text-texto outline-none transition-colors placeholder:text-texto/50 focus:border-primario"
+					/>
+				</label>
+			</div>
+
+			<label class="mt-6 flex flex-col gap-2 text-sm font-bold uppercase tracking-[0.16em] text-secundario">
+				{t("contact.message")}
+				<textarea
+					name="message"
+					rows="6"
+					placeholder={t("contact.messagePlaceholder")}
+					required
+					class="resize-y rounded-xl border border-secundario/25 bg-fondo-secundario/50 px-4 py-3 text-base font-normal normal-case tracking-normal text-texto outline-none transition-colors placeholder:text-texto/50 focus:border-primario"
+				></textarea>
+			</label>
+			<div class="h-captcha pt-3" data-captcha="true"></div>
+			<button
+				type="submit"
+				class="mt-8 w-full rounded-xl bg-secundario px-6 py-4 text-sm font-black uppercase tracking-[0.16em] text-fondo transition-all hover:bg-primario hover:text-fondo hover:shadow-lg"
+			>
+				{t("contact.submit")}
+			</button>
+		</form>
+	</div>
+</section>

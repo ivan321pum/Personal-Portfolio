@@ -40,6 +40,10 @@ visual con una sombra elástica para dispositivos de escritorio.
   con un dispositivo que indique `pointer: fine` y `hover: hover`.
 - Los vídeos de la sección «Sobre mí» se reproducen en bucle, sin sonido y
   inline.
+- La sección de contacto está disponible en las cuatro rutas de idioma y
+  envía los formularios mediante Web3Forms.
+- La sección de proyectos muestra tarjetas centradas, con contenido traducido
+  por idioma y un enlace individual a GitHub.
 
 ## Tecnologías
 
@@ -125,7 +129,8 @@ de Astro.
 │   │   │   ├── InfoCard.jsx        # Tarjeta con vídeo y animación de scroll
 │   │   │   └── MouseShadow.tsx     # Cursor personalizado
 │   │   ├── AboutMe.astro            # Tres tarjetas de presentación
-│   │   ├── DockLayout.astro        # Botones flotantes inferiores
+│   │   ├── Contact.astro             # Formulario de contacto con Web3Forms
+│   │   ├── DockLayout.astro         # Botones flotantes inferiores
 │   │   ├── Header.astro             # Avatar, nombre y navegación
 │   │   ├── Hero.astro               # Hero y texto de bienvenida
 │   │   ├── LanguagePicker.astro     # Selector de idioma
@@ -366,15 +371,83 @@ añadir un objeto con esta forma:
 
 ```json
 {
-  "title": "Nombre del proyecto",
-  "description": "Descripción breve.",
+  "id": "mi-proyecto",
+  "accent": "primario",
+  "github": "https://github.com/ivan321pum/mi-proyecto",
   "tags": ["Astro", "React"],
-  "accent": "primario"
+  "translations": {
+    "es": {
+      "title": "Nombre del proyecto",
+      "description": "Descripción breve."
+    },
+    "en": {
+      "title": "Project name",
+      "description": "Short description."
+    },
+    "cat": {
+      "title": "Nom del projecte",
+      "description": "Descripció breu."
+    },
+    "nl": {
+      "title": "Projectnaam",
+      "description": "Korte beschrijving."
+    }
+  }
 }
 ```
 
 `accent` debe corresponder a un token de color disponible, como `primario`,
-`secundario` o `fondo-secundario`.
+`secundario` o `fondo-secundario`. `github` se abre en una pestaña nueva.
+El grid usa `mx-auto`, `justify-items-center` y un ancho máximo por tarjeta
+para mantenerlas centradas y equilibradas en escritorio, tablet y móvil.
+
+`lang` se obtiene de `Astro.currentLocale` y se tipa como una clave de
+`translations`, por lo que el acceso correcto es:
+
+```astro
+{project.translations[lang].title}
+{project.translations[lang].description}
+```
+
+Si se añade un idioma nuevo, hay que incluirlo en cada proyecto.
+
+### Formulario de contacto
+
+`Contact.astro` es un formulario HTML estático que utiliza
+[Web3Forms](https://web3forms.com/) como servicio externo. GitHub Pages no
+ejecuta backend propio, por lo que el formulario envía directamente a:
+
+```text
+https://api.web3forms.com/submit
+```
+
+El componente incluye:
+
+- nombre;
+- correo electrónico;
+- mensaje;
+- asunto del correo;
+- estilos responsive compatibles con los temas;
+- traducciones de títulos, labels, placeholders y botón.
+
+Las claves están en `src/i18n/ui.js` bajo el prefijo `contact.*`. Si se cambia
+un texto, hay que actualizarlo en `es`, `en`, `cat` y `nl`. Si se modifica la
+cuenta de Web3Forms, hay que sustituir el valor de `access_key` en
+`Contact.astro` y probar un envío real antes de publicar.
+
+Las páginas localizadas deben importar el componente y colocarlo con un
+anchor estable:
+
+```astro
+import Contact from "../../components/Contact.astro";
+
+<section id="contact">
+  <Contact />
+</section>
+```
+
+La navegación todavía debe apuntar explícitamente a `#contact` para que el
+enlace «Contacto» lleve directamente a esta nueva sección.
 
 ## Cómo añadir o modificar contenido
 
@@ -507,10 +580,16 @@ decisiones intencionadas al continuar el desarrollo:
 - `ThemePicker.astro` tiene un `DEFAULT_THEME` local distinto del
   `DEFAULT_THEME` exportado desde `src/data/themes.ts`. Conviene dejar una
   única fuente de verdad antes de ampliar el sistema de temas.
-- El contenido de `projects.json` no está traducido: las tarjetas de proyectos
-  muestran los mismos textos en todas las rutas.
-- La etiqueta de navegación `nav.contact` apunta actualmente al anchor del
-  inicio porque todavía no existe una sección de contacto independiente.
+- Los tags de los proyectos todavía son comunes a todos los idiomas; solo el
+  título y la descripción se traducen dentro de `projects.json`.
+- Las tres URLs actuales de GitHub son placeholders y deben sustituirse por
+  los repositorios reales antes del lanzamiento.
+- La etiqueta de navegación `nav.contact` todavía apunta al anchor de inicio;
+  debe cambiarse a `/${lang}/#contact` cuando se quiera activar el acceso
+  directo desde el menú.
+- El formulario depende de Web3Forms y de su `access_key`; hay que comprobar
+  que el dominio publicado está autorizado y que los mensajes llegan al
+  correo configurado.
 - La prop `reducedMotion` existe en varios componentes, pero no se deriva
   todavía automáticamente de `window.matchMedia("(prefers-reduced-motion)")`.
 - No hay tests automatizados ni lint configurado. El build es la comprobación

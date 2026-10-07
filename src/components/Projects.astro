@@ -3,24 +3,23 @@ import BlueprintCard from "./react/BlueprintCard";
 import { useTranslations } from "../i18n/ui.js";
 import projects from "../data/projects.json";
 
-const lang = Astro.currentLocale || "es";
+const lang = (Astro.currentLocale ||
+	"es") as keyof (typeof projects)[number]["translations"];
 const t = useTranslations(lang);
 ---
 
 <div class="mt-12 mb-12 flex justify-center px-4 text-center">
 	<h2 class="relative inline-flex items-center gap-4 font-black uppercase tracking-[0.18em] text-[clamp(1.8rem,4vw,3.4rem)] text-primario max-md:gap-3 max-md:text-[clamp(1.5rem,7vw,2.4rem)]">
-		<span class="h-0.75 w-10 rounded-full bg-secundario/80 max-md:w-6"></span>
 		{t("projects.title")}
-		<span class="h-0.75 w-10 rounded-full bg-secundario/80 max-md:w-6"></span>
 	</h2>
 </div>
 
-<div class="container grid grid-cols-3 gap-8 px-4 max-lg:grid-cols-2 max-md:grid-cols-1">
+<div class="container mx-auto grid grid-cols-3 justify-items-center gap-8 px-4 max-lg:grid-cols-2 max-md:grid-cols-1">
 	{projects.map((project) => (
 		<BlueprintCard
 			client:load
 			accentColor={`var(--color-${project.accent})`}
-			className="h-full pointer-events-none select-none"
+			className="h-full w-full max-w-[420px] pointer-events-none select-none rounded-3xl"
 		>
 			<div class="flex h-full min-h-[240px] flex-col gap-5 text-texto">
 				<div>
@@ -28,12 +27,12 @@ const t = useTranslations(lang);
 						{project.tags[0]}
 					</p>
 					<h3 class="text-2xl font-black uppercase tracking-[-0.04em] text-primario">
-						{project.title}
+						{project.translations[lang].title}
 					</h3>
 				</div>
 
 				<p class="max-w-[32ch] text-base leading-[1.7] text-texto/90">
-					{project.description}
+					{project.translations[lang].description}
 				</p>
 
 				<div class="mt-auto flex flex-wrap gap-2">
@@ -43,6 +42,15 @@ const t = useTranslations(lang);
 						</span>
 					))}
 				</div>
+
+				<a
+					href={project.github}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="pointer-events-auto inline-flex w-fit rounded-full bg-secundario px-4 py-2 text-sm font-bold text-fondo transition-colors hover:bg-primario"
+				>
+					GitHub
+				</a>
 			</div>
 		</BlueprintCard>
 	))}
