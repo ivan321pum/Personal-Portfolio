@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Landing creativa",
+    "description": "Una web de presentación con foco en identidad visual, ritmo y una primera impresión limpia.",
+    "tags": ["Branding", "UI", "Astro"],
+    "accent": "primario"
+  },
+  {
+    "title": "Panel interactivo",
+    "description": "Una interfaz tipo dashboard para mostrar datos, estado y contenido clave de forma rápida.",
+    "tags": ["Dashboard", "React", "Motion"],
+    "accent": "secundario"
+  },
+  {
+    "title": "Sistema modular",
+    "description": "Un conjunto de bloques reutilizables para construir páginas consistentes y fáciles de mantener.",
+    "tags": ["Design system", "Reusable", "Tailwind"],
+    "accent": "fondo-secundario"
+  }
+]

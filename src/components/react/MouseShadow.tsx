@@ -30,6 +30,7 @@ export default function ShadowCursor({
 }: ShadowCursorProps) {
 	const [mounted, setMounted] = useState(false);
 	const [visible, setVisible] = useState(false);
+	const [enabled, setEnabled] = useState(false);
 
 	const dotX = useMotionValue(-100);
 	const dotY = useMotionValue(-100);
@@ -42,7 +43,13 @@ export default function ShadowCursor({
 	live.current = { poolScale, reducedMotion };
 
 	useEffect(() => {
+		const media = window.matchMedia("(pointer: fine) and (hover: hover)");
+		const updateEnabled = () => setEnabled(media.matches);
+
+		updateEnabled();
 		setMounted(true);
+
+		if (!media.matches) return undefined;
 
 		const handlePointerMove = (event: PointerEvent) => {
 			const target = event.target instanceof Element ? event.target : null;
@@ -169,9 +176,14 @@ export default function ShadowCursor({
 	);
 
 	return (
-		<div className={["relative", className].filter(Boolean).join(" ")}>
+		<div
+			className={[
+				"relative",
+				enabled ? className : "cursor-auto",
+			].filter(Boolean).join(" ")}
+		>
 			{children}
-			{mounted ? createPortal(cursor, document.body) : null}
+			{mounted && enabled ? createPortal(cursor, document.body) : null}
 		</div>
 	);
 }
