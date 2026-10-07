@@ -15,29 +15,30 @@ export const ui = {
 		"hero.scroll": "DESLIZA",
 		//Nav
 		"nav.start": "Inicio",
-		"nav.about": "Sobre mi",
+		"nav.about": "Sobre mí",
 		"nav.projects": "Mis proyectos",
 		"nav.contact": "Contacto",
 		//About
 		"about.title1": "Desarrollo y Experimentación",
 		"about.subtitle1": "Lógica de Software e IA",
 		"about.description1":
-			"Resuelvo problemas con Python y C, explorando desde el frontend hasta la Inteligencia Artificial. Mi objetivo ahora es profundizar en el backend para obtener una visión integral del desarrollo de software. No tengo prisa por especializarme; busco entender el sistema completo.",
+			"Resuelvo problemas con Python y C. Mi objetivo ahora es explorar las diferentes áreas del desarrollo de software con las herramientas que ya conozco, expandiendo mi portafolio. No tengo prisa por especializarme; busco entender el sistema completo.",
 
 		"about.title2": "Ingeniería y Fundamentos",
-		"about.subtitle2": "Ingenieria informática en la UPV",
+		"about.subtitle2": "Ingeniería Informática en la UPV",
 		"about.description2":
-			"Estudio Informática para forjar una base matemática y física inquebrantable. Me interesa el software que exige capacidad mental: algoritmos complejos y proyectos donde la física y el cálculo sean el motor. Si entiendo la ciencia detrás del código, no hay límite en lo que puedo construir.",
+			"Estudio Informática para forjar una base matemática y física inquebrantable. Me interesa el software que exige capacidad mental: algoritmos complejos y proyectos donde la física y el cálculo sean el motor.",
 
 		"about.title3": "Cultura y Enfoque",
 		"about.subtitle3": "Idiomas y Tiempo Libre",
 		"about.description3":
-			"Fuera del código, busco el mismo nivel de mejora. Entreno en el gimnasio, domino el Inglés (B2), aprendo Neerlandés y piano. Para desconectar, nada como los videojuegos y la discografía de Queen a todo volumen. Es mi combustible para mantener la concentración.",
+			"Fuera del código, tengo muchas otras ambiciones. Domino y sigo perfeccionando mi inglés con el B2 certificado por Cambridge, y también me interesa aprender neerlandés; además, me gusta aprender sobre música y estoy aprendiendo a tocar instrumentos como el piano o la guitarra. Para desconectar, nada como los videojuegos y la discografía de Queen a todo volumen.",
 		//Projects
 		"projects.title": "Mis proyectos",
 		//Contact
 		"contact.title": "Contacto",
-		"contact.description": "¿Tienes una idea, una propuesta o simplemente quieres escribirme? Estaré encantado de leerte.",
+		"contact.description":
+			"¿Tienes una idea, una propuesta o simplemente quieres escribirme? Estaré encantado de leerte.",
 		"contact.name": "Nombre",
 		"contact.namePlaceholder": "Tu nombre",
 		"contact.email": "Correo electrónico",
@@ -48,40 +49,41 @@ export const ui = {
 		"contact.subject": "Nuevo mensaje desde mi portfolio",
 	},
 	en: {
-		//Titulo web
-		"website.title": "Iván Sevilla, engineering student",
-		//Hero
+		// Website Title
+		"website.title": "Iván Sevilla, Engineering Student",
+		// Hero
 		"hero.title": "Iván Sevilla",
-		"hero.subtitle": "Computers Engineering student at UPV",
+		"hero.subtitle": "Computer Science Engineering Student at UPV",
 		"hero.scroll": "SCROLL",
-		//Nav
+		// Nav
 		"nav.start": "Home",
 		"nav.about": "About me",
 		"nav.projects": "My projects",
-		"nav.contact": "Contact me",
-		//About
+		"nav.contact": "Contact",
+		// About
 		"about.title1": "Development & Experimentation",
 		"about.subtitle1": "Software Logic & AI",
 		"about.description1":
-			"I solve problems with Python and C, exploring everything from frontend to Artificial Intelligence. My current goal is to dive into the backend to gain a holistic view of software development. I'm in no rush to specialize; I want to understand the entire system first.",
+			"I solve problems using Python and C. My current goal is to explore different areas of software development with the tools I already know, expanding my portfolio. I am in no rush to specialize; I seek to understand the entire system.",
 
-		"about.title2": "Engineering & Foundations",
-		"about.subtitle2": "Computers Engineering at UPV",
+		"about.title2": "Engineering & Fundamentals",
+		"about.subtitle2": "Computer Science Engineering at UPV",
 		"about.description2":
-			"I study Computers Engineering to build an unbreakable mathematical and physical foundation. I'm drawn to software that demands mental heavy lifting: complex algorithms and projects driven by physics and calculus. Understanding the science behind the code is my edge.",
+			"I study Computer Science to forge an unbreakable mathematical and physical foundation. I am interested in software that demands mental capacity: complex algorithms and projects where physics and calculus are the engine.",
 
 		"about.title3": "Culture & Focus",
 		"about.subtitle3": "Languages & Free Time",
 		"about.description3":
-			"Beyond code, I pursue the same level of growth. I train at the gym, speak English (B2), and I am currently learning Dutch and piano. To disconnect: gaming and Queen's discography at full volume. It's what keeps my focus sharp.",
-		//Projects
+			"Outside of coding, I have many other ambitions. I am continually improving my English (Cambridge B2 certified) and I'm also interested in learning Dutch. Additionally, I love learning about music and I am currently learning to play instruments like the piano and the guitar. To disconnect, there is nothing like video games and blasting Queen's discography at full volume.",
+		// Projects
 		"projects.title": "My projects",
-		//Contact
+		// Contact
 		"contact.title": "Contact",
-		"contact.description": "Have an idea, a proposal, or simply want to get in touch? I would be happy to hear from you.",
+		"contact.description":
+			"Do you have an idea, a proposal, or just want to reach out? I'd love to hear from you.",
 		"contact.name": "Name",
 		"contact.namePlaceholder": "Your name",
-		"contact.email": "Email address",
+		"contact.email": "Email",
 		"contact.emailPlaceholder": "you@email.com",
 		"contact.message": "Message",
 		"contact.messagePlaceholder": "Write your message...",
@@ -89,37 +91,38 @@ export const ui = {
 		"contact.subject": "New message from my portfolio",
 	},
 	cat: {
-		// Títol web
+		// Titul web
 		"website.title": "Iván Sevilla, estudiant d'enginyeria",
-		// Hero
+		//Hero
 		"hero.title": "Iván Sevilla",
-		"hero.subtitle": "Estudiant d'Enginyeria Informàtica a la UPV",
-		"hero.scroll": "SCROLL",
-		// Nav
+		"hero.subtitle": "Estudiant d'enginyeria informàtica a la UPV",
+		"hero.scroll": "LLISCA",
+		//Nav
 		"nav.start": "Inici",
 		"nav.about": "Sobre mi",
 		"nav.projects": "Els meus projectes",
 		"nav.contact": "Contacte",
-		// About
+		//About
 		"about.title1": "Desenvolupament i Experimentació",
-		"about.subtitle1": "Lògica de Programari i IA",
+		"about.subtitle1": "Lògica de Software i IA",
 		"about.description1":
-			"Resolc problemes amb Python i C, explorant des del frontend fins a la Intel·ligència Artificial. El meu objectiu actual és endinsar-me en el backend per tindre una visió global del desenvolupament de programari. No tinc pressa per especialitzar-me; vull entendre tot el sistema primer.",
+			"Resolc problemes amb Python i C. El meu objectiu ara és explorar les diferents àrees del desenvolupament de software amb les eines que ja conec, expandint el meu portafoli. No tinc pressa per especialitzar-me; busque entendre el sistema complet.",
 
 		"about.title2": "Enginyeria i Fonaments",
-		"about.subtitle2": "Telecomunicacions a la UPV",
+		"about.subtitle2": "Enginyeria Informàtica a la UPV",
 		"about.description2":
-			"Estudi Enginyeria Informàtica per a construir una base matemàtica i física infrangible. M'atrau el programari que exigeix un gran esforç mental: algoritmes complexos i projectes impulsats per la física i el càlcul. Entendre la ciència darrere del codi és el meu avantatge.",
+			"Estudie Informàtica per a forjar una base matemàtica i física infrangible. M'interessa el software que exigeix capacitat mental: algoritmes complexos i projectes on la física i el càlcul siguen el motor.",
 
 		"about.title3": "Cultura i Enfocament",
 		"about.subtitle3": "Idiomes i Temps Lliure",
 		"about.description3":
-			"Més enllà del codi, busque el mateix nivell de creixement. Entrene al gimnàs, parle anglés (B2), i actualment aprenc neerlandés i piano. Per a desconnectar: videojocs i la discografia de Queen a tot volum. És el que manté el meu enfocament nítid.",
+			"Fora del codi, tinc moltes altres ambicions. Domine i continue perfeccionant el meu anglés amb el B2 certificat per Cambridge, i també m'interessa aprendre neerlandés; a més a més, m'agrada aprendre sobre música i estic aprenent a tocar instruments com el piano o la guitarra. Per a desconnectar, res com els videojocs i la discografia de Queen a tot volum.",
 		//Projects
 		"projects.title": "Els meus projectes",
 		//Contact
 		"contact.title": "Contacte",
-		"contact.description": "Tens una idea, una proposta o simplement vols escriure'm? Estaré encantat de llegir-te.",
+		"contact.description":
+			"Tens alguna idea, una proposta o simplement vols escriure'm? Estaré encantat de llegir-te.",
 		"contact.name": "Nom",
 		"contact.namePlaceholder": "El teu nom",
 		"contact.email": "Correu electrònic",
@@ -127,48 +130,49 @@ export const ui = {
 		"contact.message": "Missatge",
 		"contact.messagePlaceholder": "Escriu el teu missatge...",
 		"contact.submit": "Enviar missatge",
-		"contact.subject": "Nou missatge des del meu portfolio",
+		"contact.subject": "Nou missatge des del meu portafoli",
 	},
 	nl: {
-		// Web titel
+		// Titulo web
 		"website.title": "Iván Sevilla, ingenieursstudent",
-		// Hero
+		//Hero
 		"hero.title": "Iván Sevilla",
-		"hero.subtitle": "Student Telecommunicatie aan de UPV",
+		"hero.subtitle": "Student informatica aan de UPV",
 		"hero.scroll": "SCROLL",
-		// Nav
+		//Nav
 		"nav.start": "Home",
 		"nav.about": "Over mij",
 		"nav.projects": "Mijn projecten",
 		"nav.contact": "Contact",
-		// About
+		//About
 		"about.title1": "Ontwikkeling & Experimentatie",
 		"about.subtitle1": "Softwarelogica & AI",
 		"about.description1":
-			"Ik los problemen op met Python en C, en verken alles van frontend tot Kunstmatige Intelligentie. Mijn huidige doel is om me in de backend te verdiepen voor een holistische kijk op softwareontwikkeling. Ik heb geen haast om me te specialiseren; ik wil eerst het hele systeem begrijpen.",
+			"Ik los problemen op met Python en C. Mijn huidige doel is om verschillende gebieden van softwareontwikkeling te verkennen met de tools die ik al ken, om zo mijn portfolio uit te breiden. Ik heb geen haast om me te specialiseren; ik wil het volledige systeem begrijpen.",
 
 		"about.title2": "Engineering & Fundamenten",
-		"about.subtitle2": "Telecommunicatie aan de UPV",
+		"about.subtitle2": "Informatica aan de UPV",
 		"about.description2":
-			"Momenteel in mijn 1e jaar Telecommunicatie om een onbreekbare wiskundige en fysieke basis op te bouwen. Ik word aangetrokken door software die mentaal zwaar werk vereist: complexe algoritmen en projecten gedreven door fysica en calculus. De wetenschap achter de code begrijpen, is mijn voorsprong.",
+			"Ik studeer informatica om een ijzersterke wiskundige en natuurkundige basis te smeden. Ik ben geïnteresseerd in software die mentale capaciteit vereist: complexe algoritmen en projecten waarbij natuurkunde en calculus de motor zijn.",
 
 		"about.title3": "Cultuur & Focus",
-		"about.subtitle3": "Talen & Vrije Tijd",
+		"about.subtitle3": "Talen & Vrije tijd",
 		"about.description3":
-			"Naast het coderen streef ik naar hetzelfde niveau van groei. Ik train in de fitness, spreek Engels (B2), en leer momenteel Nederlands en piano. Om te ontspannen: gamen en de discografie van Queen op vol volume. Dat is wat mijn focus scherp houdt.",
-		// Projects
+			"Buiten het coderen heb ik nog vele andere ambities. Ik beheers en blijf mijn Engels perfectioneren (Cambridge B2-gecertificeerd), en ik ben ook bezig met het leren van de Nederlandse taal. Daarnaast leer ik graag over muziek en leer ik momenteel instrumenten bespelen, zoals de piano en de gitaar. Om te ontspannen gaat er niets boven videogames en de discografie van Queen op vol volume.",
+		//Projects
 		"projects.title": "Mijn projecten",
 		//Contact
 		"contact.title": "Contact",
-		"contact.description": "Heb je een idee, een voorstel of wil je gewoon contact opnemen? Ik hoor graag van je.",
+		"contact.description":
+			"Heb je een idee, een voorstel, of wil je me gewoon een bericht sturen? Ik hoor graag van je.",
 		"contact.name": "Naam",
 		"contact.namePlaceholder": "Jouw naam",
 		"contact.email": "E-mailadres",
 		"contact.emailPlaceholder": "jij@email.com",
 		"contact.message": "Bericht",
 		"contact.messagePlaceholder": "Schrijf je bericht...",
-		"contact.submit": "Bericht versturen",
-		"contact.subject": "Nieuw bericht vanaf mijn portfolio",
+		"contact.submit": "Bericht verzenden",
+		"contact.subject": "Nieuw bericht via mijn portfolio",
 	},
 };
 
