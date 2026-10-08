@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: "Manrope", sans-serif;
   --color-primario: var(--tema-primario);
   --color-secundario: var(--tema-secundario);
   --color-fondo: var(--tema-fondo);
@@ -67,7 +68,7 @@
   html,
   body {
     @apply m-0 p-0 overflow-x-visible w-full scroll-smooth bg-fondo text-texto;
-    font-family: "Manrope", sans-serif;
+    font-family: var(--font-sans);
   }
 }
 

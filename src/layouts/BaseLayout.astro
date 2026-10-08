@@ -5,6 +5,7 @@ import LanguagePicker from "../components/LanguagePicker.astro";
 import ThemePicker from "../components/ThemePicker.astro";
 import Footer from "../components/Footer.astro";
 import ShadowCursor from "../components/react/MouseShadow";
+import "@fontsource-variable/manrope";
 import "../styles/global.css";
 
 const lang = Astro.currentLocale || "es";
@@ -58,19 +59,6 @@ const t = useTranslations(lang);
 			href="https://ivansevilla.me/en/"
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			rel="preload"
-			href="https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-			rel="stylesheet"
-		/>
 	</head>
 	<body>
 		<script
