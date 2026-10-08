@@ -3,7 +3,7 @@
 		"id": "portfolio-personal",
 		"accent": "primario",
 		"image": "/assets/images/og-image.webp",
-		"github": "https://github.com/ivan321pum/portfolio",
+		"github": "https://github.com/ivan321pum/Personal-Portfolio",
 		"showGithub": true,
 		"tags": ["Astro", "React", "Tailwind CSS", "Framer Motion"],
 		"translations": {
