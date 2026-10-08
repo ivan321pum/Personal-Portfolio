@@ -4,11 +4,13 @@ import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
 import { ui } from './src/i18n/ui';
 
+import sitemap from '@astrojs/sitemap';
+
 const supportedLanguages = Object.keys(ui);
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), icon()],
+  integrations: [react(), icon(), sitemap()],
 
 
   i18n: {

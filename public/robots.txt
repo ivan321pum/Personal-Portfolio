@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ivansevilla.me/sitemap-index.xml

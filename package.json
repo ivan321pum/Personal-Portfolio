@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ivan321pum/portafolio-personal#readme",
   "dependencies": {
     "@astrojs/react": "^6.0.6",
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
