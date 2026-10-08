@@ -1,15 +1,22 @@
 ---
-const { position } = Astro.props;
+const { position, label } = Astro.props;
 
 const claseAlineacion = position === 'izquierda' ? 'left-8' : 'right-8';
 const claseMenuPosicion = position === 'izquierda' ? 'left-0' : 'right-0';
+const menuId = `dock-menu-${position}`;
 ---
 <div class={`dock-container fixed bottom-8 ${claseAlineacion} z-1000`}>
-    <div class={`dock-menu absolute hidden gap-2 bg-fondo border border-secundario/20 p-3 rounded-2xl shadow-xl transition-all duration-300 origin-bottom bottom-20 ${claseMenuPosicion}`}>
+    <div id={menuId} hidden class={`dock-menu absolute flex flex-col gap-2 bg-fondo border border-secundario/20 p-3 rounded-2xl shadow-xl transition-all duration-300 origin-bottom bottom-20 ${claseMenuPosicion}`}>
         <slot name="menu"/>
     </div>
 
-    <button class="dock-trigger flex justify-center items-center min-w-15 h-15 bg-secundario text-fondo rounded-full shadow-lg transition-all duration-300 hover:bg-primario hover:scale-105">
+    <button
+        type="button"
+        class="dock-trigger flex justify-center items-center min-w-15 h-15 bg-secundario text-fondo rounded-full shadow-lg transition-all duration-300 hover:bg-primario hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primario"
+        aria-label={label}
+        aria-expanded="false"
+        aria-controls={menuId}
+    >
         <slot name="trigger"/>
     </button>
 </div>
@@ -22,10 +29,27 @@ const claseMenuPosicion = position === 'izquierda' ? 'left-0' : 'right-0';
         const menu = container.querySelector('.dock-menu');
 
         if (trigger && menu) {
+            const setMenuState = (isOpen) => {
+                menu.hidden = !isOpen;
+                trigger.setAttribute('aria-expanded', String(isOpen));
+            };
+
             trigger.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-                menu.classList.toggle('flex');
-                menu.classList.toggle('flex-col');
+                setMenuState(menu.hidden);
+            });
+
+            trigger.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !menu.hidden) {
+                    setMenuState(false);
+                    trigger.focus();
+                }
+            });
+
+            menu.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    setMenuState(false);
+                    trigger.focus();
+                }
             });
         }
     });

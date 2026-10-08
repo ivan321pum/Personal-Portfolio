@@ -13,7 +13,7 @@ if (page == "index") {
 const languages = Object.keys(ui);
 ---
 
-<DockLayout position="derecha">
+<DockLayout position="derecha" label="Cambiar idioma">
 	<span slot="trigger" class="font-bold text-[1.1rem]">
 		{currentLang.toUpperCase()}
 	</span>
@@ -24,7 +24,7 @@ const languages = Object.keys(ui);
 		{languages.map((lang) => (
 			<a
 				href={`/${lang}/${page}`}
-				class="p-2 hover:bg-secundario/10 rounded transition-colors font-bold"
+				class="rounded p-2 font-bold hover:bg-secundario/10 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primario"
 			>
 				{lang.toUpperCase()}
 			</a>

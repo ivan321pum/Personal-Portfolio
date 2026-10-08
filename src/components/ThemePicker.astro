@@ -1,10 +1,10 @@
 ---
 import DockLayout from "./DockLayout.astro";
-import { THEMES, DEFAULT_THEME } from "../data/themes";
+import { THEMES } from "../data/themes";
 import { Icon } from "astro-icon/components";
 ---
 
-<DockLayout position="izquierda">
+<DockLayout position="izquierda" label="Cambiar tema">
 	<Icon slot="trigger" name="mdi:palette" class="w-6 h-6" />
 
 	<nav
@@ -15,7 +15,8 @@ import { Icon } from "astro-icon/components";
 			<button
 				data-theme-id={tema.id}
 				data-theme-class={tema.className}
-				class="theme-btn p-3 hover:bg-secundario/20 rounded transition-colors font-semibold text-sm"
+				class="theme-btn rounded p-3 font-semibold text-sm hover:bg-secundario/20 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primario"
+				aria-pressed="false"
 			>
 				{tema.displayName}
 			</button>
@@ -32,13 +33,18 @@ import { Icon } from "astro-icon/components";
 		const storedTheme =
 			localStorage.getItem(THEME_STORAGE_KEY) || DEFAULT_THEME;
 		document.documentElement.className = storedTheme;
+		buttons?.forEach((button) => {
+			button.setAttribute(
+				"aria-pressed",
+				String(button.getAttribute("data-theme-id") === storedTheme),
+			);
+		});
 	}
+
+	const buttons = document.querySelectorAll(".theme-btn");
 
 	// Aplicar tema almacenado inmediatamente
 	applyStoredTheme();
-
-	// Configurar event listeners
-	const buttons = document.querySelectorAll(".theme-btn");
 
 	buttons.forEach((button) => {
 		button.addEventListener("click", () => {
@@ -51,6 +57,12 @@ import { Icon } from "astro-icon/components";
 
 				// Guardar en localStorage
 				localStorage.setItem(THEME_STORAGE_KEY, themeId);
+				buttons.forEach((themeButton) => {
+					themeButton.setAttribute(
+						"aria-pressed",
+						String(themeButton === button),
+					);
+				});
 			}
 		});
 	});
