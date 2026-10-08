@@ -63,6 +63,24 @@ const t = useTranslations(lang);
 					class="resize-y rounded-xl border border-secundario/25 bg-fondo-secundario/50 px-4 py-3 text-base font-normal normal-case tracking-normal text-texto outline-none transition-colors placeholder:text-texto/50 focus:border-primario"
 				></textarea>
 			</label>
+			<label class="mt-6 flex items-start gap-3 text-sm leading-6 text-texto">
+				<input
+					type="checkbox"
+					name="privacy_consent"
+					value="accepted"
+					required
+					class="mt-1 h-4 w-4 shrink-0 accent-secundario"
+				/>
+				<span>
+					{t("contact.privacyConsent")}{" "}
+					<a
+						href={`/${lang}/privacy/`}
+						class="font-semibold text-secundario underline decoration-secundario/40 underline-offset-4 transition-colors hover:text-primario"
+					>
+						{t("contact.privacyLink")}
+					</a>
+				</span>
+			</label>
 			<div class="h-captcha pt-3" data-captcha="true"></div>
 			<button
 				type="submit"

@@ -1,0 +1,18 @@
+---
+import { useTranslations } from "../i18n/ui.js";
+
+const lang = Astro.currentLocale || "es";
+const t = useTranslations(lang);
+---
+
+<footer class="border-t border-secundario/20 bg-fondo px-4 py-8">
+	<div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center text-sm text-texto/70 sm:flex-row sm:text-left">
+		<p>{t("footer.copyright")}</p>
+		<a
+			href={`/${lang}/privacy/`}
+			class="font-semibold text-secundario underline decoration-secundario/40 underline-offset-4 transition-colors hover:text-primario"
+		>
+			{t("footer.privacy")}
+		</a>
+	</div>
+</footer>

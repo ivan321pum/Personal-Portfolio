@@ -47,6 +47,11 @@ export const ui = {
 		"contact.messagePlaceholder": "Escribe tu mensaje...",
 		"contact.submit": "Enviar mensaje",
 		"contact.subject": "Nuevo mensaje desde mi portfolio",
+		"contact.privacyConsent": "He leído y acepto la",
+		"contact.privacyLink": "política de privacidad",
+		//Footer
+		"footer.copyright": "© 2026 Iván Sevilla",
+		"footer.privacy": "Política de privacidad",
 	},
 	en: {
 		// Website Title
@@ -89,6 +94,11 @@ export const ui = {
 		"contact.messagePlaceholder": "Write your message...",
 		"contact.submit": "Send message",
 		"contact.subject": "New message from my portfolio",
+		"contact.privacyConsent": "I have read and accept the",
+		"contact.privacyLink": "privacy policy",
+		//Footer
+		"footer.copyright": "© 2026 Iván Sevilla",
+		"footer.privacy": "Privacy policy",
 	},
 	cat: {
 		// Titul web
@@ -131,6 +141,11 @@ export const ui = {
 		"contact.messagePlaceholder": "Escriu el teu missatge...",
 		"contact.submit": "Enviar missatge",
 		"contact.subject": "Nou missatge des del meu portafoli",
+		"contact.privacyConsent": "He llegit i accepte la",
+		"contact.privacyLink": "política de privacitat",
+		//Footer
+		"footer.copyright": "© 2026 Iván Sevilla",
+		"footer.privacy": "Política de privacitat",
 	},
 	nl: {
 		// Titulo web
@@ -173,6 +188,11 @@ export const ui = {
 		"contact.messagePlaceholder": "Schrijf je bericht...",
 		"contact.submit": "Bericht verzenden",
 		"contact.subject": "Nieuw bericht via mijn portfolio",
+		"contact.privacyConsent": "Ik heb het",
+		"contact.privacyLink": "privacybeleid gelezen en accepteer het",
+		//Footer
+		"footer.copyright": "© 2026 Iván Sevilla",
+		"footer.privacy": "Privacybeleid",
 	},
 };
 
