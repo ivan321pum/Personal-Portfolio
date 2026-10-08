@@ -1,45 +1,45 @@
 ---
 import InfoCard from "./react/InfoCard";
-import {useTranslations} from "../i18n/ui";
+import { useTranslations } from "../i18n/ui";
 
-const lang = Astro.currentLocale || 'es';
+const lang = Astro.currentLocale || "es";
 const t = useTranslations(lang);
 ---
 
 <div class="w-[100vw] relative left-1/2 -ml-[50vw] bg-fondo p-0 overflow-visible">
-    <div class="w-full flex flex-col gap-0">
-    <InfoCard
-            client:visible
-            title={t('about.title1')}
-            subtitle={t('about.subtitle1')}
-            description={t('about.description1')}
-            direction="left"
-            videoSrc="../../assets/videos/video1.mp4"
-            bkcgroundColor={'var(--color-fondo-secundario)'}
-            titleColor={'var(--color-secundario)'}
-            subtitleColor={'var(--color-secundario)'}
-    />
-    <InfoCard
-            client:visible
-            title={t('about.title2')}
-            subtitle={t('about.subtitle2')}
-            description={t('about.description2')}
-            direction="right"
-            videoSrc="../../assets/videos/video2.mp4"
-            bkcgroundColor={'var(--color-fondo)'}
-            titleColor={'var(--color-primario)'}
-            subtitleColor={'var(--color-primario)'}
-    />
-    <InfoCard
-            client:visible
-            title={t('about.title3')}
-            subtitle={t('about.subtitle3')}
-            description={t('about.description3')}
-            direction="left"
-            videoSrc="../../assets/videos/ETSIT-25-seg.mp4"
-            bkcgroundColor={'var(--color-fondo-secundario)'}
-            titleColor={'var(--color-secundario)'}
-            subtitleColor={'var(--color-secundario)'}
-    />
-    </div>
+	<div class="w-full flex flex-col gap-0">
+		<InfoCard
+			client:visible
+			title={t("about.title1")}
+			subtitle={t("about.subtitle1")}
+			description={t("about.description1")}
+			direction="left"
+			videoSrc="../../assets/videos/video1.mp4"
+			bkcgroundColor={"var(--color-fondo-secundario)"}
+			titleColor={"var(--color-secundario)"}
+			subtitleColor={"var(--color-secundario)"}
+		/>
+		<InfoCard
+			client:visible
+			title={t("about.title2")}
+			subtitle={t("about.subtitle2")}
+			description={t("about.description2")}
+			direction="right"
+			videoSrc="../../assets/videos/video2.mp4"
+			bkcgroundColor={"var(--color-fondo)"}
+			titleColor={"var(--color-primario)"}
+			subtitleColor={"var(--color-primario)"}
+		/>
+		<InfoCard
+			client:visible
+			title={t("about.title3")}
+			subtitle={t("about.subtitle3")}
+			description={t("about.description3")}
+			direction="left"
+			videoSrc="../../assets/videos/musica-video.mp4"
+			bkcgroundColor={"var(--color-fondo-secundario)"}
+			titleColor={"var(--color-secundario)"}
+			subtitleColor={"var(--color-secundario)"}
+		/>
+	</div>
 </div>

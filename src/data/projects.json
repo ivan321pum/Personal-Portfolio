@@ -2,7 +2,7 @@
 	{
 		"id": "portfolio-personal",
 		"accent": "primario",
-		"image": "/assets/images/captura-web.webp",
+		"image": "/assets/images/og-image.webp",
 		"github": "https://github.com/ivan321pum/portfolio",
 		"showGithub": true,
 		"tags": ["Astro", "React", "Tailwind CSS", "Framer Motion"],
@@ -28,7 +28,7 @@
 	{
 		"id": "homelab-server",
 		"accent": "secundario",
-		"image": "/assets/images/telecom.webp",
+		"image": "/assets/images/portainer.webp",
 		"github": "https://github.com/ivan321pum/homelab",
 		"showGithub": false,
 		"tags": ["Docker", "Linux", "Raspberry Pi", "Redes"],
