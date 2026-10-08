@@ -1,145 +1,79 @@
 [
 	{
-		"id": "landing-creativa",
+		"id": "portfolio-personal",
 		"accent": "primario",
-		"github": "https://github.com/ivan321pum/landing-creativa",
-		"tags": ["Branding", "UI", "Astro"],
+		"image": "/assets/images/captura-web.webp",
+		"github": "https://github.com/ivan321pum/portfolio",
+		"showGithub": true,
+		"tags": ["Astro", "React", "Tailwind CSS", "Framer Motion"],
 		"translations": {
 			"es": {
-				"title": "Landing creativa",
-				"description": "Una web de presentación con foco en identidad visual."
+				"title": "Portafolio Personal",
+				"description": "Web personal multilingüe orientada al rendimiento. Desarrollada con Astro y React, incorporando animaciones fluidas con Framer Motion."
 			},
 			"en": {
-				"title": "Creative landing page",
-				"description": "A presentation website focused on visual identity."
+				"title": "Personal Portfolio",
+				"description": "Performance-oriented multilingual personal website. Built with Astro and React, featuring smooth animations using Framer Motion."
 			},
 			"cat": {
-				"title": "Landing creativa",
-				"description": "Una web de presentació centrada en la identitat visual."
+				"title": "Portafoli Personal",
+				"description": "Web personal multilingüe orientada al rendiment. Desenvolupada amb Astro i React, incorporant animacions fluides amb Framer Motion."
 			},
 			"nl": {
-				"title": "Creatieve landingspagina",
-				"description": "Een presentatiewebsite met focus op visuele identiteit."
+				"title": "Persoonlijk Portfolio",
+				"description": "Prestatiegerichte meertalige persoonlijke website. Gebouwd met Astro en React, met vloeiende animaties via Framer Motion."
 			}
 		}
 	},
 	{
-		"id": "landing-creativa",
+		"id": "homelab-server",
 		"accent": "secundario",
-		"github": "https://github.com/ivan321pum/panel-interactivo",
-		"tags": ["Branding", "UI", "Astro"],
+		"image": "/assets/images/telecom.webp",
+		"github": "https://github.com/ivan321pum/homelab",
+		"showGithub": false,
+		"tags": ["Docker", "Linux", "Raspberry Pi", "Redes"],
 		"translations": {
 			"es": {
-				"title": "Landing creativa",
-				"description": "Una web de presentación con foco en identidad visual."
+				"title": "Homelab & Self-Hosting",
+				"description": "Infraestructura propia en Raspberry Pi 5 con contenedores Docker (Nextcloud, Vaultwarden, túneles Cloudflare)."
 			},
 			"en": {
-				"title": "Creative landing page",
-				"description": "A presentation website focused on visual identity."
+				"title": "Homelab & Self-Hosting",
+				"description": "Personal infrastructure on a Raspberry Pi 5 using Docker containers (Nextcloud, Vaultwarden, Cloudflare tunnels)."
 			},
 			"cat": {
-				"title": "Landing creativa",
-				"description": "Una web de presentació centrada en la identitat visual."
+				"title": "Homelab & Self-Hosting",
+				"description": "Infraestructura pròpia en Raspberry Pi 5 amb contenidors Docker (Nextcloud, Vaultwarden, túnels Cloudflare)."
 			},
 			"nl": {
-				"title": "Creatieve landingspagina",
-				"description": "Een presentatiewebsite met focus op visuele identiteit."
+				"title": "Homelab & Self-Hosting",
+				"description": "Persoonlijke infrastructuur op een Raspberry Pi 5 met Docker-containers (Nextcloud, Vaultwarden, Cloudflare-tunnels)."
 			}
 		}
 	},
 	{
-		"id": "landing-creativa",
-		"accent": "fondo-secundario",
-		"github": "https://github.com/ivan321pum/sistema-modular",
-		"tags": ["Branding", "UI", "Astro"],
-		"translations": {
-			"es": {
-				"title": "Landing creativa",
-				"description": "Una web de presentación con foco en identidad visual."
-			},
-			"en": {
-				"title": "Creative landing page",
-				"description": "A presentation website focused on visual identity."
-			},
-			"cat": {
-				"title": "Landing creativa",
-				"description": "Una web de presentació centrada en la identitat visual."
-			},
-			"nl": {
-				"title": "Creatieve landingspagina",
-				"description": "Een presentatiewebsite met focus op visuele identiteit."
-			}
-		}
-	},
-	{
-		"id": "landing-creativa",
+		"id": "piscina-42",
 		"accent": "primario",
-		"github": "https://github.com/ivan321pum/landing-creativa",
-		"tags": ["Branding", "UI", "Astro"],
+		"image": "/assets/images/piscina-42.webp",
+		"github": "https://github.com/ivan321pum/42-piscine",
+		"showGithub": false,
+		"tags": ["C", "Shell", "Algoritmos"],
 		"translations": {
 			"es": {
-				"title": "Landing creativa",
-				"description": "Una web de presentación con foco en identidad visual."
+				"title": "42 Madrid - La Piscina",
+				"description": "Bootcamp inmersivo de 26 días programando en C. Resolución de problemas bajo presión y gestión de memoria."
 			},
 			"en": {
-				"title": "Creative landing page",
-				"description": "A presentation website focused on visual identity."
+				"title": "42 Madrid - La Piscina",
+				"description": "26-day immersive bootcamp programming in C. Problem-solving under pressure and memory management."
 			},
 			"cat": {
-				"title": "Landing creativa",
-				"description": "Una web de presentació centrada en la identitat visual."
+				"title": "42 Madrid - La Piscina",
+				"description": "Bootcamp immersiu de 26 dies programant en C. Resolució de problemes sota pressió i gestió de memòria."
 			},
 			"nl": {
-				"title": "Creatieve landingspagina",
-				"description": "Een presentatiewebsite met focus op visuele identiteit."
-			}
-		}
-	},
-	{
-		"id": "landing-creativa",
-		"accent": "secundario",
-		"github": "https://github.com/ivan321pum/panel-interactivo",
-		"tags": ["Branding", "UI", "Astro"],
-		"translations": {
-			"es": {
-				"title": "Landing creativa",
-				"description": "Una web de presentación con foco en identidad visual."
-			},
-			"en": {
-				"title": "Creative landing page",
-				"description": "A presentation website focused on visual identity."
-			},
-			"cat": {
-				"title": "Landing creativa",
-				"description": "Una web de presentació centrada en la identitat visual."
-			},
-			"nl": {
-				"title": "Creatieve landingspagina",
-				"description": "Een presentatiewebsite met focus op visuele identiteit."
-			}
-		}
-	},
-	{
-		"id": "landing-creativa",
-		"accent": "fondo-secundario",
-		"github": "https://github.com/ivan321pum/sistema-modular",
-		"tags": ["Branding", "UI", "Astro"],
-		"translations": {
-			"es": {
-				"title": "Landing creativa",
-				"description": "Una web de presentación con foco en identidad visual."
-			},
-			"en": {
-				"title": "Creative landing page",
-				"description": "A presentation website focused on visual identity."
-			},
-			"cat": {
-				"title": "Landing creativa",
-				"description": "Una web de presentació centrada en la identitat visual."
-			},
-			"nl": {
-				"title": "Creatieve landingspagina",
-				"description": "Een presentatiewebsite met focus op visuele identiteit."
+				"title": "42 Madrid - La Piscina",
+				"description": "26-daagse meeslepende bootcamp programmeren in C. Problemen oplossen onder druk en geheugenbeheer."
 			}
 		}
 	}

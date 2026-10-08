@@ -14,7 +14,7 @@ const t = useTranslations(lang);
 	</h2>
 </div>
 
-<div class="container mx-auto grid grid-cols-3 justify-items-center gap-8 px-4 max-lg:grid-cols-2 max-md:grid-cols-1">
+<div class="container mx-auto pb-5 grid grid-cols-3 justify-items-center gap-8 px-4 max-lg:grid-cols-2 max-md:grid-cols-1">
 	{projects.map((project) => (
 		<BlueprintCard
 			client:load
@@ -22,6 +22,13 @@ const t = useTranslations(lang);
 			className="h-full w-full max-w-[420px] pointer-events-none select-none rounded-3xl"
 		>
 			<div class="flex h-full min-h-[240px] flex-col gap-5 text-texto">
+				<img
+					src={project.image}
+					alt={project.translations[lang].title}
+					loading="lazy"
+					class="h-44 w-full rounded-2xl object-cover"
+				/>
+
 				<div>
 					<p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-secundario/80">
 						{project.tags[0]}
@@ -35,22 +42,26 @@ const t = useTranslations(lang);
 					{project.translations[lang].description}
 				</p>
 
-				<div class="mt-auto flex flex-wrap gap-2">
-					{project.tags.map((tag) => (
-						<span class="rounded-full border border-secundario/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-secundario">
-							{tag}
-						</span>
-					))}
-				</div>
+				<div class="mt-auto flex min-h-10 flex-wrap items-end justify-between gap-3">
+					<div class="flex flex-wrap gap-2">
+						{project.tags.map((tag) => (
+							<span class="rounded-full border border-secundario/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-secundario">
+								{tag}
+							</span>
+						))}
+					</div>
 
-				<a
-					href={project.github}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="pointer-events-auto inline-flex w-fit rounded-full bg-secundario px-4 py-2 text-sm font-bold text-fondo transition-colors hover:bg-primario"
-				>
-					GitHub
-				</a>
+					{project.showGithub && (
+						<a
+							href={project.github}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="pointer-events-auto inline-flex w-fit rounded-full bg-secundario px-4 py-2 text-sm font-bold text-fondo transition-colors hover:bg-primario"
+						>
+							GitHub
+						</a>
+					)}
+				</div>
 			</div>
 		</BlueprintCard>
 	))}
