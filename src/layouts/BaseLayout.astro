@@ -14,6 +14,34 @@ const t = useTranslations(lang);
 <!-- Esto es el layout, sirve como una plantilla que se mantendrá en toda la web sin tener que repetir el head y body -->
 <html lang={lang}>
 	<head>
+		<!-- Open Graph (WhatsApp, LinkedIn, Discord) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://ivansevilla.me/" />
+		<meta property="og:title" content="Iván Sevilla | Software Developer" />
+		<meta
+			property="og:description"
+			content="Portafolio personal. Estudiante de ingeniería informática en la UPV."
+		/>
+		<meta
+			property="og:image"
+			content="https://ivansevilla.me/images/og-image.webp"
+		/>
+
+		<!-- Twitter Cards (X) -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://ivansevilla.me/" />
+		<meta
+			name="twitter:title"
+			content="Iván Sevilla | Software Developer"
+		/>
+		<meta
+			name="twitter:description"
+			content="Portafolio personal. Estudiante de ingeniería informática en la UPV."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://ivansevilla.me/images/og-image.webp"
+		/>
 		<title>{t("hero.title")}</title>
 		<meta charset="utf-8" />
 		<link rel="alternate" hreflang="es" href="https://ivansevilla.me/es/" />
