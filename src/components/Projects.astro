@@ -1,11 +1,13 @@
 ---
 import BlueprintCard from "./react/BlueprintCard";
 import { useTranslations } from "../i18n/ui.js";
-import projects from "../data/projects.json";
+import { getCollection } from "astro:content";
 
-const lang = (Astro.currentLocale ||
-	"es") as keyof (typeof projects)[number]["translations"];
+const lang = (Astro.currentLocale || "es") as "es" | "en" | "cat" | "nl";
 const t = useTranslations(lang);
+const projects = (await getCollection("projects")).sort(
+	(a, b) => a.data.order - b.data.order,
+);
 ---
 
 <div class="mt-12 mb-12 flex justify-center px-4 text-center">
@@ -15,7 +17,7 @@ const t = useTranslations(lang);
 </div>
 
 <div class="container mx-auto pb-5 grid grid-cols-3 justify-items-center gap-8 px-4 max-lg:grid-cols-2 max-md:grid-cols-1">
-	{projects.map((project) => (
+	{projects.map(({ data: project }) => (
 		<BlueprintCard
 			client:load
 			accentColor={`var(--color-${project.accent})`}

@@ -58,8 +58,10 @@ Dependency versions are defined in `package.json` and locked in
 │   │   ├── Navigation.astro        # Main and social navigation
 │   │   ├── Projects.astro          # Project cards
 │   │   └── ThemePicker.astro       # Theme selector
+│   ├── content/
+│   │   └── projects/               # Project content in Markdown
+│   ├── content.config.ts           # Content collection schemas
 │   ├── data/
-│   │   ├── projects.json           # Project content
 │   │   └── themes.ts               # Theme definitions
 │   ├── i18n/
 │   │   └── ui.js                  # Translations
